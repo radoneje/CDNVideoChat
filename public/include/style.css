@@ -182,6 +182,10 @@ a {
 }
 .sArow{
   margin:var(--mob-padding) 0;
+  padding: var(--mob-padding);
+  border: 1px solid black;
+  border-radius: var(--borderRadius);
+  background: var(--black);
 }
 
 @media screen and (max-width: 720px){
