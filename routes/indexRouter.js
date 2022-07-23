@@ -11,14 +11,7 @@ router.get('/test/:id/:lang?', function(req, res, next) {
     req.params.lang="ru"
   res.render('test', { id: req.params.id, lang:req.params.lang });
 });
-router.get('/test/:id/:lang/include/:filename', function(req, res, next) {
 
-  res.redirect('../../../include/'+req.params.filename);
-});
-router.get('/test/include/:filename', function(req, res, next) {
-
-  res.redirect('/include/'+req.params.filename);
-});
 
 router.get('/admin', function(req, res, next) {
   if(!req.session.admin)
