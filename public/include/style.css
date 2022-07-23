@@ -180,6 +180,9 @@ a {
   display: block;
   margin-bottom: var(--padding);
 }
+.sArow{
+  margin:var(--mob-padding) 0;
+}
 
 @media screen and (max-width: 720px){
   :root {
