@@ -30,8 +30,12 @@ block content
       },
       methods:{
         deleteRoom:async function(item) {
-          let r = await axios.delete("api/room/"+item.id);
-          this.rooms = this.rooms.filter(r=>{return r.id!=item.id});
+          if(confirm('Delete this room?')) {
+            let r = await axios.delete("api/room/" + item.id);
+            this.rooms = this.rooms.filter(r => {
+              return r.id != item.id
+            });
+          }
         },
         addRoom:async function(){
           let r=await axios.post("api/room");
