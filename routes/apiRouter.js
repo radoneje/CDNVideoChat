@@ -22,7 +22,7 @@ router.get('/room/:skip?', async (req, res, next) =>{
 
   let r= await req.knex.select("*").from("t_rooms").where({isDeleted:null}).orderBy("dateCreate","desc").limit(50).offset(Number(req.params.skip)|| 0)
   let total= await req.knex.count('id as CNT').from("t_rooms").where({isDeleted:null})
-  res.json({total:total[0].CNT, skip:r.params.skip, rooms:r});
+  res.json({total:total[0].CNT, skip:r.params.skip|| 0, rooms:r});
 });
 
 module.exports = router;
