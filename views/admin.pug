@@ -13,7 +13,7 @@ block content
           span &nbsp;
           a(:href="'moderator/'+item.uuid" _target="blank") Moderator
           span &nbsp;&nbsp;&nbsp;&nbsp;
-          a(:href="'#'" style="color:red") delete
+          a(:href="'#'" style="color:red" @click="deleteRoom(item)") delete
 
       .sStext show {{rooms.length}} records of {{total}}, start of: {{skip}}
   script(src="include/axios.js")
@@ -29,6 +29,10 @@ block content
         skip:0
       },
       methods:{
+        deleteRoom:async function(item) {
+          let r = await axios.delete("api/room/"+item.id);
+          this.rooms = this.rooms.filter(r=>{return r.id!=item.id});
+        },
         addRoom:async function(){
           let r=await axios.post("api/room");
           this.rooms=r.data.concat(this.rooms);

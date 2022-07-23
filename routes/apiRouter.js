@@ -26,5 +26,11 @@ router.get('/room/:skip?', async (req, res, next) =>{
   let total= await req.knex.count('id as CNT').from("t_rooms").where({isDeleted:null})
   res.json({total:total[0].CNT, skip:req.params.skip, rooms:r});
 });
+router.delete('/room/:id', async (req, res, next) =>{
+  if(!req.session.admin)
+    return res.status(401)
+  let r= await req.knex("t_rooms").update({isDeleted: new Date()},"*").where({id:req.params.id})
+  res.json(r);
+});
 
 module.exports = router;

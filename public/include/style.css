@@ -187,6 +187,9 @@ a {
   border-radius: var(--borderRadius);
   background: #eeeeee;
 }
+.sArowTitle{
+  margin-bottom:var(--mob-padding) 0;
+}
 
 @media screen and (max-width: 720px){
   :root {
