@@ -5,10 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-router.get('/test/include/:filename', function(req, res, next) {
 
-  res.redirect('/include/'+req.params.filename);
-});
 router.get('/test/:id/:lang?', function(req, res, next) {
   if(req.params.lang!="ru" || req.params.lang!="en")
     req.params.lang="ru"
@@ -17,6 +14,10 @@ router.get('/test/:id/:lang?', function(req, res, next) {
 router.get('/test/:id/:lang/include/:filename', function(req, res, next) {
 
   res.redirect('../../../include/'+req.params.filename);
+});
+router.get('/test/include/:filename', function(req, res, next) {
+
+  res.redirect('/include/'+req.params.filename);
 });
 
 router.get('/admin', function(req, res, next) {
