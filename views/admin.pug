@@ -6,10 +6,12 @@ block content
     h4 List of active rooms
     .button(style="width:100px" @click="addRoom()") Add room
     .sAbox
-      .sArow
+      .sArow(v-for="item in rooms")
+        .sArowTitle id: {{item.id}}, date create:{{moment(item.dateCreate)}}
 
   script(src="include/axios.js")
   script(src="include/vue.min.js")
+  script(src="include/moment.min.js")
   script.
     "use strict"
     let app = new Vue({
@@ -20,11 +22,11 @@ block content
       methods:{
         addRoom:async function(){
           let r=await axios.post("api/room");
-          console.log("post", r.data);
+          this.rooms=this.rooms.concat(r.data);
         }
       },
       mounted:function (){
-        console.log("vue ready");
+
       }
     });
 
