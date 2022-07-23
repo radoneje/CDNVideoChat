@@ -15,9 +15,8 @@ block content
       if(l.length < 2 || p.length < 2)
         return;
       let r=await axios.post("adminLogin",{l,p});
-      if(r.data.status=200) {
-        console.log(r.data)
-       // return document.location.href = "admin"
+      if(r.data.status==200) {
+        return document.location.href = "admin"
       }
       else
       {
