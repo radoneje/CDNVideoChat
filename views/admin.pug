@@ -7,7 +7,7 @@ block content
     .button(style="width:100px" @click="addRoom()") Add room
     .sAbox
       .sArow(v-for="item in rooms")
-        .sArowTitle id: <b>{{item.id}}</b>, date created: <b>{{moment(item.dateCreate).format('dd.MM.yyyy HH:mm:ss')}}</b>
+        .sArowTitle id: <b>{{item.id}}</b>, date created: <b>{{moment(item.dateCreate).format('DD.MM.YYYY HH:mm:ss')}}</b>
 
   script(src="include/axios.js")
   script(src="include/vue.min.js")
