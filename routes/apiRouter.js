@@ -10,7 +10,7 @@ router.post('/room', async (req, res, next) =>{
     return res.status(401)
   if(!req.body.id)
   {
-    let r=await req.knex("t_status").insert({},"*");
+    let r=await req.knex("t_rooms").insert({},"*");
     return res.json(r);
   }
 
