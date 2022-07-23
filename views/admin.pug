@@ -18,7 +18,7 @@ block content
       el:"#app",
       data:{
         rooms:[],
-        count:0,
+        total:0,
         skip:0
       },
       methods:{
@@ -30,7 +30,7 @@ block content
       mounted:async function (){
         let r=await axios.get("api/room");
         this.rooms=r.data.rooms;
-        this.count=r.data.count;
+        this.total=r.data.total;
         this.skip=r.data.skip;
 
       }
