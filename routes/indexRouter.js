@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-router.get('/test', function(req, res, next) {
+router.get('/test/:id/:lang?', function(req, res, next) {
   if(req.params.lang!="ru" || req.params.lang!="en")
     req.params.lang="ru"
   res.render('roomBox', { id: req.params.id, lang:req.params.lang });
