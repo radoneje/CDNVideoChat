@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-router.get('/test/:id/include/:filename', function(req, res, next) {
+router.get('/test/include/:filename', function(req, res, next) {
 
   res.redirect('/include/'+req.params.filename);
 });
