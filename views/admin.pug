@@ -8,6 +8,13 @@ block content
     .sAbox
       .sArow(v-for="item in rooms")
         .sArowTitle id: <b>{{item.id}}</b>, date created: <b>{{moment(item.dateCreate).format('DD.MM.YYYY HH:mm:ss')}}</b>
+        .sArrowLink
+          a(href="test/"+item.publicUUD+"/ru") test
+          spаn &npsp;
+          a(href="moderator/"+item.publicUUD+"/ru") moderator
+          spаn &npsp;
+          a(href="#") delete
+
       .sStext show {{rooms.length}} records of {{total}}, start of: {{skip}}
   script(src="include/axios.js")
   script(src="include/vue.min.js")
