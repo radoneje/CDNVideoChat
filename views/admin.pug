@@ -7,7 +7,7 @@ block content
     .button(style="width:100px" @click="addRoom()") Add room
     .sAbox
       .sArow(v-for="item in rooms")
-        .sArowTitle id: {{item.id}}, date create:{{moment(item.dateCreate)}}
+        .sArowTitle id: <b>{{item.id}}</b>, date created: <b>{{moment(item.dateCreate).format('dd.MM.yyyy HH:mm:ss')}}</b>
 
   script(src="include/axios.js")
   script(src="include/vue.min.js")
@@ -22,7 +22,8 @@ block content
       methods:{
         addRoom:async function(){
           let r=await axios.post("api/room");
-          this.rooms=this.rooms.concat(r.data);
+
+          this.rooms=r.data.concat(this.rooms);
         }
       },
       mounted:function (){
