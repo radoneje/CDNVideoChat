@@ -10,9 +10,9 @@ block content
         .sArowTitle id: <b>{{item.id}}</b>, date created: <b>{{moment(item.dateCreate).format('DD.MM.YYYY HH:mm:ss')}}</b>
         .sArrowLink
           a(href="test/"+item.publicUUD+"/ru") test
-          spаn &npsp;
+          spаn &nbsp;
           a(href="moderator/"+item.publicUUD+"/ru") moderator
-          spаn &npsp;
+          spаn &nbsp;
           a(href="#" style="color:red") delete
 
       .sStext show {{rooms.length}} records of {{total}}, start of: {{skip}}
