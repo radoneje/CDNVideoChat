@@ -11,9 +11,9 @@ block content
         .sArrowLink
           a(:href="'test/'+item.publicUUID+'/ru'" _target="blank") Test
           spаn &nbsp;
-          a(:href="'test/'+item.uuid" _target="blank") Moderator
-          spаn &nbsp;
-          a(:href="'#'" style="color:red") delete
+          a(:href="'moderator/'+item.uuid" _target="blank") Moderator
+          //spаn &nbsp;
+          //a(:href="'#'" style="color:red") delete
 
       .sStext show {{rooms.length}} records of {{total}}, start of: {{skip}}
   script(src="include/axios.js")
