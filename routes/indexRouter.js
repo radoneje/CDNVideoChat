@@ -16,7 +16,7 @@ router.get('/test/:id/:lang/include/:filename', function(req, res, next) {
 });
 router.get('/test/:id/include/:filename', function(req, res, next) {
 
-  res.redirect('../../include/'+req.params.filename);
+  res.redirect('../../../include/'+req.params.filename);
 });
 router.get('/admin', function(req, res, next) {
   if(!req.session.admin)
