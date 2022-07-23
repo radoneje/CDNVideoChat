@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 router.post('/room', async (req, res, next) =>{
-  if(req.session.admin)
+  if(!req.session.admin)
     return res.status(401)
   if(!req.body.id)
   {
