@@ -1,0 +1,190 @@
+:root {
+  --padding: 24px;
+  --mob-padding:8px;
+  --white:#ffffff;
+  --black:#333333;
+  --headFontSize:18px;
+  --font-size:16px;
+  --liteGray:#eeeeee;
+  --hoverGray:#cccccc;
+  --active: #0f7eb3;
+  --liteActive:#00B7FF;
+  --borderRadius:4px;
+}
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.tstBox{
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+
+}
+.tstVideo{
+  box-sizing: border-box;
+  width: 66.6%;
+  padding: var(--padding);
+}
+.tstChat{
+  box-sizing: border-box;
+  width: 33.3%;
+  padding: var(--padding);
+
+}
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  width: 100%;
+}
+.videoWrapper iframe,  .videoWrapper video{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.sBox{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+.sLoader{
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+  background-image: url(loader.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.sHeader{
+  display: flex;
+  align-content: center;
+  height: 70px;
+
+}
+.sHeaderItem{
+  font-size: var(--headFontSize);
+  font-weight: bold;
+  cursor: pointer;
+  padding: var(--padding);
+  border-bottom: 2px solid var(--black);
+  box-sizing: border-box;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--liteGray);
+}
+
+.sHeaderItem:hover{
+  background-color: var(--hoverGray);
+}
+.sHeaderItem.active{
+  color: var(--white);
+  background-color: var(--liteActive);
+  border-color: var(--active);
+}
+.sRoomBox{
+  height: 100%;
+}
+.sBody{
+  height: calc(100% - 70px);
+  box-sizing: border-box;
+  position: relative;
+}
+.sSectWr{
+  height: 100%;
+
+}
+.sSectFooter{
+  height: 70px;
+  display: flex;
+  align-items: flex-end;
+  font-size: var(--font-size);
+}
+.sSectInput{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  width: 100%;
+}
+.sSectBody{
+  height: calc(100% - 70px);
+}
+.sSectSmileList{
+  
+  padding-right: var(--padding);
+  border-radius: var(--borderRadius);
+  cursor: pointer;
+  height: 100%;
+  font-size: 22px;
+}
+.sSectInputField{
+  width: calc(100% - 100px);
+  height: 100%;
+}
+.sSectInputSend .button{
+  width: 80px;
+  height: 100%;
+}
+.button{
+  box-sizing: border-box;
+  padding: var(--mob-padding);
+  text-align: center;
+  font-weight: bold;
+  border-radius: var(--borderRadius);
+  cursor: pointer;
+  color:var(--white);
+  border-color: var(--active);
+  background-color: var(--liteActive);
+}
+
+.sSectInputField input{
+  font-size: var(--font-size);
+  padding: var(--mob-padding);
+  width: calc(100%);
+  box-sizing: border-box;
+}
+.sSectInputField input:active, .sSectInputField input:focus{
+  outline: none !important;
+}
+@media screen and (max-width: 720px){
+  :root {
+    --padding: 8px;
+  }
+  body{
+    margin: 0;
+    padding: 0;
+  }
+  .tstBox {
+    display: block;
+
+  }
+  .tstVideo{
+    width: 100%;
+
+  }
+  .tstChat{
+    width: 100%;
+
+    height: 90vh;
+  }
+  .sHeader{
+    height: 40px;
+  }
+
+}
+

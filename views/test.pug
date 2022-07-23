@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  .tstBox
+    .tstVideo
+      .videoWrapper
+        video(src="https://static.sber.link/video/rec_1606_0846_f3_ru.mp4" width="1280" height="720" controls)
+    .tstChat#chat
+      span чат
+  script.
+    const CHATID=1;
+    document.addEventListener("DOMContentLoaded", ()=>{
+
+      let room=null;
+      let elem = document.getElementById("chat");
+      if(!document.getElementById("chatScript")) {
+
+        let script = document.createElement("script")
+        script.id = "chatScript";
+        script.src = "include/roomScript.js";
+        script.onload = () => {
+          room=initRoom(CHATID, elem, "ru");
+          console.log(chat)
+        }
+        document.head.appendChild(script)
+      }
+      else
+        room=initRoom(CHATID,elem, "ru" );
+
+    });

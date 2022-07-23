@@ -1,0 +1,28 @@
+.sBox
+    .sLoader(v-if="!isLoaded")
+    .sRoomBox(v-if="isLoaded")
+        .sHeader
+            .sHeaderItem(v-bind:class="{active:section==0}" v-on:click="section=0")
+                .sHeaderItemTitle
+                    .sHeaderItemTitleText Чат
+                    .sHeaderItemTitleIcon
+            .sHeaderItem(v-bind:class="{active:section==1}" v-on:click="section=1")
+                .sHeaderItemTitle
+                    .sHeaderItemTitleText Вопросы
+                    .sHeaderItemTitleIcon
+        .sBody
+            .sSectWr(v-show="section==0")
+                .sSectBody Чат
+                .sSectFooter
+                    .sSectInput
+                        .sSectSmileList &#x1F61C;
+                        .sSectInputField
+                            input
+                        .sSectInputSend
+                            .button Se
+            .sSectWr(v-show="section==1")
+                .sSectBody Вопросы
+                .sSectFooter input q
+
+
+
