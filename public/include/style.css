@@ -188,7 +188,7 @@ a {
   background: #eeeeee;
 }
 .sArowTitle{
-  margin-bottom:var(--mob-padding) 0;
+  margin-bottom:var(--mob-padding);
 }
 
 @media screen and (max-width: 720px){
