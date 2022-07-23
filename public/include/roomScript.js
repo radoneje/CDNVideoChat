@@ -34,14 +34,14 @@ async function loadRoom(chatid, elem, lang){
     if(typeof axios == 'undefined')
     {
         let a=document.createElement("script");
-        a.src="include/axios.js"
+        a.src="/include/axios.js"
         await loadResource(a, document.head);
 
     }
     if(typeof Vue == 'undefined')
     {
         let a=document.createElement("script");
-        a.src="include/vue.min.js"
+        a.src="/include/vue.min.js"
         await loadResource(a, document.head);
 
     }
