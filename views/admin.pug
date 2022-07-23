@@ -9,7 +9,7 @@ block content
       .sArow(v-for="item in rooms")
         .sArowTitle id: <b>{{item.id}}</b>, date created: <b>{{moment(item.dateCreate).format('DD.MM.YYYY HH:mm:ss')}}</b>
         .sArrowLink
-          a(href="'test/'+item.publicUUD+'/ru'" _target="blank") test
+          a(:href="'test/'+item.publicUUD+'/ru'" _target="blank") test
           // spаn &nbsp;
           //a(:href='"moderator/"+item.publicUUD+"/ru"' _target="blank") moderator
           //spаn &nbsp;
