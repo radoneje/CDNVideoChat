@@ -45,7 +45,7 @@ async function loadRoom(chatid, elem, lang){
         await loadResource(a, document.head);
 
     }
-    let html=await axios.get("roomBox/"+chatid+"/"+lang);
+    let html=await axios.get("/roomBox/"+chatid+"/"+lang);
     elem.innerHTML=html.data;
     console.log("loadRoom", lang)
 }
