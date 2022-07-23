@@ -8,6 +8,11 @@ router.get('/', function(req, res, next) {
 router.get('/test', function(req, res, next) {
   res.render('test', { title: 'Express' });
 });
+router.get('/admin', function(req, res, next) {
+  if(!req.session.admin)
+    return res.render('adminLogin', { title: 'Express' });
+  return res.render('admin', );
+});
 router.get('/roomBox/:id/:lang?', async (req, res, next)=> {
   if(req.params.lang!="ru" || req.params.lang!="en")
     req.params.lang="ru"
