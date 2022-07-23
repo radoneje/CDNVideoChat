@@ -72,7 +72,7 @@ a {
 .sHeader{
   display: flex;
   align-content: center;
-  height: 70px;
+  height: 55px;
 
 }
 .sHeaderItem{
@@ -101,7 +101,7 @@ a {
   height: 100%;
 }
 .sBody{
-  height: calc(100% - 70px);
+  height: calc(100% - 55px);
   box-sizing: border-box;
   position: relative;
 }
@@ -122,10 +122,10 @@ a {
   width: 100%;
 }
 .sSectBody{
-  height: calc(100% - 70px);
+  height: calc(100% - 55px);
 }
 .sSectSmileList{
-  
+
   padding-right: var(--padding);
   border-radius: var(--borderRadius);
   cursor: pointer;
