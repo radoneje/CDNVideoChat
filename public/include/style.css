@@ -185,7 +185,7 @@ a {
   padding: var(--mob-padding);
   border: 1px solid black;
   border-radius: var(--borderRadius);
-  background: var(--black);
+  background: #eeeeee;
 }
 
 @media screen and (max-width: 720px){
