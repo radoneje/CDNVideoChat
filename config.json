@@ -1,0 +1,9 @@
+{
+  "pgConnection": {
+    "host": "127.0.0.1",
+    "user": "postgres",
+    "password": "gbplf13",
+    "database": "rustv"
+  },
+  "sha256Secret": "dfczgegrby"
+}

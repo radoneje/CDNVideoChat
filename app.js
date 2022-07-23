@@ -6,8 +6,16 @@ let logger = require('morgan');
 
 let indexRouter = require('./routes/indexRouter');
 let apiRouter = require('./routes/apiRouter');
+const config=require('./config.json');
+const knex = require('knex')({
+  client: 'pg',
+  version: '7.2',
+  connection:config.pgConnection,
+  pool: { min: 0, max: 40 }
+});
+const session = require('express-session');
 
-var app = express();
+let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -18,6 +26,30 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+const pgSession = require('connect-pg-simple')(session);
+const pgStoreConfig = {conObject: config.pgConnection}
+let sess={
+  secret: (config.sha256Secret),
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 10 * 24 * 60 * 60 * 1000,
+    // secure: true,
+    //httpOnly: true,
+    //sameSite: 'none',
+  }, // 10 days
+  store:new pgSession(pgStoreConfig),
+};
+
+
+app.use(session(sess));
+
+app.use((req, res, next)=>{
+  req.config=config;
+  req.knex=knex;
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
