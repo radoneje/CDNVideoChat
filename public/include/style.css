@@ -11,9 +11,11 @@
   --liteActive:#00B7FF;
   --borderRadius:4px;
 }
-
+input:focus, input:active{
+  outline: none !important;
+}
 body {
-  padding: 50px;
+
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -161,6 +163,23 @@ a {
 .sSectInputField input:active, .sSectInputField input:focus{
   outline: none !important;
 }
+.sSWr{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sAbody {
+  width: 380px;
+}
+.sAbody input{
+  padding: var(--mob-padding);
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+}
+
 @media screen and (max-width: 720px){
   :root {
     --padding: 8px;
