@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 router.get('/test/:id/:lang?', function(req, res, next) {
   if(req.params.lang!="ru" || req.params.lang!="en")
     req.params.lang="ru"
-  res.render('roomBox', { id: req.params.id, lang:req.params.lang });
+  res.render('test', { id: req.params.id, lang:req.params.lang });
 });
 router.get('/admin', function(req, res, next) {
   if(!req.session.admin)
