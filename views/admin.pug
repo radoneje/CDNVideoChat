@@ -2,5 +2,21 @@ extends layout
 block content
   script(src="include/axios.js")
 block content
-  .sSWr
-    .sAbody admin
+  .sAWr#app
+    h4 List of active rooms
+    .sAbox
+      .sArow
+  script
+    script(src="include/axios.js")
+    script(src="include/vue.min.js")
+  script.
+    let app = new Vue({
+      el:"#app",
+      data:{},
+      methods:{},
+      mounted:function (){
+        console.log("vue ready");
+      }
+    });
+
+
