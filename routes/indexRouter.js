@@ -29,7 +29,7 @@ router.post('/adminLogin', function(req, res, next) {
 });
 
 
-router.get('/roomBox/:id/:lang?', async (req, res, next)=> {
+router.get('/room/box/:id/:lang?', async (req, res, next)=> {
   if(req.params.lang!="ru" || req.params.lang!="en")
     req.params.lang="ru"
   res.render('roomBox', { id: req.params.id, lang:req.params.lang });
