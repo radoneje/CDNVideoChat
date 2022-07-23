@@ -13,7 +13,7 @@ block content
           spаn &nbsp;
           a(:href='"moderator/"+item.publicUUD+"/ru"' _target="blank") moderator
           spаn &nbsp;
-          a(href="'#'" style="color:red") delete
+          a(:href="'#'" style="color:red") delete
 
       .sStext show {{rooms.length}} records of {{total}}, start of: {{skip}}
   script(src="include/axios.js")
