@@ -8,7 +8,7 @@ block content
     .sAbox
       .sArow(v-for="item in rooms")
         .sArowTitle id: <b>{{item.id}}</b>, date created: <b>{{moment(item.dateCreate).format('DD.MM.YYYY HH:mm:ss')}}</b>
-
+      .sStext show {{rooms.length}} records of {{total}}, start of: {{skip}}
   script(src="include/axios.js")
   script(src="include/vue.min.js")
   script(src="include/moment.min.js")
@@ -17,16 +17,21 @@ block content
     let app = new Vue({
       el:"#app",
       data:{
-        rooms:[]
+        rooms:[],
+        count:0,
+        skip:0
       },
       methods:{
         addRoom:async function(){
           let r=await axios.post("api/room");
-
           this.rooms=r.data.concat(this.rooms);
         }
       },
-      mounted:function (){
+      mounted:async function (){
+        let r=await axios.get("api/room");
+        this.rooms=r.data.rooms;
+        this.count=r.data.count;
+        this.skip=r.data.skip;
 
       }
     });
