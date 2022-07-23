@@ -5,6 +5,22 @@ block content
   .sSWr
     .sAbody
       h4 login
-      input(placeholder="login")
-      input(placeholder="password")
-      .button Log In
+      input#login(placeholder="login")
+      input#pass(placeholder="password")
+      .button(onClick="login()") Log In
+  script.
+    let login=async  ()=> {
+      let l = document.getElementById("login").value;
+      let p = document.getElementById("pass").value;
+      if(l.length < 2 || p.length < 2)
+        return;
+      let r=await axios.post("adminLogin",{l,p});
+      if(r.data.status=200)
+        return document.location.href="admin"
+      else
+      {
+        document.getElementById("pass").value="";
+        document.getElementById("login").focus();
+        alert("ligin incorrect");
+      }
+    }

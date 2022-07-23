@@ -13,6 +13,17 @@ router.get('/admin', function(req, res, next) {
     return res.render('adminLogin', { title: 'Express' });
   return res.render('admin', );
 });
+
+router.post('/adminLogin', function(req, res, next) {
+  if(req.body.l=="editor" && req.body.p=="dfczgegrby") {
+    req.session.admin = true;
+    return res.json({status: 200});
+  }
+  req.session.admin = false;
+  return res.json({status: 404});
+});
+
+
 router.get('/roomBox/:id/:lang?', async (req, res, next)=> {
   if(req.params.lang!="ru" || req.params.lang!="en")
     req.params.lang="ru"
