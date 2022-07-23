@@ -4,17 +4,25 @@ block content
 block content
   .sAWr#app
     h4 List of active rooms
-    .button(style="width:100px") Add room
+    .button(style="width:100px" @click="addRoom()") Add room
     .sAbox
       .sArow
   script
     script(src="include/axios.js")
     script(src="include/vue.min.js")
   script.
+    "use strict"
     let app = new Vue({
       el:"#app",
-      data:{},
-      methods:{},
+      data:{
+        rooms:[]
+      },
+      methods:{
+        addRoom:async function(){
+          let r=await axios.post("api/room");
+          console.log("post", r.data);
+        }
+      },
       mounted:function (){
         console.log("vue ready");
       }
