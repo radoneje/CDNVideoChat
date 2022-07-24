@@ -31,7 +31,7 @@ const sRoom=class{
             this.isLoaded=true;
             this.updateStatus();
 
-            conso
+
         },
     }
 
