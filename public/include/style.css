@@ -74,7 +74,7 @@ a {
 .sHeader{
   display: flex;
   align-content: center;
-  height: 55px;
+  height: 40px;
 
 }
 .sHeaderItem{
@@ -103,7 +103,7 @@ a {
   height: 100%;
 }
 .sBody{
-  height: calc(100% - 55px);
+  height: calc(100% - 40px);
   box-sizing: border-box;
   position: relative;
 }
