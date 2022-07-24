@@ -25,13 +25,12 @@ const sRoom=class{
             register:async function(e){
                 if(!this.user.name || this.user.name.length==0)
                     return;
-
                 console.log(this.user);
             },
             registerOnChange:async function(e){
-                console.log(e);
+
                 if(e.keyCode==13)
-                    return await register();
+                    return await this.register();
             },
             reqUser:async function(){
                 this.reqUserShow=true;
