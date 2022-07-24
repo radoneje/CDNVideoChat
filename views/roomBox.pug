@@ -21,9 +21,9 @@
                     .sSectInput
                         .sSectSmileList(@click="addSmileToChat()") &#x1F600;
                         .sSectInputField
-                            input#chatText(placeholder="Please, write here" v-model="chatText")
+                            input#chatText(placeholder="Please, write here" v-model="chatText" v-on:keydown="if($event.keyCode==13) chatSend()")
                         .sSectInputSend
-                            .button(@click="chatSend()" v-on:keydown="if($event.keyCode==13) chatSend()") Send
+                            .button(@click="chatSend()" ) Send
 
             .sSectWr(v-show="section==1")
                 .sSectBody Вопросы
