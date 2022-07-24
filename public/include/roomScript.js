@@ -23,7 +23,7 @@ const sRoom=class{
                     let s = await axios.get("/api/status/" + this.id)
                     this.status = s.data;
                 }
-                catch (e){console.wart(e)}
+                catch (e){console.warn(e)}
                 setTimeout(updateStatus, 2000);
             }
         },
