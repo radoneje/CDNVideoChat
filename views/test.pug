@@ -8,7 +8,7 @@ block content
     .tstChat#chat
       span чат
   script.
-    const CHATID=!{id};
+    const CHATID="!{id}";
     document.addEventListener("DOMContentLoaded", ()=>{
 
       let room=null;
@@ -19,12 +19,12 @@ block content
         script.id = "chatScript";
         script.src = "/include/roomScript.js";
         script.onload = () => {
-          room=initRoom(CHATID, elem, !{lang});
+          room=initRoom(CHATID, elem, "!{lang}");
           console.log(chat)
         }
         document.head.appendChild(script)
       }
       else
-        room=initRoom(CHATID,elem, !{lang} );
+        room=initRoom(CHATID,elem, "!{lang}" );
 
     });
