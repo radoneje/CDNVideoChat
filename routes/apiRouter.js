@@ -10,10 +10,9 @@ router.post('/room', async (req, res, next) =>{
     return res.status(401)
   if(!req.body.id)
   {
-    let r=await req.knex("t_rooms").insert({},"*");
+    let r=await req.knex("t_rooms").insert(req.body,"*");
     return res.json(r);
   }
-
     res.json([]);//TODO: add UPDATE
 });
 router.get('/room/:skip?', async (req, res, next) =>{
@@ -32,5 +31,4 @@ router.delete('/room/:id', async (req, res, next) =>{
   let r= await req.knex("t_rooms").update({isDeleted: new Date()},"*").where({id:req.params.id})
   res.json(r);
 });
-
 module.exports = router;
