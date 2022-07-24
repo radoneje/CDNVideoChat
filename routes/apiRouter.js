@@ -32,7 +32,7 @@ router.delete('/room/:id', async (req, res, next) =>{
   res.json(r);
 });
 router.get("/status/:id", async (req, res)=>{
-  let r= await req.knex.select('*').from("t_rooms").where({isDelete:false, publicUUID:req.params.id});
+  let r= await req.knex.select('*').from("t_rooms").where({isDeleted:false, publicUUID:req.params.id});
   if(r.length==0)
     return res.sendStatus(404);
   delete r[0].uuid;
