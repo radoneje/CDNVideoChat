@@ -20,7 +20,7 @@
                             input(placeholder="Please, write here" v-model="chatText")
                         .sSectInputSend
                             .button(@click="chatSend()" v-on:keydown="if($event.keyCode==13) chatSend()") Send
-                        .sSectInputField(v-if="userError") {{userError}}
+
             .sSectWr(v-show="section==1")
                 .sSectBody Вопросы
                 .sSectFooter input q
@@ -30,6 +30,7 @@
                 .reqUserRow
                     input#register(v-model="user.name" v-on:keyup="registerOnChange($event)")
                 .button#registerBtn Log in
+                .sSectInputField(v-if="userError") {{userError}}
 
 
 
