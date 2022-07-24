@@ -16,6 +16,9 @@ block content
           a(:href="'#'" style="color:red" @click="deleteRoom(item)") delete
 
       .sStext show {{rooms.length}} records of {{total}}, start of: {{skip}}
+      .sStext
+        .button.maxContent(v-if="skip>0" @click="prev()") << prev
+        .button.maxContent(v-if="(rooms.length+skip)>total" @click="next()") next >>
   script(src="include/axios.js")
   script(src="include/vue.min.js")
   script(src="include/moment.min.js")
@@ -29,6 +32,17 @@ block content
         skip:0
       },
       methods:{
+        prev: async function (item) {
+          let s=this.skip-50;
+          if(s<0)
+            s=0;
+          let r = await axios.get("api/room/" + (s));
+          this.rooms = r.data.rooms;
+        },
+        next :async function(item) {
+          let r = await axios.get("api/room/"+(this.skip+50));
+          this.rooms = r.data.rooms;
+        },
         deleteRoom:async function(item) {
           if(confirm('Delete this room?')) {
             let r = await axios.delete("api/room/" + item.id);
