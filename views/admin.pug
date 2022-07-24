@@ -15,10 +15,10 @@ block content
           span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           a(:href="'#'" style="color:red" @click="deleteRoom(item)") delete
 
-      .sStext show {{rooms.length}} records of {{total}}, start of: {{skip}}  {{(rooms.length+skip)}}
+      .sStext show {{rooms.length}} records of {{total}}, start of: {{skip}}
       .sStext
         .button.maxContent(v-if="skip>0" @click="prev()") << prev
-        .button.maxContent(v-if="(rooms.length+skip)>total" @click="next()") next >>
+        .button.maxContent(v-if="(rooms.length+skip)<total" @click="next()") next >>
   script(src="include/axios.js")
   script(src="include/vue.min.js")
   script(src="include/moment.min.js")
