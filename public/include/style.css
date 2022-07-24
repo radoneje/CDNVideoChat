@@ -108,6 +108,10 @@ a {
   box-sizing: border-box;
   position: relative;
 }
+.sSectBodyWr{
+  height: 100%;
+  overflow-y: scroll;
+}
 .reqUser{
   background: var(--white);
   position: absolute;

@@ -13,10 +13,11 @@
         .sBody
             .sSectWr(v-show="section==0")
                 .sSectBody
-                    .sSectBodyItem(v-for="item in chat")
-                        .sSectBodyItemRow {{moment(item.createDate).format('HH:mm')}} {{item.name}}
-                        .sSectBodyItemRow {{item.text}}
-                        .sSectBodyItemRow {{item.likes}} {{item.dislikes}}
+                    .sSectBodyWr
+                        .sSectBodyItem(v-for="item in chat")
+                            .sSectBodyItemRow {{moment(item.createDate).format('HH:mm')}} {{item.name}}
+                            .sSectBodyItemRow {{item.text}}
+                            .sSectBodyItemRow {{item.likes}} {{item.dislikes}}
                 .sSectFooter
                     .sSectInput
                         .sSectSmileList(@click="addSmileToChat()") &#x1F600;
