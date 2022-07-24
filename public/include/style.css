@@ -109,7 +109,7 @@ a {
   position: relative;
 }
 .reqUser{
-
+  background: var(--white);
   position: absolute;
   top:0;
   left: 0;
