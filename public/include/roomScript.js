@@ -109,6 +109,13 @@ async function loadRoom(chatid, elem, lang){
         await loadResource(a, document.head);
 
     }
+    if(typeof moment == 'undefined')
+    {
+        let a=document.createElement("script");
+        a.src="/include/moment.min.js"
+        await loadResource(a, document.head);
+
+    }
     let html=await axios.get("/room/box/"+chatid+"/"+lang);
     elem.innerHTML=html.data;
     console.log("loadRoom", lang)
