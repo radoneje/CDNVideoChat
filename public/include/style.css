@@ -109,6 +109,10 @@ a {
   position: relative;
 }
 .sSectBodyWr{
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
   height: 100%;
   overflow-y: scroll;
 }
@@ -142,6 +146,7 @@ a {
 }
 .sSectBody{
   height: calc(100% - 55px);
+  position: relative;
 }
 .sSectSmileList{
 
