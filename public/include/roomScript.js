@@ -14,13 +14,24 @@ const sRoom=class{
     room={
         data:{
             isLoaded:false,
-            section:0
+            section:0,
+            status:{}
         },
         methods:{
+            updateStatus:async function(){
+                try {
+                    let s = await axios.get("/api/status/" + this.id)
+                    this.status = s.data;
+                }
+                catch (e){console.wart(e)}
+                setTimeout(updateStatus, 2000);
+            }
         },
-        mounted:function(){
+        mounted:async function(){
             this.isLoaded=true;
+            this.updateStatus();
 
+            conso
         },
     }
 
