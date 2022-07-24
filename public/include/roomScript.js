@@ -18,11 +18,13 @@ const sRoom=class{
             status:{},
             chat:[],
             chatText:"ss",
-            user:null
+            user:null,
+            reqUserShow:false
         },
         methods:{
             reqUser:async function(){
                 alert("reqUser")
+                this.reqUserShow=true;
             },
             chatSend:async function(){
                 if(this.chatText.length==0)
