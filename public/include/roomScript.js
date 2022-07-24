@@ -24,7 +24,7 @@ const sRoom=class{
                     this.status = s.data;
                 }
                 catch (e){console.warn(e)}
-                setTimeout(updateStatus, 2000);
+                setTimeout(this.updateStatus, 2000);
             }
         },
         mounted:async function(){
