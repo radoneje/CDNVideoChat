@@ -109,7 +109,7 @@ a {
   position: relative;
 }
 .reqUser{
-  background: yellow;
+
   position: absolute;
   top:0;
   left: 0;
@@ -208,6 +208,10 @@ a {
 }
 .inline{
   display: inline-block;
+}
+.reqUserBox{
+  box-sizing: border-box;
+  width: 100%;
 }
 .reqUserRow{
   width: 100%;
