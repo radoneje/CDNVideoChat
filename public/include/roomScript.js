@@ -32,10 +32,11 @@ const sRoom=class{
                     let r=await axios.post("/api/regUser", {id:this.id, name:this.user.name});
                     if(r.data.status!=200) {
                         document.getElementById("register").focus()
-                        this.userError = "This Name already used."
+                        this.userError = "This name is already used."
                         return;
                     }
                     this.user=r.data.user;
+                    localStorage.setItem("user_"+this.id, JSON.stringify(this.user));
                     this.reqUserShow=false;
                     callBack();
                 }
@@ -46,10 +47,8 @@ const sRoom=class{
                     let elem=document.getElementById("registerBtn")
                     elem.addEventListener("click", register)
                     inp.addEventListener("keydown", async(e)=>{
-                        console.log("keyCode", e)
                         if(e.keyCode==13)
                             await register();
-
                     })
                 },0)
 
@@ -71,6 +70,9 @@ const sRoom=class{
             }
         },
         mounted:async function(){
+            let u=localStorage.getItem("user_"+this.id);
+            if(u)
+                this.user=JSON.parse(u);
             this.isLoaded=true;
             this.updateStatus();
 
