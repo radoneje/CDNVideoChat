@@ -18,6 +18,7 @@ const sRoom=class{
             status:{},
             chat:[],
             chatText:"ss",
+            userError:null,
             user:{id:null, name:null},
             reqUserShow:false,
         },
@@ -32,17 +33,31 @@ const sRoom=class{
                 if(e.keyCode==13)
                     return await this.register();
             },
-            reqUser:async function(){
+            reqUser:async function(callBack){
                 this.reqUserShow=true;
                 setTimeout(()=>{
                     document.getElementById("register").focus();
+                    document.getElementById("registerBtn").addEventListener("click", async ()=>{
+                        if(user.name.length==0)
+                            return;
+                        this.user.name=this.user.name.trim().substring(0, 255);
+                        this.userError=null;
+                        let r=await axios.post("/api/regUser", {id:this.id, name:this.user.name});
+                        if(r.data.status!=200) {
+                            document.getElementById("register").focus()
+                            return this.userError = "This Name already used."
+                        }
+                        this.user=r.data.user;
+                        this.reqUserShow=false;
+                        callBack();
+                    })
                 },0)
             },
             chatSend:async function(){
                 if(this.chatText.length==0)
                     return;
                 if(!this.user.id)
-                    return await this.reqUser();
+                    return await this.reqUser(this.chatSend);
 
             },
             updateStatus:async function(){

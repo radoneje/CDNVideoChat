@@ -39,4 +39,13 @@ router.get("/status/:id", async (req, res)=>{
 
   res.json(r[0])
 })
+router.post("/regUser", async (req, res)=>{
+  let r= await req.knex.select('*').from("t_users").where({ roomPublicUUID:req.body.id, name:req.body.name});
+  if(r.length>0)
+    return res.json({status:409});
+  r= await req.knex("t_users").insert({ roomPublicUUID:req.body.id, name:req.body.name},"*");
+
+  res.json({status:200, user:{id:r[0].id, name:r[0].name}})
+})
+
 module.exports = router;
