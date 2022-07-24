@@ -209,6 +209,19 @@ a {
 .inline{
   display: inline-block;
 }
+.reqUserRow{
+  width: 100%;
+}
+.reqUserRow input{
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--mob-padding);
+  font-size: var(--font-size);
+}
+h4{
+  font-size: var(--headFontSize);
+  font-weight: bold;
+}
 
 @media screen and (max-width: 720px){
   :root {
