@@ -29,7 +29,7 @@ const sRoom=class{
                 console.log(this.user);
             },
             registerOnChange:async function(e){
-                console.log(e.keyCode);
+                console.log(e);
                 if(e.keyCode==13)
                     return await register();
             },
