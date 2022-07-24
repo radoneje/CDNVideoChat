@@ -38,7 +38,7 @@ const sRoom=class{
                 setTimeout(()=>{
                     document.getElementById("register").focus();
                     document.getElementById("registerBtn").addEventListener("click", async ()=>{
-                        if(user.name.length==0)
+                        if(this.user.name.length==0)
                             return;
                         this.user.name=this.user.name.trim().substring(0, 255);
                         this.userError=null;
