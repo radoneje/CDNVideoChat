@@ -45,7 +45,8 @@ const sRoom=class{
                         let r=await axios.post("/api/regUser", {id:this.id, name:this.user.name});
                         if(r.data.status!=200) {
                             document.getElementById("register").focus()
-                            return this.userError = "This Name already used."
+                             this.userError = "This Name already used."
+                            return;
                         }
                         this.user=r.data.user;
                         this.reqUserShow=false;
