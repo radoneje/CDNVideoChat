@@ -17,9 +17,9 @@
                     .sSectInput
                         .sSectSmileList &#x1F61C;
                         .sSectInputField
-                            input
+                            input(placeholder="Please, write here" v-model="chatText")
                         .sSectInputSend
-                            .button Se
+                            .button(@click="chatSend()") Send
             .sSectWr(v-show="section==1")
                 .sSectBody Вопросы
                 .sSectFooter input q

@@ -15,9 +15,21 @@ const sRoom=class{
         data:{
             isLoaded:false,
             section:0,
-            status:{}
+            status:{},
+            chat:[],
+            chatText:"ss",
+            user:null
         },
         methods:{
+            reqUser:async function(){
+                alert("reqUser")
+            },
+            chatSend:async function(){
+                if(this.chatText.length==0)
+                    return;
+                return await reqUser();
+
+            },
             updateStatus:async function(){
                 try {
                     let s = await axios.get("/api/status/" + this.id)
