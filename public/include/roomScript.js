@@ -23,36 +23,35 @@ const sRoom=class{
             reqUserShow:false,
         },
         methods:{
-            register:async function(e){
-                if(!this.user.name || this.user.name.length==0)
-                    return;
-                console.log(this.user);
-            },
-            registerOnChange:async function(e){
-
-                if(e.keyCode==13)
-                    return await this.register();
-            },
             reqUser:async function(callBack){
+                let register=async ()=>{
+                    if(this.user.name.length==0)
+                        return;
+                    this.user.name=this.user.name.trim().substring(0, 255);
+                    this.userError=null;
+                    let r=await axios.post("/api/regUser", {id:this.id, name:this.user.name});
+                    if(r.data.status!=200) {
+                        document.getElementById("register").focus()
+                        this.userError = "This Name already used."
+                        return;
+                    }
+                    this.user=r.data.user;
+                    this.reqUserShow=false;
+                    callBack();
+                }
                 this.reqUserShow=true;
                 setTimeout(()=>{
                     document.getElementById("register").focus();
-                    document.getElementById("registerBtn").addEventListener("click", async ()=>{
-                        if(this.user.name.length==0)
-                            return;
-                        this.user.name=this.user.name.trim().substring(0, 255);
-                        this.userError=null;
-                        let r=await axios.post("/api/regUser", {id:this.id, name:this.user.name});
-                        if(r.data.status!=200) {
-                            document.getElementById("register").focus()
-                             this.userError = "This Name already used."
-                            return;
-                        }
-                        this.user=r.data.user;
-                        this.reqUserShow=false;
-                        callBack();
+                    let elem=document.getElementById("registerBtn")
+                    elem.addEventListener("click", register)
+                    elem.addEventListener("keydown", async(e)=>{
+                        console.log("keyCode", e)
+                        if(e.keyCode==13)
+                            await register();
+
                     })
                 },0)
+
             },
             chatSend:async function(){
                 if(this.chatText.length==0)

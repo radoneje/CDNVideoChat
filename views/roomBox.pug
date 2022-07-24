@@ -28,9 +28,10 @@
             .reqUserBox
                 h4 Please, register
                 .reqUserRow
-                    input#register(v-model="user.name" v-on:keyup="registerOnChange($event)")
+                    .sSectInputField(v-if="userError" style="color:red") {{userError}}
+                    input#register(v-model="user.name")
                 .button#registerBtn Log in
-                .sSectInputField(v-if="userError") {{userError}}
+
 
 
 
