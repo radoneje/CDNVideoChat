@@ -38,10 +38,14 @@ block content
             s=0;
           let r = await axios.get("api/room/" + (s));
           this.rooms = r.data.rooms;
+          this.total = r.data.total;
+          this.skip = r.data.skip;
         },
         next :async function(item) {
           let r = await axios.get("api/room/"+(this.skip+50));
           this.rooms = r.data.rooms;
+          this.total = r.data.total;
+          this.skip = r.data.skip;
         },
         deleteRoom:async function(item) {
           if(confirm('Delete this room?')) {
