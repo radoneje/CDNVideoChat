@@ -47,5 +47,10 @@ router.post("/regUser", async (req, res)=>{
 
   res.json({status:200, user:{id:r[0].id, name:r[0].name}})
 })
+router.post("/chat", async (req, res)=>{
+
+  let r= await req.knex("t_chat").insert({ roomPublicUUID:req.body.id, text:req.body.text, userid:req.body.userid},"*");
+  res.json(r[0])
+})
 
 module.exports = router;

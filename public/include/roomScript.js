@@ -58,10 +58,12 @@ const sRoom=class{
 
             },
             chatSend:async function(){
+                this.chatText=this.chatText.trim();
                 if(this.chatText.length==0)
                     return;
                 if(!this.user.id)
                     return await this.reqUser(this.chatSend);
+                let r=await axios.post("/api/chat",{id:this.id,text:this.chatText,userid:this.user.id})
 
             },
             updateStatus:async function(){
