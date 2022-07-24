@@ -64,6 +64,8 @@ const sRoom=class{
                 if(!this.user.id)
                     return await this.reqUser(this.chatSend);
                 let r=await axios.post("/api/chat",{id:this.id,text:this.chatText,userid:this.user.id})
+                this.chatText="";
+                this.chat.push(r.data);
 
             },
             updateStatus:async function(){

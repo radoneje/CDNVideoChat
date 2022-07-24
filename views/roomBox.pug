@@ -12,7 +12,11 @@
                     .sHeaderItemTitleIcon
         .sBody
             .sSectWr(v-show="section==0")
-                .sSectBody Чат
+                .sSectBody
+                    .sSectBodyItem(v-for="item in chat")
+                        .sSectBodyItemRow {{item.dateCreate}} {{item.name}}
+                        .sSectBodyItemRow {{item.text}}
+                        .sSectBodyItemRow {{item.likes}} {{item.dislikes}}
                 .sSectFooter
                     .sSectInput
                         .sSectSmileList(@click="addSmileToChat()") &#x1F600;

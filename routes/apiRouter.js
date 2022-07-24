@@ -50,7 +50,8 @@ router.post("/regUser", async (req, res)=>{
 router.post("/chat", async (req, res)=>{
 
   let r= await req.knex("t_chat").insert({ roomPublicUUID:req.body.id, text:req.body.text, userid:req.body.userid},"*");
-  res.json(r[0])
+  let rr=await req.knex("v_chat").where({id:r[0].id});
+  res.json(rr[0]);
 })
 
 module.exports = router;
