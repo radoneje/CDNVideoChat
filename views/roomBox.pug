@@ -27,7 +27,7 @@
             .reqUserBox
                 h4 Please, register
                 .reqUserRow
-                    input#register(v-model="user.name")
+                    input#register(v-model="user.name" v-on:change="registerOnChange($event)")
                 .button Log in
 
 

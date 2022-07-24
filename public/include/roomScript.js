@@ -19,9 +19,18 @@ const sRoom=class{
             chat:[],
             chatText:"ss",
             user:{id:null, name:null},
-            reqUserShow:false
+            reqUserShow:false,
         },
         methods:{
+            register:async function(e){
+                if(this.this.name || this.user.name.length==0)
+                    return;
+                console.log(this.user);
+            },
+            registerOnChange:async function(e){
+                if(e.keyCode==13)
+                    return await register();
+            },
             reqUser:async function(){
                 this.reqUserShow=true;
                 setTimeout(()=>{
