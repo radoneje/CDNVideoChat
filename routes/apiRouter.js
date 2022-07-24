@@ -36,7 +36,7 @@ router.get("/status/:id", async (req, res)=>{
   if(r.length==0)
     return res.sendStatus(404);
   delete r[0].uuid;
-  let chat=await req.knex("v_chat").where({roomPublicUUID:req.params.id}).orderBy("createDate", "desc").limit(100);
+  let chat=await req.knex("v_chat").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(100);
 
   res.json({status:r[0], chat})
 })
