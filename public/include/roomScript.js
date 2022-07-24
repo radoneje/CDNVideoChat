@@ -25,6 +25,7 @@ const sRoom=class{
         methods:{
             addSmileToChat:async function(){
                 this.chatText+="\u{1F600}";
+                document.getElementById("chatText").focus();
             },
             reqUser:async function(callBack){
                 let register=async ()=>{
