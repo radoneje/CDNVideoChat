@@ -27,7 +27,7 @@ const sRoom=class{
             chatSend:async function(){
                 if(this.chatText.length==0)
                     return;
-                return await reqUser();
+                return await this.reqUser();
 
             },
             updateStatus:async function(){
