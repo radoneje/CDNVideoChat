@@ -33,7 +33,7 @@ block content
       },
       methods:{
         prev: async function (item) {
-          let s=this.skip-50;
+          let s=parseInt(this.skip-50);
           if(s<0)
             s=0;
           let r = await axios.get("api/room/" + (s));
@@ -42,7 +42,7 @@ block content
           this.skip = r.data.skip;
         },
         next :async function(item) {
-          let r = await axios.get("api/room/"+(this.skip+50));
+          let r = await axios.get("api/room/"+parseInt(this.skip+50));
           this.rooms = r.data.rooms;
           this.total = r.data.total;
           this.skip = r.data.skip;
