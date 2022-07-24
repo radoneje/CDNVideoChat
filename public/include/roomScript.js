@@ -41,10 +41,11 @@ const sRoom=class{
                 }
                 this.reqUserShow=true;
                 setTimeout(()=>{
-                    document.getElementById("register").focus();
+                    let inp=document.getElementById("register");
+                    inp.focus();
                     let elem=document.getElementById("registerBtn")
                     elem.addEventListener("click", register)
-                    elem.addEventListener("keydown", async(e)=>{
+                    inp.addEventListener("keydown", async(e)=>{
                         console.log("keyCode", e)
                         if(e.keyCode==13)
                             await register();
