@@ -32,7 +32,7 @@ router.delete('/room/:id', async (req, res, next) =>{
   res.json(r);
 });
 router.get("/status/:id", async (req, res)=>{
-  let r= await req.knex.select('id, "isChat", "isChatPreMod", "isChatLikes", "isQ", "isQPreMod", "isQLikes"').from("t_rooms").where({isDelete:false, publicUUID:req.body.id});
+  let r= await req.knex.select('id, isChat, isChatPreMod, isChatLikes, isQ, isQPreMod, isQLikes').from("t_rooms").where({isDelete:false, publicUUID:req.body.id});
   if(r.length==0)
     return res.sendStatus(404);
   res.json(r[0])
