@@ -3,7 +3,7 @@
   --mob-padding:8px;
   --white:#ffffff;
   --black:#333333;
-  --headFontSize:18px;
+  --headFontSize:16px;
   --font-size:16px;
   --liteGray:#eeeeee;
   --hoverGray:#cccccc;
@@ -81,7 +81,7 @@ a {
   font-size: var(--headFontSize);
   font-weight: bold;
   cursor: pointer;
-  padding: var(--padding);
+  padding: var(--mob-padding);
   border-bottom: 2px solid var(--black);
   box-sizing: border-box;
   width: 50%;
