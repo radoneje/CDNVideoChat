@@ -24,6 +24,9 @@ const sRoom=class{
         methods:{
             reqUser:async function(){
                 this.reqUserShow=true;
+                setTimeout(()=>{
+                    document.getElementById("register").focus();
+                },0)
             },
             chatSend:async function(){
                 if(this.chatText.length==0)
