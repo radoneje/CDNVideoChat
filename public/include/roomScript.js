@@ -23,7 +23,7 @@ const sRoom=class{
         },
         methods:{
             register:async function(e){
-                if(this.this.name || this.user.name.length==0)
+                if(this.user.name || this.user.name.length==0)
                     return;
                 console.log(this.user);
             },
