@@ -193,6 +193,9 @@ a {
 .maxContent{
   width: max-content;
 }
+.inline{
+  display: inline-block;
+}
 
 @media screen and (max-width: 720px){
   :root {
