@@ -190,6 +190,9 @@ a {
 .sArowTitle{
   margin-bottom:var(--mob-padding);
 }
+.maxContent{
+  width: max-content;
+}
 
 @media screen and (max-width: 720px){
   :root {
