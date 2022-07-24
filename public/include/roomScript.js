@@ -17,12 +17,15 @@ const sRoom=class{
             section:0,
             status:{},
             chat:[],
-            chatText:"ss",
+            chatText:"",
             userError:null,
             user:{id:null, name:null},
             reqUserShow:false,
         },
         methods:{
+            addSmileToChat:async function(){
+                this.chatText+="\u{1F600}";
+            },
             reqUser:async function(callBack){
                 let register=async ()=>{
                     if(this.user.name.length==0)

@@ -15,7 +15,7 @@
                 .sSectBody Чат
                 .sSectFooter
                     .sSectInput
-                        .sSectSmileList &#x1F61C;
+                        .sSectSmileList(@click="addSmileToChat()") &#x1F600;
                         .sSectInputField
                             input(placeholder="Please, write here" v-model="chatText")
                         .sSectInputSend
