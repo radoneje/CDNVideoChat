@@ -72,6 +72,7 @@ const sRoom=class{
                 try {
                     let s = await axios.get("/api/status/" + this.id)
                     this.status = s.data;
+                    this.chat=s.data.chat;
                 }
                 catch (e){console.warn(e)}
                 setTimeout(this.updateStatus, 2000);
@@ -83,7 +84,6 @@ const sRoom=class{
                 this.user=JSON.parse(u);
             this.isLoaded=true;
             this.updateStatus();
-
 
         },
     }
