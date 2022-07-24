@@ -71,7 +71,7 @@ const sRoom=class{
             updateStatus:async function(){
                 try {
                     let s = await axios.get("/api/status/" + this.id)
-                    this.status = s.data;
+                    this.status = s.data.status;
                     this.chat=s.data.chat;
                 }
                 catch (e){console.warn(e)}

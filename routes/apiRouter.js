@@ -37,8 +37,8 @@ router.get("/status/:id", async (req, res)=>{
     return res.sendStatus(404);
   delete r[0].uuid;
   let chat=await req.knex("v_chat").where({roomPublicUUID:req.params.id}).orderBy("createDate", "desc").limit(100);
-  r[0].chat=chat;
-  res.json(r[0])
+
+  res.json({status:r[0], chat})
 })
 router.post("/regUser", async (req, res)=>{
   let r= await req.knex.select('*').from("t_users").where({ roomPublicUUID:req.body.id, name:req.body.name});
