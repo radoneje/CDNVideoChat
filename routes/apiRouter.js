@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 const fsPromises = require('fs').promises;
 const multer  = require('multer')
+const upload = multer({ dest: '../uploads/' })
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
