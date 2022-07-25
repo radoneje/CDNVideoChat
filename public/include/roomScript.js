@@ -101,7 +101,7 @@ const sRoom=class{
             chat:async function(){
                 setTimeout(()=> {
                     this.chat.forEach(c => {
-                        if (c.new) {
+                        if (c.new && this.section==0) {
                             delete c.new;
                             this.chatNewItems++;
                             let observer = new IntersectionObserver((entries, observer) => {
