@@ -57,6 +57,14 @@
                             objDiv.scrollTop = objDiv.scrollHeight;
                         },0)
 
+                    len=this.q.length;
+                    this.q=updateChat(this.q,s.data.q);
+                    if(len<this.q.length)
+                        setTimeout(function () {
+                            var objDiv = document.getElementById("qBox");
+                            objDiv.scrollTop = objDiv.scrollHeight;
+                        },0)
+
                 }
                 catch (e){console.warn(e)}
                 setTimeout(this.updateStatus, 2000);
