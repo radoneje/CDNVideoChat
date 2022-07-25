@@ -31,7 +31,8 @@ const sRoom=class{
 
             chatNewItemClick:function (sect){
               this.chat.forEach(c=>{delete c.new})  ;
-                var objDiv = document.getElementById("chatBox");
+              this.chatNewItems=2;
+                let objDiv = document.getElementById("chatBox");
                 if(objDiv)
                 objDiv.scrollTop = objDiv.scrollHeight;
             },
