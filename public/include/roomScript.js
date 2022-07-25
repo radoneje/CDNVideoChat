@@ -19,6 +19,7 @@ const sRoom=class{
             status:{},
             chat:[],
             chatText:"",
+            chatNewItems:0,
             q:[],
             qText:"",
             userError:null,
@@ -29,7 +30,8 @@ const sRoom=class{
             newChatItem:function(item){
                 setTimeout(()=>{
                 var elem=document.getElementById("chat"+item.id)
-                    console.log(elem)
+                    console.log(elem);
+                this.chatNewItems++;
                 },100)
             },
             changeSection:function (sect){
