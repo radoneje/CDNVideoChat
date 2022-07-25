@@ -10,7 +10,8 @@
             reqUserShow:false,
         },
         methods:{
-            changeStatus:async function (){
+            changeStatus:async function (val){
+                this.status[val]=!this.status[val]
                 console.log("status.isChatPreMod", this.status.isChatPreMod)
                 await axios.post("/api/status",{id:this.status.id, isChat:this.status.isChat, isChatLikes:this.status.isChatLikes,isChatPreMod:this.status.isChatPreMod,isQ:this.status.isQ,isQLikes:this.status.isQLikes,isQPreMod:this.status.isQPreMod});
             },

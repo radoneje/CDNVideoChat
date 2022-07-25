@@ -11,7 +11,7 @@ block content
           .sModSettingsBoxRow(v-bind:class="{active:status.isChatPreMod}")
             .sModSettingsBoxRowRound
             .sModSettingsBoxRowTitle Пре-модерация
-          .sModSettingsBoxRow(v-bind:class="{active:status.isChatPreMod}" v-on:click="status.isChatPreMod!=status.isChatPreMod; changeStatus()")
+          .sModSettingsBoxRow(v-bind:class="{active:status.isChatPreMod}" v-on:click="changeStatus('isChatPreMod')")
             .sModSettingsBoxRowRound
             .sModSettingsBoxRowTitle Лайки
           .sModSettingsBoxRow
