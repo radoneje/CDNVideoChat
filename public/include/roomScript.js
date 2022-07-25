@@ -25,14 +25,11 @@ const sRoom=class{
         methods:{
             dislikeChat:async function(item){
                 item.dislikes++;
+                await axios.post("/api/chatdislike",{id:item.id})
             },
             likeChat:async function(item){
                 item.likes++;
-                console.log("like")
-                chat.forEach(c=>{
-                    if(c.id==item.id)
-                        c.likes++;
-                })
+                await axios.post("/api/chatlike",{id:item.id})
             },
             addSmileToChat:async function(){
                 this.chatText+=" \u{1F600} ";

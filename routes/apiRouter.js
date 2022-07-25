@@ -56,8 +56,22 @@ router.post("/chat", async (req, res)=>{
 })
 router.get("/chat/:id", async (req, res)=>{
 
-  let rr=await req.knex("v_chat").where({roomPublicUUID:req.params.id}).orderBy("createDate");
-  res.json(rr);
+  let r= await req.knex.select("*").from("t_chat").where({id:req.body.id});
+  if(r.length==0)
+    return res.sendStatus(404)
+  r[0].dislikes;
+  let rr=await req.knex("t_chat").update({dislikes:r[0].dislikes},"*").where({id:req.body.id});
+  res.json(rr[0]);
 })
+router.post("/chatlike", async (req, res)=>{
+
+  let r= await req.knex.select("*").from("t_chat").where({id:req.body.id});
+  if(r.length==0)
+    return res.sendStatus(404)
+  r[0].likes++;
+  let rr=await req.knex("t_chat").update({likes:r[0].likes},"*").where({id:req.body.id});
+  res.json(rr[0]);
+})
+
 
 module.exports = router;
