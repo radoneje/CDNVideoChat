@@ -65,7 +65,7 @@ const sRoom=class{
             this.isLoaded=true;
             this.updateStatus();
 
-            this.dislikeChat=room.dislikeChat;
+            this.dislikeChat=dislikeChat;
                 this.likeChat=likeChat;
                 this.addSmileToChat=addSmileToChat;
                 this.reqUser=reqUser(callBack);
