@@ -236,6 +236,11 @@ a {
     width: 0;
     background-color: var(--liteActive);
 }
+.sSectBodyFileImage{
+    width: 100%;
+    max-height: 300px;
+    margin-top: 4px
+}
 .sSectSend:hover{
     color: var(--white);
     background-color: var(--liteActive);
