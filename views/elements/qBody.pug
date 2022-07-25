@@ -1,0 +1,31 @@
+.sSectBody
+    .sSectBodyWr#qBox
+        .sSectBodyItem(v-for="item in q" v-bind:class="{my:item.userid==user.id}" v-if="!item.isDeleted")
+            .sSectBodyItemRow {{moment(item.createDate).format('HH:mm')}}
+                span.bold &nbsp;{{item.name}}
+            .sSectBodyItemRow {{item.text}}
+            .sSectBodyItemRow(v-if="status.isChatLikes")
+                span.likes(@click="likeQ(item)") &#x1F44D; {{item.likes}}
+                span.likes(@click="dislikeQ(item)") &#x1F44E; {{item.dislikes}}
+            .sSectBodyItemRow(v-if="!item.isMod &&  status.isChatPreMod" style="color:red") сообщение на модерации
+            if isModerator
+                .sSectBodyItemRow(style="display: flex;justify-content: end;")
+                    .button.small.maxContent.red(@click="delQ(item)") Удалить
+                .sSectBodyItemRow(v-if="status.isQPreMod")
+                    .chatBtnGroup(v-if="!item.isMod")
+                        .chatBtnGroupTitle НЕ показано
+                        .button.small.maxContent(@click="modQ(item)") Показать
+
+                    .chatBtnGroup(v-if="item.isMod")
+                        .chatBtnGroupTitle Показано
+                        .button.small.maxContent(@click="modQ(item)") Скрыть
+
+
+.sSectFooter
+    .sSectInput
+
+        .sSectInputField
+            input#qText(placeholder="Please, write here" v-model="qText" v-on:keydown="if($event.keyCode==13) qSend()")
+            .sSectSmileList(@click="addSmileToQ()") &#x1F600;
+        .sSectInputSend
+            .button(@click="qSend()" ) Send

@@ -19,6 +19,8 @@ const sRoom=class{
             status:{},
             chat:[],
             chatText:"",
+            q:[],
+            qText:"",
             userError:null,
             user:{id:null, name:null},
             reqUserShow:false,
@@ -29,6 +31,12 @@ const sRoom=class{
             addSmileToChat:()=>{},//addSmileToChat,
             reqUser:()=>{},//reqUser(callBack),
             chatSend:()=>{},//chatSend,
+
+            dislikeQ:()=>{},//room.dislikeChat,
+            likeQ:()=>{},//likeChat,
+            addSmileToQ:()=>{},//addSmileToChat,
+            qSend:()=>{},//chatSend,
+
             updateStatus:async function(){
                 try {
                     let s = await axios.get("/api/status/" + this.id)
