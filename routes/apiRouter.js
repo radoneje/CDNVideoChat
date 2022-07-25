@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
 const fsPromises = require('fs').promises;
+const multer  = require('multer')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -189,6 +190,10 @@ router.get("/q/:id", async (req, res)=>{
 
   let rr=await req.knex("v_q").where({roomPublicUUID:req.params.id}).orderBy("createDate");
   res.json(rr);
+})
+router.post("/chatFile", upload.single('file'), async (req, res)=>{
+  console.log(req.body, req.file)
+  res.json("file");
 })
 
 
