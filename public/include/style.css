@@ -181,14 +181,18 @@ a {
 
 .sSectSmileList {
 
-    padding-right: var(--padding);
-    border-radius: var(--borderRadius);
+
     cursor: pointer;
-    height: 100%;
     font-size: 22px;
     position: absolute;
-    top: 4px;
+    top: 0;
+    padding-top: 4px;
+    padding-right: 4px;
+    box-sizing: border-box;
     left: 4px;
+    height: 100%;
+    border-radius: 0;
+    border-right: 1px solid var(--black);
 }
 
 .sSectInputField {
@@ -219,7 +223,7 @@ a {
     padding: var(--mob-padding);
     width: calc(100%);
     box-sizing: border-box;
-    padding-left: 30px
+    padding-left: 36px
 }
 
 .sSectInputField input:active, .sSectInputField input:focus {
