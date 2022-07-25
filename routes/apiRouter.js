@@ -214,11 +214,11 @@ router.get("/downloadFile/:id", async (req, res)=>{
   let r=await req.knex("t_chat").where({id:req.params.id});
   if(r.length==0)
     return res.sendStatus(404);
-  var options = {
-    root: path.join(__dirname)
-  };
+
+  let p=path.join(__dirname,r[0].file);
+  console.log(p)
   res.type(r[0].fileType)
-  res.sendFile(r[0].file,options)
+  res.sendFile(p)
 
 })
 
