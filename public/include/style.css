@@ -229,6 +229,13 @@ a {
     border: 1px solid var(--black);
     background-color: var(--white);
 }
+#sChatUploader{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background-color: var(--liteActive);
+}
 .sSectSend:hover{
     color: var(--white);
     background-color: var(--liteActive);
