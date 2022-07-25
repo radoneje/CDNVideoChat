@@ -110,7 +110,7 @@ const sRoom=class{
             this.qSend=qSend;
 
             let options = {
-                root: document.querySelector('#scrollArea'),
+                root: null,
                 rootMargin: '0px',
                 threshold: 1.0
             }
@@ -119,7 +119,7 @@ const sRoom=class{
             };
             let  observer = new IntersectionObserver((entries, observer)=>{
                 console.log("entries");
-            }, {root:document.body,rootMargin: '0px', threshold: 1.0});
+            }, options);
             observer.observe(document.getElementById("sFooterEnd"));
 
         },
