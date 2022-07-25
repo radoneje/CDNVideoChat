@@ -240,12 +240,13 @@ h4{
   width: calc(100% - var(--padding));
   box-sizing: border-box;
   border-radius: var(--borderRadius);
-  border: 1px solid gray;
+  border: 1px solid var(--black);
   padding: var(--mob-padding);
   margin: var(--mob-padding) 0;
 }
 .sSectBodyItem.my{
-
+  background: var(--liteGray);
+  margin-left: var(--padding);
 }
 .sSectBodyItemRow{
 
