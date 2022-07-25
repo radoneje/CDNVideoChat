@@ -20,7 +20,8 @@
                         .chatBtnGroupTitle Показано
                         .button.small.maxContent(@click="modQ(item)") Скрыть
 
-
+    .chatNewItems(v-if="qNewItems>1" @click="qNewItemClick()") {{qNewItems-1}}
+        span.chatNewItemsCap NEW
 .sSectFooter
 
     .sSectInput

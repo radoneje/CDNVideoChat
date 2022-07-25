@@ -22,6 +22,7 @@ const sRoom=class{
             chatNewItems:0,
             q:[],
             qText:"",
+            qNewItems:0,
             userError:null,
             user:{id:null, name:null},
             reqUserShow:false,
@@ -119,6 +120,32 @@ const sRoom=class{
                                         this.chatNewItems--;
                                         if(this.chatNewItems<0)
                                             this.chatNewItems=1;
+                                        observer.unobserve(elem)
+                                        console.log(entries[0].isIntersecting)
+                                    }
+                                }, this.options);
+
+                                observer.observe(elem);
+                            }
+                        }
+                    });
+                },100);
+
+            },
+            q:async function(){
+                setTimeout(()=> {
+                    this.q.forEach(c => {
+                        if (q.new && this.section==1) {
+                            delete q.new;
+                            this.qNewItems++;
+                            let elem=document.getElementById("q" + q.id);
+                            if(elem) {
+                                let observer = new IntersectionObserver((entries, observer) => {
+                                    //TODO: add remove
+                                    if(entries[0].isIntersecting) {
+                                        this.qNewItems--;
+                                        if(this.qNewItems<0)
+                                            this.qNewItems=1;
                                         observer.unobserve(elem)
                                         console.log(entries[0].isIntersecting)
                                     }
