@@ -9,7 +9,7 @@ block content
         .sModSettings &#x2699;
     .sModPadel
       .sModPanelHead
-        .h4 Вопросы  включен &nbsp;
+        .h4 Вопросы  включены &nbsp;
         .button.maxContent.small выключить
         .sModSettings &#x2699;
     .sModPadel
@@ -17,4 +17,6 @@ block content
       .h4
   script.
     const ROOM=!{JSON.stringify(room)};
+    script(src="/include/vue.min.js")
+    script(src="/include/moderatorScript.js")
 

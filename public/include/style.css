@@ -330,6 +330,7 @@ h4 {
 .sModPanelHead{
     display: flex;
     align-items: center;
+    height: 30px;
 }
 
 .h4 {
