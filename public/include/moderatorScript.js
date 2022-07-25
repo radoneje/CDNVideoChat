@@ -11,6 +11,7 @@
         },
         methods:{
             changeStatus:async function (){
+                console.log("status.isChatPreMod", this.status.isChatPreMod)
                 await axios.post("/api/status",{id:this.status.id, isChat:this.status.isChat, isChatLikes:this.status.isChatLikes,isChatPreMod:this.status.isChatPreMod,isQ:this.status.isQ,isQLikes:this.status.isQLikes,isQPreMod:this.status.isQPreMod});
             },
             updateStatus:async function(){
