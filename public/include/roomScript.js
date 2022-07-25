@@ -108,7 +108,10 @@ const sRoom=class{
                             if(elem) {
                                 let observer = new IntersectionObserver((entries, observer) => {
                                     //TODO: add remove
-                                    console.log(entries[0].isIntersecting)
+                                    if(!entries[0].isIntersecting)
+                                        this.chatNewItems--;
+                                    observer.unobserve(elem)
+                                    //console.log(entries[0].isIntersecting)
                                 }, this.options);
 
                                 observer.observe(elem);
