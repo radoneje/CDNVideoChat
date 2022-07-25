@@ -340,6 +340,11 @@ h4 {
     font-weight: normal;
     padding: 4px;
 }
+.sModSettings{
+    font-size: 24px;
+    cursor: pointer;
+    position: relative;
+}
 
 @media screen and (max-width: 720px) {
     :root {
