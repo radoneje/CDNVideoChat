@@ -40,7 +40,7 @@ const sRoom=class{
             qNewItemClick:function (sect){
                 console.log("qNewItemClick")
                 this.q.forEach(c=>{delete c.new})  ;
-                this.qtNewItems=1;
+                this.qNewItems=1;
                 let objDiv = document.getElementById("qBox");
                 if(objDiv)
                     objDiv.scrollTop = objDiv.scrollHeight;
