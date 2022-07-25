@@ -4,8 +4,10 @@ block content
   .sModBox#app
     .sModPadel
       .sModPanelHead
-        .h4 Чат  включен &nbsp;
-        .button.maxContent.small выключить
+        .h4(v-if="status.isChat") Чат  включен &nbsp;
+        .button.maxContent.small(v-if="status.isChat" @click="status.isChat=!status.isChat") Выключить
+        .h4(v-if="status.isChat") Чат  выключен &nbsp;
+        .button.maxContent.small.red(v-if="status.isChat" @click="status.isChat=!status.isChat") Включить
         .sModSettings(@click="chatConfigShow=!chatConfigShow") &#x2699;
         .sModSettingsBox(v-if="chatConfigShow")
           .sModSettingsBoxRow(v-bind:class="{active:status.isChatPreMod}" v-on:click="changeStatus('isChatPreMod')")
@@ -19,7 +21,7 @@ block content
     .sModPadel
       .sModPanelHead
         .h4 Вопросы  включены &nbsp;
-        .button.maxContent.small выключить
+        .button.maxContent.small Выключить
         .sModSettings &#x2699;
     .sModPadel
       .h4 Голосование
