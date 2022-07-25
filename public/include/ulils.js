@@ -170,4 +170,7 @@ let getText= function(html){
     elem.innerHTML=html;
     return urlify(elem.innerText)
 }
+let onPasteChat= async function(e){
+    console.log("onPasteChat",e )
+}
 

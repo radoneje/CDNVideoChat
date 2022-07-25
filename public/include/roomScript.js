@@ -83,12 +83,14 @@ const sRoom=class{
             addSmileToChat:()=>{},//addSmileToChat,
             reqUser:()=>{},//reqUser(callBack),
             chatSend:()=>{},//chatSend,
+            onPasteChat:()=>{},
 
             dislikeQ:()=>{},//room.dislikeChat,
             likeQ:()=>{},//likeChat,
             addSmileToQ:()=>{},//addSmileToChat,
             qSend:()=>{},//chatSend,
             getText:()=>{},
+
 
             updateStatus:async function(){
                 try {
@@ -208,6 +210,7 @@ const sRoom=class{
                 this.addSmileToChat=addSmileToChat;
                 this.reqUser=reqUser;
                 this.chatSend=chatSend;
+            this.onPasteChat=onPasteChat;
 
             this.dislikeQ=dislikeQ;
             this.likeQ=likeQ;
