@@ -162,7 +162,7 @@ async function loadRoom(chatid, elem, lang){
         await loadResource(a, document.head);
 
     }
-    if(typeof utils == 'undefined')
+    if(typeof updateChat == 'undefined')
     {
         let a=document.createElement("script");
         a.src="/include/utils.js"
