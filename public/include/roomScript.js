@@ -52,12 +52,15 @@ const sRoom=class{
 
                 if(sect==0){
                     this.chatNewItems=0;
-                    this.chat.forEach(c=>{delete c.new})
                     setTimeout(()=>{
                         let objDiv = document.getElementById("chatBox");
                         if(objDiv)
                             objDiv.scrollTop = objDiv.scrollHeight;
                     },200)
+                    setTimeout(()=>{
+                        this.chatNewItems=0;
+                        this.chat.forEach(c=>{delete c.new})
+                    },1000)
                 }
                 if(sect==1){
                     this.qNewItems=0;
@@ -68,6 +71,10 @@ const sRoom=class{
                         if(objDiv)
                             objDiv.scrollTop = objDiv.scrollHeight;
                     },200)
+                    setTimeout(()=>{
+                        this.qNewItems=0;
+                        this.q.forEach(c=>{delete c.new})
+                    },1000)
                 }
             },
             dislikeChat:()=>{},//room.dislikeChat,
