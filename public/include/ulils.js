@@ -189,7 +189,7 @@ let addImageToChat= async function(){
        xhr.open("POST", "/api/chatFile")
         let uploader=document.getElementById("sChatUploader")
        xhr.onload = xhr.onerror = (event)=>{
-           if (this.status == 200) {
+           if (xhr.status == 200) {
                log("success");
            } else {
                alert( 'Произошла ошибка при загрузке данных на сервер!' );
