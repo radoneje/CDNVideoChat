@@ -184,7 +184,7 @@ let addImageToChat= async function(){
    elem.onchange=(e)=>{
        let formData=new FormData();
        formData.append("file", elem.file);
-       console.log(elem);
+       console.log(elem.files);
        elem.parentNode.removeChild(elem)
 
    };
