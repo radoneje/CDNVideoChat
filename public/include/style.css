@@ -407,6 +407,9 @@ h4 {
 #UpBtn {
     display: none;
 }
+.hidden{
+    display: none !important;
+}
 
 @media screen and (max-width: 720px) {
     :root {

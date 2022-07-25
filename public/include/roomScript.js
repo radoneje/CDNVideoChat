@@ -118,7 +118,12 @@ const sRoom=class{
                 /* Content excerpted, show below */
             };
             let  observer = new IntersectionObserver((entries, observer)=>{
-                console.log(entries[0].isIntersecting);
+                let elem=document.getElementById("UpBtn")
+                if(entries[0].isIntersecting)
+                    elem.classList.add( "hidden")
+                else
+                    elem.classList.remove( "hidden")
+
             }, options);
             setTimeout(()=>{observer.observe(document.getElementById("sFooterEnd"));},100)
 
