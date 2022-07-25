@@ -24,12 +24,29 @@ const sRoom=class{
         },
         methods:{
             dislikeChat:async function(item){
-                item.dislikes++;
-                await axios.post("/api/chatdislike",{id:item.id})
+                if(!localStorage.getItem("chatdislike"+item.id)) {
+                    item.dislikes++;
+                    await axios.post("/api/chatdislike", {id: item.id})
+                }
+                else {
+                    item.dislikes--;
+                    localStorage.removeItem("chatdislike"+item.id)
+                    await axios.post("/api/chatdislike", {id: item.id, undo:1})
+                }
+                localStorage.setItem("chatdislike"+item.id, true);
             },
             likeChat:async function(item){
-                item.likes++;
-                await axios.post("/api/chatlike",{id:item.id})
+                if(!localStorage.getItem("chatlike"+item.id)) {
+                    item.likes++;
+                    await axios.post("/api/chatlike", {id: item.id})
+                    localStorage.setItem("chatlike" + item.id, true);
+                }
+                else {
+                    item.dislikes--;
+                    localStorage.removeItem("chatlike"+item.id)
+                    await axios.post("/api/chatlike", {id: item.id, undo:1})
+
+                }
             },
             addSmileToChat:async function(){
                 this.chatText+=" \u{1F600} ";

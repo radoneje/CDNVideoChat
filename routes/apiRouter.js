@@ -64,7 +64,13 @@ router.post("/chatlike", async (req, res)=>{
   let r= await req.knex.select("*").from("t_chat").where({id:req.body.id});
   if(r.length==0)
     return res.sendStatus(404)
-  r[0].likes++;
+  if(req.body.undo)
+  {
+    r[0].likes--;
+    if(r[0].likes<0) r[0].likes=0;
+  }
+  else
+    r[0].likes++;
   console.log(r[0].likes);
   let rr=await req.knex("t_chat").update({likes:r[0].likes},"*").where({id:req.body.id});
   res.json(rr[0]);
@@ -74,7 +80,16 @@ router.post("/chatdislike", async (req, res)=>{
   let r= await req.knex.select("*").from("t_chat").where({id:req.body.id});
   if(r.length==0)
     return res.sendStatus(404)
-  r[0].dislikes++;
+
+
+  if(req.body.undo)
+  {
+    r[0].dislikes--;
+    if(r[0].dislikes<0) r[0].dislikes=0;
+  }
+  else
+    r[0].dislikes++;
+
   let rr=await req.knex("t_chat").update({dislikes:r[0].dislikes},"*").where({id:req.body.id});
   res.json(rr[0]);
 })
