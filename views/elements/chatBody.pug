@@ -11,7 +11,7 @@
             if isModerator
                 .sSectBodyItemRow(style="display: flex;justify-content: end;")
                     .button.small.maxContent.red(@click="delChat(item)") Удалить
-                .sSectBodyItemRow(v-if="status.isChatPreMod")
+                .sSectBodyItemRow(v-if="status.isQPreMod")
                     .chatBtnGroup(v-if="!item.isMod")
                         .chatBtnGroupTitle НЕ показано
                         .button.small.maxContent(@click="modChat(item)") Показать
