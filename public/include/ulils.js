@@ -178,7 +178,7 @@ window.addEventListener('paste', e => {
     console.log("onPasteChat",e )
 });
 let addImageToChat= async function(){
-   var elm=document.createElement("input");
+   var elem=document.createElement("input");
    elem.type="file"
     elem.styles.display="none";
    elem.onchange=(e)=>{
