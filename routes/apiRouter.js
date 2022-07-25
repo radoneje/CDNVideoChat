@@ -37,6 +37,7 @@ router.get("/status/:id", async (req, res)=>{
     return res.sendStatus(404);
   delete r[0].uuid;
   let chat=await req.knex("v_chat").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(100);
+  let q=await req.knex("v_q").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(100);
 
   res.json({status:r[0], chat})
 })
@@ -120,6 +121,72 @@ router.post("/delChat", async (req, res)=>{
 
   let rr=await req.knex("t_chat").update({isDeleted:new Date()},"*").where({id:req.body.item.id});
   res.json(rr[0]);
+})
+
+router.post("/modQ", async (req, res)=>{
+
+  let r= await req.knex.select("*").from("t_rooms").where({uuid:req.body.uuid});
+  if(r.length==0)
+    return res.sendStatus(404)
+
+  let rr=await req.knex("t_q").update({isMod:req.body.item.isMod},"*").where({id:req.body.item.id});
+  res.json(rr[0]);
+})
+router.post("/delQ", async (req, res)=>{
+
+  let r= await req.knex.select("*").from("t_rooms").where({uuid:req.body.uuid});
+  if(r.length==0)
+    return res.sendStatus(404)
+
+  let rr=await req.knex("t_q").update({isDeleted:new Date()},"*").where({id:req.body.item.id});
+  res.json(rr[0]);
+})
+
+router.post("/qlike", async (req, res)=>{
+
+  let r= await req.knex.select("*").from("t_q").where({id:req.body.id});
+  if(r.length==0)
+    return res.sendStatus(404)
+  if(req.body.undo)
+  {
+    r[0].likes--;
+    if(r[0].likes<0) r[0].likes=0;
+  }
+  else
+    r[0].likes++;
+  console.log(r[0].likes);
+  let rr=await req.knex("t_q").update({likes:r[0].likes},"*").where({id:req.body.id});
+  res.json(rr[0]);
+})
+router.post("/qdislike", async (req, res)=>{
+
+  let r= await req.knex.select("*").from("t_q").where({id:req.body.id});
+  if(r.length==0)
+    return res.sendStatus(404)
+
+
+  if(req.body.undo)
+  {
+    r[0].dislikes--;
+    if(r[0].dislikes<0) r[0].dislikes=0;
+  }
+  else
+    r[0].dislikes++;
+
+  let rr=await req.knex("t_q").update({dislikes:r[0].dislikes},"*").where({id:req.body.id});
+  res.json(rr[0]);
+})
+
+router.post("/q", async (req, res)=>{
+
+  let r= await req.knex("t_q").insert({ roomPublicUUID:req.body.id, text:req.body.text, userid:req.body.userid},"*");
+  let rr=await req.knex("v_q").where({id:r[0].id});
+  res.json(rr[0]);
+})
+router.get("/q/:id", async (req, res)=>{
+
+  let rr=await req.knex("v_q").where({roomPublicUUID:req.params.id}).orderBy("createDate");
+  res.json(rr);
 })
 
 
