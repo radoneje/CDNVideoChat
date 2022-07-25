@@ -28,8 +28,8 @@ block content
         .button.maxContent.small(v-if="status.isQ" @click="changeStatus('isQ')") Выключить
         .h4(v-if="!status.isQ") Вопросы  выключены &nbsp;
         .button.maxContent.small.red(v-if="!status.isQ" @click="changeStatus('isQ')") Включить
-        .sModSettings &#x2699;
-        .sModSettingsBox(v-if="!qConfigShow")
+        .sModSettings(@click="qConfigShow=!qConfigShow") &#x2699;
+        .sModSettingsBox(v-if="qConfigShow")
           .sModSettingsBoxRow(v-bind:class="{active:status.isQPreMod}" v-on:click="changeStatus('isQPreMod')")
             .sModSettingsBoxRowRound
             .sModSettingsBoxRowTitle Пре-модерация
