@@ -218,7 +218,7 @@ router.get("/downloadFile/:id", async (req, res)=>{
     root: path.join(__dirname)
   };
   res.type(r[0].fileType)
-  res.download(r[0].file, r[0].fileName,options)
+  res.sendFile(r[0].file,options)
 
 })
 
