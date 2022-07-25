@@ -104,12 +104,15 @@ const sRoom=class{
                         if (c.new && this.section==0) {
                             delete c.new;
                             this.chatNewItems++;
-                            let observer = new IntersectionObserver((entries, observer) => {
-                                //TODO: add remove
-                                console.log(entries[0].isIntersecting)
-                            }, this.options);
-                            console.log("chat" + c.id)
-                            observer.observe(document.getElementById("chat" + c.id));
+                            let elem=document.getElementById("chat" + c.id);
+                            if(elem) {
+                                let observer = new IntersectionObserver((entries, observer) => {
+                                    //TODO: add remove
+                                    console.log(entries[0].isIntersecting)
+                                }, this.options);
+
+                                observer.observe();
+                            }
                         }
                     });
                 },100);
