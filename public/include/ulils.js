@@ -189,7 +189,11 @@ let addImageToChat= async function(){
        xhr.open("POST", "/api/chatFile")
        xhr.send(formData);
        xhr.onreadystatechange =(event)=>{
+           if (event.readyState != 4) return;
            console.log("onreadystatechange", event)
+       }
+       xhr.upload.onprogress = function(event) {
+           console.log( 'Загружено на сервер ' + event.loaded + ' байт из ' + event.total );
        }
 
        elem.parentNode.removeChild(elem)
