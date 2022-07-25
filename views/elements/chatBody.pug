@@ -11,13 +11,13 @@
                 .sSectBodyItemRow(v-if="status.isChatPreMod")
                     .chatBtnGroup(v-if="!item.isMod")
                         .chatBtnGroupTitle НЕ показано
-                        .button.small.maxContent Показать
+                        .button.small.maxContent(@click="modChat(item)") Показать
 
                     .chatBtnGroup(v-if="item.isMod")
                         .chatBtnGroupTitle Показано
-                        .button.small.maxContent Скрыть
+                        .button.small.maxContent(@click="modChat(item)") Скрыть
                 .sSectBodyItemRow(style="display: flex;justify-content: end;")
-                    .button.small.maxContent.red Удалить
+                    .button.small.maxContent.red(@click="delChat(item)") Удалить
 
 .sSectFooter
     .sSectInput

@@ -17,6 +17,18 @@
             addSmileToChat:addSmileToChat,
             reqUser:reqUser,
             chatSend:chatSend,
+            modChat:async function(item){
+                item.isMod=!item.isMod
+                await axios.post("/api/modChat",{item, uuid:ROOM.uuid});
+            },
+            delChat:async function(item){
+                if(confirm("Удалить сообщение?")) {
+                    await axios.post("/api/delChat", {item, uuid: ROOM.uuid});
+                    this.chat = this.chat.filter(c => {
+                        return c.id != item.id
+                    })
+                }
+            },
             ///
             changeStatus:async function (val){
                 this.status[val]=!this.status[val]
