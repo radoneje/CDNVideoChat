@@ -119,7 +119,7 @@ const sRoom=class{
             };
             let  observer = new IntersectionObserver((entries, observer)=>{
                 let elem=document.getElementById("UpBtn")
-                if(entries[0].isIntersecting)
+                if(!entries[0].isIntersecting)
                     elem.classList.add( "hidden")
                 else
                     elem.classList.remove( "hidden")
