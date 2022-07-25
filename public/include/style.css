@@ -250,6 +250,8 @@ h4{
 }
 .sSectBodyItemRow{
   margin-bottom: var(--mob-padding);
+  width: 100%;
+  word-break: break-word;
 }
 .bold{
   font-weight: bold;

@@ -18,7 +18,9 @@
                             .sSectBodyItemRow {{moment(item.createDate).format('HH:mm')}}
                                 span.bold &nbsp;{{item.name}}
                             .sSectBodyItemRow {{item.text}}
-                            .sSectBodyItemRow {{item.likes}} {{item.dislikes}}
+                            .sSectBodyItemRow
+                                span.likes &#x1F44D; {{item.likes}}
+                                span.likes &#x1F44E; {{item.dislikes}}
                 .sSectFooter
                     .sSectInput
                         .sSectSmileList(@click="addSmileToChat()") &#x1F600;
