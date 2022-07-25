@@ -65,6 +65,7 @@ router.post("/chatlike", async (req, res)=>{
   if(r.length==0)
     return res.sendStatus(404)
   r[0].likes++;
+  console.log(r[0].likes);
   let rr=await req.knex("t_chat").update({likes:r[0].likes},"*").where({id:req.body.id});
   res.json(rr[0]);
 })
