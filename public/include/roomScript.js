@@ -47,9 +47,8 @@ const sRoom=class{
                             return c.isMod
                         }
                         return  true;
-
-
                     })
+                    console.log(this.chat)
                     if(len<this.chat.length)
                         setTimeout(function () {
                             var objDiv = document.getElementById("chatBox");
