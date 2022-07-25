@@ -98,7 +98,18 @@ const sRoom=class{
         },
         watch: {
             chat:async function(){
-                console.log("chat change")
+
+                let newItems=chat.filter(c=>{return chat.new});
+                console.log("chat change", newItems)
+                /*
+                * newChatItem:function(item){
+                console.log(" newChatItem");
+                setTimeout(()=>{
+                var elem=document.getElementById("chat"+item.id)
+                    console.log(elem);
+                this.chatNewItems++;
+                },100)
+            },*/
             }
         },
         mounted:async function(){
