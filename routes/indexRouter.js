@@ -30,6 +30,13 @@ router.get('/room/box/:id/:lang?', async (req, res, next)=> {
   res.render('roomBox', { id: req.params.id, lang:req.params.lang });
 });
 
+router.get('/moderator/:id', async (req, res, next)=> {
+  let r=await req.knex.select("*").from("t_rooms").where({isDeleted:null, uuid:req.params.id});
+  if(r.length==0)
+    return res.sendStatus(404);
+  res.render('moderator', { room: r });
+});
+
 
 
 module.exports = router;
