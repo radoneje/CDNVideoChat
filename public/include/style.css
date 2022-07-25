@@ -332,6 +332,9 @@ h4 {
     font-size: var(--headFontSize);
     font-weight: bold;
 }
+.inline {
+    display: inline-block;
+}
 
 @media screen and (max-width: 720px) {
     :root {
