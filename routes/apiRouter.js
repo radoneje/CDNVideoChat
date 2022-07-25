@@ -1,6 +1,6 @@
 let express = require('express');
 let router = express.Router();
-const path = require('path').promises;
+const path = require('path');
 const fsPromises = require('fs').promises;
 const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
