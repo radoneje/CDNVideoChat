@@ -83,6 +83,7 @@ a {
 .sHeader {
     display: flex;
     align-content: center;
+    justify-content: center;
     height: 40px;
 
 }
