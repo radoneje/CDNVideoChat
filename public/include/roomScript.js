@@ -103,6 +103,8 @@ async function loadRoom(chatid, elem, lang){
         await loadResource(a, document.head);
 
     }
+    else
+        console.log(typeof dislikeChat)
     let html=await axios.get("/room/box/"+chatid+"/"+lang);
     elem.innerHTML=html.data;
     console.log("loadRoom", lang)
