@@ -344,6 +344,7 @@ h4 {
     border: 1px solid gray;
     border-radius: var(--mob-padding);
     box-shadow: 1px 1px var(--mob-padding) 0px var(--hoverGray);
+    z-index: 100;
 }
 .sModSettingsBoxRow{
     display: flex;
