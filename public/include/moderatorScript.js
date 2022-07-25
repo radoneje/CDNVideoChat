@@ -8,7 +8,8 @@
             userError:null,
             user:{id:null, name:null},
             reqUserShow:false,
-            status:{}
+            status:{},
+            id:null
         },
         methods:{
             dislikeChat:dislikeChat,
@@ -25,6 +26,7 @@
             updateStatus:async function(){
                 try {
                     let s = await axios.get("/api/status/" + ROOM.publicUUID)
+
                     this.status = s.data.status;
                     this.chat=s.data.chat;
                 }
@@ -33,6 +35,7 @@
             }
         },
         mounted:async function(){
+            this.id=ROOM.publicUUID;
             let u=localStorage.getItem("user_"+this.id);
             if(u)
                 this.user=JSON.parse(u);
