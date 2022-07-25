@@ -11,6 +11,12 @@
             status:{}
         },
         methods:{
+            dislikeChat:dislikeChat,
+            likeChat:likeChat,
+            addSmileToChat:addSmileToChat,
+            reqUser:reqUser,
+            chatSend:chatSend,
+            ///
             changeStatus:async function (val){
                 this.status[val]=!this.status[val]
                 console.log("status.isChatPreMod", this.status.isChatPreMod)

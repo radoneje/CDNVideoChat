@@ -45,10 +45,18 @@ block content
     .sModPadel
       .h4 Голосование
       .h4
+    .reqUser(v-if="reqUserShow")
+      .reqUserBox
+        h4 Please, register
+        .reqUserRow
+          .sSectInputField(v-if="userError" style="color:red") {{userError}}
+          input#register(v-model="user.name")
+        .button#registerBtn Log in
   script.
     const ROOM=!{JSON.stringify(room[0])};
   script(src="/include/vue.min.js")
   script(src="/include/axios.js")
   script(src="/include/moment.min.js")
+  script(src="/include/utils.js")
   script(src="/include/moderatorScript.js")
 
