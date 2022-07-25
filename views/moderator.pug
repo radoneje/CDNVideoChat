@@ -6,8 +6,8 @@ block content
       .sModPanelHead
         .h4(v-if="status.isChat") Чат  включен &nbsp;
         .button.maxContent.small(v-if="status.isChat" @click="status.isChat=!status.isChat") Выключить
-        .h4(v-if="status.isChat") Чат  выключен &nbsp;
-        .button.maxContent.small.red(v-if="status.isChat" @click="status.isChat=!status.isChat") Включить
+        .h4(v-if="!status.isChat") Чат  выключен &nbsp;
+        .button.maxContent.small.red(v-if="!status.isChat" @click="status.isChat=!status.isChat") Включить
         .sModSettings(@click="chatConfigShow=!chatConfigShow") &#x2699;
         .sModSettingsBox(v-if="chatConfigShow")
           .sModSettingsBoxRow(v-bind:class="{active:status.isChatPreMod}" v-on:click="changeStatus('isChatPreMod')")
