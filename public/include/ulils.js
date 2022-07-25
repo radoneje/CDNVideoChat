@@ -82,8 +82,7 @@ let updateChat=function (oldChat,newChat){
             if(o.id==n.id){
                 let keys=Object.keys(n)
                 for(let key in keys){
-                    console.log(keys[key],Object.keys(n) )
-                    o[key]=n[key];
+                    o[keys[key]]=n[keys[key]];
                 }
                 find=true
             }
