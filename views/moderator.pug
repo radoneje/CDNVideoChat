@@ -24,8 +24,10 @@ block content
           include elements/chatBody
     .sModPadel
       .sModPanelHead
-        .h4 Вопросы  включены &nbsp;
-        .button.maxContent.small Выключить
+        .h4(v-if="status.isChat") Вопросы  включены &nbsp;
+          .button.maxContent.small(v-if="status.isQ" @click="changeStatus('isQ')") Выключить
+          .h4(v-if="!status.isChat") Вопросы  выключены &nbsp;
+          .button.maxContent.small.red(v-if="!status.isQ" @click="changeStatus('isQ')") Включить
         .sModSettings &#x2699;
     .sModPadel
       .h4 Голосование
