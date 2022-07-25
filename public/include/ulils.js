@@ -196,7 +196,7 @@ let addImageToChat= async function(){
            }
           setTimeout(()=>{uploader.style.width=0},2000)
        }
-       http.onreadystatechange = function() {//Call a function when the state changes.
+       xhr.onreadystatechange = function() {//Call a function when the state changes.
            if(http.readyState == 4 && http.status == 200) {
                alert(http.responseText);
            }
