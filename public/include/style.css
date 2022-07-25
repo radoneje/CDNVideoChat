@@ -133,9 +133,15 @@ a {
     box-sizing: border-box;
 }
 .red{
-    background-color: darkred;
+    background-color: darkred !important;
 }
-
+.chatBtnGroup{
+    display: flex;
+    align-items: center;
+}
+.chatBtnGroup div{
+   margin-right: var(--mob-padding);
+}
 .reqUser {
     background: var(--white);
     position: absolute;
