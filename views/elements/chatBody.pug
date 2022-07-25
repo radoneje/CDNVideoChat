@@ -7,7 +7,7 @@
             .sSectBodyItemRow(v-if="status.isChatLikes")
                 span.likes(@click="likeChat(item)") &#x1F44D; {{item.likes}}
                 span.likes(@click="dislikeChat(item)") &#x1F44E; {{item.dislikes}}
-            .sSectBodyItemRow(v-if="!item.isMod" style="color:red") сообщение на модерации
+            .sSectBodyItemRow(v-if="!item.isMod &&  status.isChatPreMod" style="color:red") сообщение на модерации
             if isModerator
                 .sSectBodyItemRow(style="display: flex;justify-content: end;")
                     .button.small.maxContent.red(@click="delChat(item)") Удалить
