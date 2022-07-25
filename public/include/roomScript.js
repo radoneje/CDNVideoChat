@@ -68,7 +68,7 @@ const sRoom=class{
             this.dislikeChat=dislikeChat;
                 this.likeChat=likeChat;
                 this.addSmileToChat=addSmileToChat;
-                this.reqUser=reqUser(callBack);
+                this.reqUser=reqUser;
                 this.chatSend=chatSend;
 
         },
