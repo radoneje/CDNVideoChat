@@ -7,7 +7,7 @@
                 .sHeaderItemTitle
                     .sHeaderItemTitleText Чат
                     .sHeaderItemTitleIcon
-            .sHeaderItem(v-bind:class="{active:section==1}" v-on:click="section=1")
+            .sHeaderItem(v-if="status.isQ" v-bind:class="{active:section==1}" v-on:click="section=1")
                 .sHeaderItemTitle
                     .sHeaderItemTitleText Вопросы
                     .sHeaderItemTitleIcon
@@ -15,7 +15,7 @@
             .sSectWr(v-show="section==0" v-if="status.isChat")
                 include elements/chatBody
 
-            .sSectWr(v-show="section==1")
+            .sSectWr(v-show="section==1" v-if="status.isQ")
                 .sSectBody Вопросы
                 .sSectFooter input q
         include elements/regUser
