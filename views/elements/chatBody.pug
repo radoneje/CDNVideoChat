@@ -8,6 +8,8 @@
                 span.likes(@click="likeChat(item)") &#x1F44D; {{item.likes}}
                 span.likes(@click="dislikeChat(item)") &#x1F44E; {{item.dislikes}}
             if isModerator
+                .sSectBodyItemRow(style="display: flex;justify-content: end;")
+                    .button.small.maxContent.red(@click="delChat(item)") Удалить
                 .sSectBodyItemRow(v-if="status.isChatPreMod")
                     .chatBtnGroup(v-if="!item.isMod")
                         .chatBtnGroupTitle НЕ показано
@@ -16,8 +18,7 @@
                     .chatBtnGroup(v-if="item.isMod")
                         .chatBtnGroupTitle Показано
                         .button.small.maxContent(@click="modChat(item)") Скрыть
-                .sSectBodyItemRow(style="display: flex;justify-content: end;")
-                    .button.small.maxContent.red(@click="delChat(item)") Удалить
+
 
 .sSectFooter
     .sSectInput
