@@ -108,6 +108,7 @@ const sRoom=class{
                                 //TODO: add remove
                                 console.log(entries[0].isIntersecting)
                             }, this.options);
+                            console.log("chat" + c.id)
                             observer.observe(document.getElementById("chat" + c.id));
                         }
                     });
