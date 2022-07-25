@@ -12,7 +12,7 @@
         methods:{
             updateStatus:async function(){
                 try {
-                    let s = await axios.get("/api/status/" + this.id)
+                    let s = await axios.get("/api/status/" + ROOM.publicUUID)
                     this.status = s.data.status;
                     this.chat=s.data.chat;
                 }
