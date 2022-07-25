@@ -24,11 +24,11 @@ const sRoom=class{
             reqUserShow:false,
         },
         methods:{
-            dislikeChat:room.dislikeChat,
-          /*  likeChat:likeChat,
-            addSmileToChat:addSmileToChat,
-            reqUser:reqUser(callBack),
-            chatSend:chatSend,*/
+            dislikeChat:()=>{},//room.dislikeChat,
+            likeChat:()=>{},//likeChat,
+            addSmileToChat:()=>{},//addSmileToChat,
+            reqUser:()=>{},//reqUser(callBack),
+            chatSend:()=>{},//chatSend,
             updateStatus:async function(){
                 try {
                     let s = await axios.get("/api/status/" + this.id)
@@ -64,6 +64,12 @@ const sRoom=class{
                 this.user=JSON.parse(u);
             this.isLoaded=true;
             this.updateStatus();
+
+            this.dislikeChat=room.dislikeChat;
+                this.likeChat=likeChat;
+                this.addSmileToChat=addSmileToChat;
+                this.reqUser=reqUser(callBack);
+                this.chatSend=chatSend;
 
         },
     }
