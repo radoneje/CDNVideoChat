@@ -12,11 +12,12 @@
                     .chatBtnGroup(v-if="!item.isMod")
                         .chatBtnGroupTitle НЕ показано
                         .button.small.maxContent Показать
-                        .button.small.maxContent.red Удалить
-                    .chatBtnGroup(v-if="!item.isMod")
+
+                    .chatBtnGroup(v-if="item.isMod")
                         .chatBtnGroupTitle Показано
                         .button.small.maxContent Скрыть
-                        .button.small.maxContent.red Удалить
+                .sSectBodyItemRow(style="text-align: right;")
+                    .button.small.maxContent.red Удалить
 
 .sSectFooter
     .sSectInput
