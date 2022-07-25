@@ -187,13 +187,15 @@ let addImageToChat= async function(){
        formData.append("id", this.id);
        let xhr = new XMLHttpRequest();
        xhr.open("POST", "/api/chatFile")
-
+        let uploader=document.getElementById("sChatUploader")
        xhr.onreadystatechange =(event)=>{
            if (event.readyState != 4) return;
            console.log("onreadystatechange", event)
+           setTimeout(()=>{uploader.style.width=0},2000)
        }
        xhr.upload.onprogress = function(event) {
            console.log( 'Загружено на сервер ' + event.loaded + ' байт из ' + event.total );
+           uploader.style.width=(parseFloat(event.loaded) /parseFloat( event.total)*100)+"%"
        }
        xhr.send(formData);
 
