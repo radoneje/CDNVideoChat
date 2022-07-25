@@ -88,6 +88,60 @@
                 setTimeout(this.updateStatus, 2000);
             }
         },
+        watch: {
+            chat:async function(){
+                setTimeout(()=> {
+                    this.chat.forEach(c => {
+                        if (c.new && this.section==0) {
+                            delete c.new;
+                            this.chatNewItems++;
+                            let elem=document.getElementById("chat" + c.id);
+                            if(elem) {
+                                let observer = new IntersectionObserver((entries, observer) => {
+                                    //TODO: add remove
+                                    if(entries[0].isIntersecting) {
+                                        this.chatNewItems--;
+                                        if(this.chatNewItems<0)
+                                            this.chatNewItems=1;
+                                        observer.unobserve(elem)
+                                        console.log(entries[0].isIntersecting)
+                                    }
+                                }, this.options);
+
+                                observer.observe(elem);
+                            }
+                        }
+                    });
+                },100);
+
+            },
+            q:async function(){
+                setTimeout(()=> {
+                    this.q.forEach(q => {
+                        if (q.new && this.section==1) {
+                            delete q.new;
+                            this.qNewItems++;
+                            let elem=document.getElementById("q" + q.id);
+                            if(elem) {
+                                let observer = new IntersectionObserver((entries, observer) => {
+                                    //TODO: add remove
+                                    if(entries[0].isIntersecting) {
+                                        this.qNewItems--;
+                                        if(this.qNewItems<0)
+                                            this.qNewItems=1;
+                                        observer.unobserve(elem)
+                                        console.log(entries[0].isIntersecting)
+                                    }
+                                }, this.options);
+
+                                observer.observe(elem);
+                            }
+                        }
+                    });
+                },100);
+
+            }
+        },
         mounted:async function(){
             this.id=ROOM.publicUUID;
             let u=localStorage.getItem("user_"+this.id);
