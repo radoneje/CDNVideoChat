@@ -15,7 +15,8 @@
                 .sSectBody
                     .sSectBodyWr
                         .sSectBodyItem(v-for="item in chat" v-bind:class="{my:item.userid==user.id}")
-                            .sSectBodyItemRow {{moment(item.createDate).format('HH:mm')}} {{item.name}}
+                            .sSectBodyItemRow {{moment(item.createDate).format('HH:mm')}}
+                                span.bold &nbsp;{{item.name}}
                             .sSectBodyItemRow {{item.text}}
                             .sSectBodyItemRow {{item.likes}} {{item.dislikes}}
                 .sSectFooter
