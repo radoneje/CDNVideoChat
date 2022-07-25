@@ -111,7 +111,7 @@ const sRoom=class{
                             observer.observe(document.getElementById("chat" + c.id));
                         }
                     });
-                },0);
+                },100);
 
             }
         },
