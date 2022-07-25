@@ -24,11 +24,11 @@ const sRoom=class{
         },
         methods:{
             dislikeChat:async function(item){
-                item.dilike++;
+                item.dislike++;
             },
             likeChat:async function(item){
                 item.like++;
-
+                console.log("like")
             },
             addSmileToChat:async function(){
                 this.chatText+=" \u{1F600} ";
