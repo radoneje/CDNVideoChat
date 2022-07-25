@@ -201,6 +201,10 @@ let addImageToChat= async function(){
            if(xhr.readyState == 4 && xhr.status == 200) {
                let c=JSON.parse(xhr.responseText);
                this.chat.push(c);
+               setTimeout(function () {
+                   var objDiv = document.getElementById("chatBox");
+                   objDiv.scrollTop = objDiv.scrollHeight;
+               },0)
            }
        }
        xhr.upload.onprogress = function(event) {

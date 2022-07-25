@@ -7,6 +7,9 @@
             .sSectBodyItemRow {{moment(item.createDate).format('HH:mm')}}
                 span.bold &nbsp;{{getText(item.name)}}
             .sSectBodyItemRow(v-html="getText(item.text)")
+            .sSectBodyItemRow(v-if="item.file")
+                .sSectBodyFileLink
+                    a(:href="'/api/downloadFile/'+item.id") {{item.fileName}} ({{humanFileSize(item.fileSize)}})
             .sSectBodyItemRow(v-if="status.isChatLikes")
                 span.likes(@click="likeChat(item)") &#x1F44D; {{item.likes}}
                 span.likes(@click="dislikeChat(item)") &#x1F44E; {{item.dislikes}}
