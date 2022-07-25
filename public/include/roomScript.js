@@ -23,11 +23,11 @@ const sRoom=class{
             reqUserShow:false,
         },
         methods:{
-            dislikeChat:dislikeChat,
+        /*    dislikeChat:dislikeChat,
             likeChat:likeChat,
             addSmileToChat:addSmileToChat,
             reqUser:reqUser(callBack),
-            chatSend:chatSend,
+            chatSend:chatSend,*/
             updateStatus:async function(){
                 try {
                     let s = await axios.get("/api/status/" + this.id)
