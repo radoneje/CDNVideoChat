@@ -14,7 +14,8 @@
             user:{id:null, name:null},
             reqUserShow:false,
             status:{},
-            id:null
+            id:null,
+            timeout:20
         },
         methods:{
             chatNewItemClick:function (sect){
@@ -83,13 +84,15 @@
                     let s = await axios.get("/api/status/" + ROOM.publicUUID)
 
                     this.status = s.data.status;
-
+                    this.timeout=Number.parseInt( s.data.timeout);
+                    if(this.timeout<2 || this.timeout>120)
+                        this.timeout==20;
                     this.chat=updateChat(this.chat,s.data.chat);
                     this.q=updateChat(this.q,s.data.q);
 
                 }
                 catch (e){console.warn(e)}
-                setTimeout(this.updateStatus, 2000);
+                setTimeout(this.updateStatus, this.timeout*1000);
             }
         },
         watch: {

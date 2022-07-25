@@ -26,7 +26,8 @@ const sRoom=class{
             userError:null,
             user:{id:null, name:null},
             reqUserShow:false,
-            options: {root: null, rootMargin: '0px', threshold: 1.0}
+            options: {root: null, rootMargin: '0px', threshold: 1.0},
+            timeout:20
         },
         methods:{
 
@@ -93,6 +94,9 @@ const sRoom=class{
                     let s = await axios.get("/api/status/" + this.id)
 
                     this.status = s.data.status;
+                    this.timeout=Number.parseInt( s.data.timeout);
+                    if(this.timeout<2 || this.timeout>120)
+                        this.timeout==20;
                     if(!this.status.isChat && this.status.isQ)
                         this.section=1;
 
@@ -130,15 +134,11 @@ const sRoom=class{
                     setTimeout(()=>{
 
                     },100);
-                   /* if(len<this.q.length)
-                        setTimeout(function () {
-                            var objDiv = document.getElementById("qBox");
-                            objDiv.scrollTop = objDiv.scrollHeight;
-                        },0)*/
+
 
                 }
                 catch (e){console.warn(e)}
-                setTimeout(this.updateStatus, 2000);
+                setTimeout(this.updateStatus, this.timeout*1000);
             }
         },
         watch: {

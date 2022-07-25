@@ -1,6 +1,6 @@
 .sSectBody
     .sSectBodyWr#chatBox
-        #topOfChat loading...
+        //#topOfChat loading...
         .sSectBodyItem(v-if="chat.length==0")
             .sSectBodyItemRow Еще нет сообщений
         .sSectBodyItem(:id="'chat'+item.id" v-for="item in chat" v-bind:class="{my:item.userid==user.id}" v-if="!item.isDeleted")

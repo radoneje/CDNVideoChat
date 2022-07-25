@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
+const fsPromises = require('fs').promises;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -36,10 +37,11 @@ router.get("/status/:id", async (req, res)=>{
   if(r.length==0)
     return res.sendStatus(404);
   delete r[0].uuid;
-  let chat=await req.knex("v_chat").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(100);
-  let q=await req.knex("v_q").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(100);
-
-  res.json({status:r[0], chat,q})
+  let chat=await req.knex("v_chat").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(300);
+  let q=await req.knex("v_q").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(300);
+  let timeout=0;
+  timeout=Number.parseInt( await fsPromises.promises.readFile("./timeout.txt"));
+  res.json({status:r[0], chat,q, timeout})
 })
 router.post("/status", async (req, res)=>{
   let id=req.body.id;
