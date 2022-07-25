@@ -274,6 +274,12 @@ h4{
 .bold{
   font-weight: bold;
 }
+.sModBox{
+
+}
+.sModPadel{
+
+}
 
 @media screen and (max-width: 720px){
   :root {
