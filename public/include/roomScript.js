@@ -105,7 +105,14 @@ const sRoom=class{
                         this.section=0;
                     let l=this.chat.length;
                     this.chat=updateChat(this.chat,s.data.chat);
-                    this.chat=this.chat.filter(c=>{if( this.status.isChatPreMod ) return c.isMod; else return true })
+                    this.chat=this.chat.filter(c=>{
+                        let ret=false;
+                        if( this.status.isChatPreMod )
+                            ret= c.isMod;
+                        else ret=true;
+                        console.log(ret)
+                        return ret;
+                    })
                     if(len<this.chat.length)
                         setTimeout(function () {
                             var objDiv = document.getElementById("chatBox");
