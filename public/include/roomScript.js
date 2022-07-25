@@ -42,8 +42,12 @@ const sRoom=class{
 
                     this.chat=this.chat.filter(c=>{
                         let ret=false;
-                        if( this.status.isChatPreMod )
-                            ret= c.isMod && c.userid==this.user.id;
+                        if( this.status.isChatPreMod ){
+                            if(!c.isMod && c.userid==this.user.id)
+                                return true
+                            return c.isMod
+                        }
+
                         else ret=true;
 
                         return ret;
