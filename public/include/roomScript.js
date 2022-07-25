@@ -99,17 +99,14 @@ const sRoom=class{
         watch: {
             chat:async function(){
 
-                let newItems=this.chat.filter(c=>{return c.new});
-                console.log("chat change", newItems)
-                /*
-                * newChatItem:function(item){
-                console.log(" newChatItem");
-                setTimeout(()=>{
-                var elem=document.getElementById("chat"+item.id)
-                    console.log(elem);
-                this.chatNewItems++;
-                },100)
-            },*/
+
+                this.chat.forEach(c=>{
+                    if(c.new){
+                        delete c.new;
+                        this.chatNewItems++;
+                    }
+                });
+
             }
         },
         mounted:async function(){
