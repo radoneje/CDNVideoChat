@@ -236,6 +236,17 @@ h4{
   font-size: var(--headFontSize);
   font-weight: bold;
 }
+.sSectBodyItem{
+  width: calc(100% - 24px);
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid gray;
+  padding: 8px;
+  margin: 8px 0;
+}
+.sSectBodyItemRow{
+
+}
 
 @media screen and (max-width: 720px){
   :root {
