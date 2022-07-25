@@ -186,7 +186,7 @@ let addImageToChat= async function(){
        elem.parentNode.removeChild(elem)
    };
    document.body.appendChild(elem)
-   elem.change();
+   elem.click();
 }
 let addImageToQ= async function(){}
 
