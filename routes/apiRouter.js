@@ -40,7 +40,7 @@ router.get("/status/:id", async (req, res)=>{
   let chat=await req.knex("v_chat").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(300);
   let q=await req.knex("v_q").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(300);
   let timeout=0;
-  timeout=Number.parseInt( await fsPromises.promises.readFile("./timeout.txt"));
+  timeout=Number.parseInt( await fsPromises.readFile("./timeout.txt"));
   res.json({status:r[0], chat,q, timeout})
 })
 router.post("/status", async (req, res)=>{
