@@ -10,9 +10,11 @@
             reqUserShow:false,
         },
         methods:{
+            changeStatus:async function (){
+                await axios.post("/api/status",{id:this.status.id, isChat:this.status.isChat, isChatLikes:this.status.isChatLikes,isChatPreMod:this.status.isChatPreMod,isQ:this.status.isQ,isQLikes:this.status.isQLikes,isQPreMod:this.status.isQPreMod});
+            },
             updateStatus:async function(){
                 try {
-                    console.log("room", ROOM)
                     let s = await axios.get("/api/status/" + ROOM.publicUUID)
                     this.status = s.data.status;
                     this.chat=s.data.chat;

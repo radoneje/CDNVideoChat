@@ -40,6 +40,14 @@ router.get("/status/:id", async (req, res)=>{
 
   res.json({status:r[0], chat})
 })
+router.post("/status", async (req, res)=>{
+  let id=req.body.id;
+  delete req.body.id;
+  let r= await req.knex("t_rooms").update(req.body, "*").where({id:id});
+
+  res.json(r[0])
+})
+
 router.post("/regUser", async (req, res)=>{
   let r= await req.knex.select('*').from("t_users").where({ roomPublicUUID:req.body.id, name:req.body.name});
   if(r.length>0)
