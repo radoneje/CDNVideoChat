@@ -27,13 +27,14 @@ const sRoom=class{
                 if(!localStorage.getItem("chatdislike"+item.id)) {
                     item.dislikes++;
                     await axios.post("/api/chatdislike", {id: item.id})
+                    localStorage.setItem("chatdislike"+item.id, true);
                 }
                 else {
                     item.dislikes--;
                     localStorage.removeItem("chatdislike"+item.id)
                     await axios.post("/api/chatdislike", {id: item.id, undo:1})
                 }
-                localStorage.setItem("chatdislike"+item.id, true);
+
             },
             likeChat:async function(item){
                 if(!localStorage.getItem("chatlike"+item.id)) {
