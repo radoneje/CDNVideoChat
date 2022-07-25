@@ -165,7 +165,7 @@ async function loadRoom(chatid, elem, lang){
     if(typeof updateChat == 'undefined')
     {
         let a=document.createElement("script");
-        a.src="/include/utils.js"
+        a.src="/include/ulils.js"
         await loadResource(a, document.head);
 
     }
