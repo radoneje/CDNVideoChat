@@ -133,7 +133,7 @@ let qSend=async function(){
     if(this.qText.length==0)
         return;
     if(!this.user.id)
-        return await this.reqUser(this.qSend);
+        return await reqUser(this.qSend);
     let r=await axios.post("/api/q",{id:this.id,text:this.chatText,userid:this.user.id})
     this.qText="";
     this.q.push(r.data);
