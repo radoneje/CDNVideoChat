@@ -111,7 +111,7 @@ const sRoom=class{
                                     console.log(entries[0].isIntersecting)
                                 }, this.options);
 
-                                observer.observe();
+                                observer.observe(elem);
                             }
                         }
                     });
