@@ -208,7 +208,7 @@ router.post("/chat", async (req, res)=>{
     return res.sendStatus(404);
   let r= await req.knex("t_chat").insert({ roomPublicUUID:req.body.id,  userid:req.body.userid, file:req.file.path, fileName:req.file.originalname, fileType:req.file.mimetype, fileSize:req.file.size},"*");
   let rr=await req.knex("v_chat").where({id:r[0].id});
-  console.log(rr[0])
+  console.log(rr[0]);
   res.json(rr[0]);
 })
 
