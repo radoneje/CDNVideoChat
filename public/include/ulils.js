@@ -90,7 +90,7 @@ let updateChat=function (oldChat,newChat){
         if(!find)
             oldChat.push(n)
     })
-    oldChat=oldChat.sort((a,b)=>{return moment(a.createDate).unux()-moment(b.createDate).unix()})
+    oldChat=oldChat.sort((a,b)=>{return moment(a.createDate).unix()-moment(b.createDate).unix()})
     return oldChat;
 
 }
