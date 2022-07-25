@@ -45,26 +45,7 @@
 
 
             changeSection:function (sect){
-                this.section=sect;
-                if(sect==0){
-                    this.chatNewItems=0;
-                    this.chat.forEach(c=>{delete c.new})
-                    setTimeout(()=>{
-                        let objDiv = document.getElementById("chatBox");
-                        if(objDiv)
-                            objDiv.scrollTop = objDiv.scrollHeight;
-                    },200)
-                }
-                if(sect==1){
-                    this.chatNewItems=0;
-                    this.chat.forEach(c=>{delete c.new})
-                    setTimeout(()=>{
 
-                        let objDiv = document.getElementById("qBox");
-                        if(objDiv)
-                            objDiv.scrollTop = objDiv.scrollHeight;
-                    },200)
-                }
 
             },
             modChat:async function(item){
