@@ -62,15 +62,17 @@ let reqUser=async function (callBack){
     },0)
 
 }
-let chatSend=async function(){
-    this.chatText=this.chatText.trim();
-    if(this.chatText.length==0)
+let chatSend=async function(prm){
+    let _this=prm?prm:this;
+
+    _this.chatText=_this.chatText.trim();
+    if(_this.chatText.length==0)
         return;
-    if(!this.user.id)
-        return await this.reqUser(this.chatSend);
-    let r=await axios.post("/api/chat",{id:this.id,text:this.chatText,userid:this.user.id})
-    this.chatText="";
-    this.chat.push(r.data);
+    if(!_this.user.id)
+        return await _this.reqUser(_this.chatSend);
+    let r=await axios.post("/api/chat",{id:_this.id,text:_this.chatText,userid:_this.user.id})
+    _this.chatText="";
+    _this.chat.push(r.data);
     setTimeout(function () {
         var objDiv = document.getElementById("chatBox");
         objDiv.scrollTop = objDiv.scrollHeight;
@@ -131,10 +133,8 @@ let addSmileToQ=async function(){
 }
 
 let qSend=async function(prm){
-    console.log(this,this.qText)
-    let _this=this;
-    if(prm)
-        _this=prm;
+    let _this=prm?prm:this;
+
     _this.qText=_this.qText.trim();
     if(_this.qText.length==0)
         return;
