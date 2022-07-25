@@ -3,6 +3,7 @@
         el:"#app",
         data:{
             chatConfigShow:false,
+            qConfigShow:false,
             chat:[],
             chatText:"",
             q:[],
