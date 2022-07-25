@@ -2,7 +2,7 @@
     .sLoader(v-if="!isLoaded")
     .sRoomBox(v-if="isLoaded")
         .sHeader
-            .sHeaderItem(v-bind:class="{active:section==0}" v-on:click="section=0")
+            .sHeaderItem(v-if="status.isChat" v-bind:class="{active:section==0}" v-on:click="section=0")
                 .sHeaderItemTitle
                     .sHeaderItemTitleText Чат
                     .sHeaderItemTitleIcon
@@ -11,7 +11,7 @@
                     .sHeaderItemTitleText Вопросы
                     .sHeaderItemTitleIcon
         .sBody
-            .sSectWr(v-show="section==0")
+            .sSectWr(v-show="section==0" v-if="status.isChat")
                 include elements/chatBody
 
             .sSectWr(v-show="section==1")
