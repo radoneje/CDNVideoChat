@@ -99,7 +99,7 @@ const sRoom=class{
         watch: {
             chat:async function(){
 
-                let newItems=chat.filter(c=>{return chat.new});
+                let newItems=this.chat.filter(c=>{return chat.new});
                 console.log("chat change", newItems)
                 /*
                 * newChatItem:function(item){
