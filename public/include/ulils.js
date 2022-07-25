@@ -31,7 +31,7 @@ let addSmileToChat=async function(){
     document.getElementById("chatText").focus();
 }
 let reqUser=async function (callBack){
-
+    let _this=this;
     let register=async ()=>{
         if(this.user.name.length==0)
             return;
@@ -46,7 +46,8 @@ let reqUser=async function (callBack){
         this.user=r.data.user;
         localStorage.setItem("user_"+this.id, JSON.stringify(this.user));
         this.reqUserShow=false;
-        callBack();
+
+        callBack(_this);
     }
     this.reqUserShow=true;
     setTimeout(()=>{
@@ -129,16 +130,19 @@ let addSmileToQ=async function(){
     document.getElementById("qText").focus();
 }
 
-let qSend=async function(){
+let qSend=async function(prm){
     console.log(this,this.qText)
-    this.qText=this.qText.trim();
-    if(this.qText.length==0)
+    let _this=this;
+    if(prm)
+        _this=prm;
+    _this.qText=_this.qText.trim();
+    if(_this.qText.length==0)
         return;
-    if(!this.user.id)
-        return await this.reqUser(this.qSend);
-    let r=await axios.post("/api/q",{id:this.id,text:this.chatText,userid:this.user.id})
-    this.qText="";
-    this.q.push(r.data);
+    if(!_this.user.id)
+        return await _this.reqUser(this.qSend);
+    let r=await axios.post("/api/q",{id:_this.id,text:_this.chatText,userid:_this.user.id})
+    _this.qText="";
+    _this.q.push(r.data);
     setTimeout(function () {
         var objDiv = document.getElementById("qBox");
         objDiv.scrollTop = objDiv.scrollHeight;
