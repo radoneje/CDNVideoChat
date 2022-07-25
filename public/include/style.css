@@ -410,7 +410,21 @@ h4 {
 .hidden{
     display: none !important;
 }
-.chatNewItems{}
+.chatNewItems{
+
+    position: absolute;
+    bottom: var(--mob-padding);
+    right: var(--mob-padding);
+    border: 1px solid var(--Active);;
+    border-radius: 50%;
+    width: var(--padding);
+    height: var(--padding);
+    text-align: center;
+    padding: var(--mob-padding);
+    color: var(--white);
+    cursor: pointer;
+    background: var(--liteActive);
+}
 
 @media screen and (max-width: 720px) {
     :root {
