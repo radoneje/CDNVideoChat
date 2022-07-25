@@ -140,7 +140,7 @@ let qSend=async function(prm){
         return;
     if(!_this.user.id)
         return await _this.reqUser(this.qSend);
-    let r=await axios.post("/api/q",{id:_this.id,text:_this.chatText,userid:_this.user.id})
+    let r=await axios.post("/api/q",{id:_this.id,text:_this.qText,userid:_this.user.id})
     _this.qText="";
     _this.q.push(r.data);
     setTimeout(function () {
