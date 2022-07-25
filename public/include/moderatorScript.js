@@ -15,7 +15,7 @@
             dislikeChat:dislikeChat,
             likeChat:likeChat,
             addSmileToChat:addSmileToChat,
-            reqUser:reqUser,
+            reqUser:reqUser(callBack),
             chatSend:chatSend,
             modChat:async function(item){
                 item.isMod=!item.isMod
@@ -40,7 +40,7 @@
                     let s = await axios.get("/api/status/" + ROOM.publicUUID)
 
                     this.status = s.data.status;
-                    let l=this.chat.length;
+                    let len=this.chat.length;
                     this.chat=updateChat(this.chat,s.data.chat);
                     if(len<this.chat.length)
                         setTimeout(function () {
