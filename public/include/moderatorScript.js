@@ -44,7 +44,9 @@
             likeQ:likeQ,
             addSmileToQ:addSmileToQ,
             qSend:qSend,
-            onPasteChat:onPasteChat,
+            addImageToChat:addImageToChat,
+            addImageToQ:addImageToQ,
+
 
 
             changeSection:function (sect){

@@ -177,4 +177,16 @@ let onPasteChat= async function(e){
 window.addEventListener('paste', e => {
     console.log("onPasteChat",e )
 });
+let addImageToChat= async function(){
+   var elm=document.createElement("input");
+   elem.type="file"
+    elem.styles.display="none";
+   elem.onchange=(e)=>{
+       alert("elem.change")
+       elem.parentNode.removeChild(elem)
+   };
+   document.body.appendChild(elem)
+   elem.change();
+}
+let addImageToQ= async function(){}
 

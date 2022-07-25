@@ -83,13 +83,14 @@ const sRoom=class{
             addSmileToChat:()=>{},//addSmileToChat,
             reqUser:()=>{},//reqUser(callBack),
             chatSend:()=>{},//chatSend,
-            onPasteChat:()=>{},
+            addImageToChat:()=>{},
 
             dislikeQ:()=>{},//room.dislikeChat,
             likeQ:()=>{},//likeChat,
             addSmileToQ:()=>{},//addSmileToChat,
             qSend:()=>{},//chatSend,
             getText:()=>{},
+            addImageToQ:()=>{},
 
 
             updateStatus:async function(){
@@ -211,12 +212,14 @@ const sRoom=class{
                 this.reqUser=reqUser;
                 this.chatSend=chatSend;
             this.onPasteChat=onPasteChat;
+            this.addImageToChat=addImageToChat;
 
             this.dislikeQ=dislikeQ;
             this.likeQ=likeQ;
             this.addSmileToQ=addSmileToQ;
             this.qSend=qSend;
             this.getText=getText;
+            this.addImageToQ=addImageToQ;
 
 
             let callback = function(entries, observer) {
