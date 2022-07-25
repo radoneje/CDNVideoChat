@@ -66,11 +66,11 @@ const sRoom=class{
                         }
                         return  true;
                     })
-                    if(len<this.chat.length)
+                /*    if(len<this.chat.length)
                         setTimeout(function () {
                             var objDiv = document.getElementById("chatBox");
                             objDiv.scrollTop = objDiv.scrollHeight;
-                        },0)
+                        },0)*/
 ////
                     len=this.q.length;
                     this.q=updateChat(this.q,s.data.q);
