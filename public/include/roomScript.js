@@ -74,6 +74,7 @@ function initRoom(chatid, elem, lang) {
 }
 async function loadRoom(chatid, elem, lang){
 
+    console.log("loadRoom")
     if(typeof axios == 'undefined')
     {
         let a=document.createElement("script");
