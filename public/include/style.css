@@ -243,7 +243,8 @@ a {
     padding: var(--mob-padding);
     width: calc(100%);
     box-sizing: border-box;
-    padding-left: 75px
+    padding-left: 75px;
+    border:1px solid var(--black)
 }
 
 .sSectInputField input:active, .sSectInputField input:focus {
