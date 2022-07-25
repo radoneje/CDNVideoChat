@@ -39,7 +39,7 @@ router.get("/status/:id", async (req, res)=>{
   let chat=await req.knex("v_chat").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(100);
   let q=await req.knex("v_q").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(100);
 
-  res.json({status:r[0], chat})
+  res.json({status:r[0], chat,q})
 })
 router.post("/status", async (req, res)=>{
   let id=req.body.id;
