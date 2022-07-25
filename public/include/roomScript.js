@@ -7,7 +7,7 @@ const sRoom=class{
             this.room.el=elem;
             console.log("loadRoom method", this.room)
             this.app=new Vue(this.room)
-            console.log(this.app.methods)
+
         });
 
         return this.roomApp;
@@ -24,8 +24,8 @@ const sRoom=class{
             reqUserShow:false,
         },
         methods:{
-        /*    dislikeChat:dislikeChat,
-            likeChat:likeChat,
+            dislikeChat:room.dislikeChat,
+          /*  likeChat:likeChat,
             addSmileToChat:addSmileToChat,
             reqUser:reqUser(callBack),
             chatSend:chatSend,*/
@@ -38,7 +38,7 @@ const sRoom=class{
                     if(!status.isQ)
                         this.section=0;
                     let len=this.chat.length;
-                    this.chat=updateChat(this.chat,s.data.chat);
+                    this.chat=room.updateChat(this.chat,s.data.chat);
                     console.log( this.chat)
                     this.chat=this.chat.filter(c=>{
                         let ret=false;
