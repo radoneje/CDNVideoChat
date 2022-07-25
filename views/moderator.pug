@@ -8,10 +8,10 @@ block content
         .button.maxContent.small выключить
         .sModSettings(@click="chatConfigShow=!chatConfigShow") &#x2699;
         .sModSettingsBox(v-if="chatConfigShow")
-          .sModSettingsBoxRow(v-bind:class="{active:status.isChatPreMod}")
+          .sModSettingsBoxRow(v-bind:class="{active:status.isChatPreMod}" v-on:click="changeStatus('isChatPreMod')")
             .sModSettingsBoxRowRound
             .sModSettingsBoxRowTitle Пре-модерация
-          .sModSettingsBoxRow(v-bind:class="{active:status.isChatPreMod}" v-on:click="changeStatus('isChatPreMod')")
+          .sModSettingsBoxRow(v-bind:class="{active:status.isChatLikes}" v-on:click="changeStatus('isChatLikes')")
             .sModSettingsBoxRowRound
             .sModSettingsBoxRowTitle Лайки
           .sModSettingsBoxRow
