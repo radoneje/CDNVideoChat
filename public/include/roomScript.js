@@ -88,6 +88,7 @@ const sRoom=class{
             likeQ:()=>{},//likeChat,
             addSmileToQ:()=>{},//addSmileToChat,
             qSend:()=>{},//chatSend,
+            getText:()=>{},
 
             updateStatus:async function(){
                 try {
@@ -212,6 +213,7 @@ const sRoom=class{
             this.likeQ=likeQ;
             this.addSmileToQ=addSmileToQ;
             this.qSend=qSend;
+            this.getText=getText;
 
 
             let callback = function(entries, observer) {

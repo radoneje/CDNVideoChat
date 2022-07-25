@@ -5,8 +5,8 @@
             .sSectBodyItemRow Еще нет сообщений
         .sSectBodyItem(:id="'chat'+item.id" v-for="item in chat" v-bind:class="{my:item.userid==user.id}" v-if="!item.isDeleted")
             .sSectBodyItemRow {{moment(item.createDate).format('HH:mm')}}
-                span.bold &nbsp;{{item.name}}
-            .sSectBodyItemRow {{item.text}}
+                span.bold &nbsp;{{getText(item.name)}}
+            .sSectBodyItemRow(v-html="getText(item.text)")
             .sSectBodyItemRow(v-if="status.isChatLikes")
                 span.likes(@click="likeChat(item)") &#x1F44D; {{item.likes}}
                 span.likes(@click="dislikeChat(item)") &#x1F44E; {{item.dislikes}}

@@ -18,6 +18,7 @@
             timeout:20
         },
         methods:{
+
             chatNewItemClick:function (sect){
                 this.chat.forEach(c=>{delete c.new})  ;
                 this.chatNewItems=1;
@@ -38,7 +39,7 @@
             addSmileToChat:addSmileToChat,
             reqUser:reqUser,
             chatSend:chatSend,
-
+            getText:getText,
             dislikeQ:dislikeQ,
             likeQ:likeQ,
             addSmileToQ:addSmileToQ,

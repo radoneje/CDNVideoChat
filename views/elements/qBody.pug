@@ -6,7 +6,7 @@
         .sSectBodyItem(:id="'q'+item.id" v-for="item in q" v-bind:class="{my:item.userid==user.id}" v-if="!item.isDeleted")
             .sSectBodyItemRow {{moment(item.createDate).format('HH:mm')}}
                 span.bold &nbsp;{{item.name}}
-            .sSectBodyItemRow {{item.text}}
+            .sSectBodyItemRow(v-html="getText(item.text)")
             .sSectBodyItemRow(v-if="status.isQLikes")
                 span.likes(@click="likeQ(item)") &#x1F44D; {{item.likes}}
                 span.likes(@click="dislikeQ(item)") &#x1F44E; {{item.dislikes}}

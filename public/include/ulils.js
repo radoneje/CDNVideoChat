@@ -159,3 +159,15 @@ let qSend=async function(prm){
     },0)
 
 }
+let urlify=(text)=> {
+    var urlRegex = /(https?:\/\/[^\s]+)/g;
+    return text.replace(urlRegex, function(url) {
+        return '<a href="' + url + '">' + url + '</a>';
+    })
+}
+let getText=async function(html){
+    let elem=document.createElement("div");
+    elem.innerHTML=html;
+    return urlify(elem.innerText)
+}
+
