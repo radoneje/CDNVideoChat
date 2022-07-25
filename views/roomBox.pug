@@ -12,33 +12,12 @@
                     .sHeaderItemTitleIcon
         .sBody
             .sSectWr(v-show="section==0")
-                .sSectBody
-                    .sSectBodyWr
-                        .sSectBodyItem(v-for="item in chat" v-bind:class="{my:item.userid==user.id}")
-                            .sSectBodyItemRow {{moment(item.createDate).format('HH:mm')}}
-                                span.bold &nbsp;{{item.name}}
-                            .sSectBodyItemRow {{item.text}}
-                            .sSectBodyItemRow
-                                span.likes(@click="likeChat(item)") &#x1F44D; {{item.likes}}
-                                span.likes(@click="dislikeChat(item)") &#x1F44E; {{item.dislikes}}
-                .sSectFooter
-                    .sSectInput
-                        .sSectSmileList(@click="addSmileToChat()") &#x1F600;
-                        .sSectInputField
-                            input#chatText(placeholder="Please, write here" v-model="chatText" v-on:keydown="if($event.keyCode==13) chatSend()")
-                        .sSectInputSend
-                            .button(@click="chatSend()" ) Send
+                include elements/chatBody
 
             .sSectWr(v-show="section==1")
                 .sSectBody Вопросы
                 .sSectFooter input q
-        .reqUser(v-if="reqUserShow")
-            .reqUserBox
-                h4 Please, register
-                .reqUserRow
-                    .sSectInputField(v-if="userError" style="color:red") {{userError}}
-                    input#register(v-model="user.name")
-                .button#registerBtn Log in
+        include elements/regUser
 
 
 
