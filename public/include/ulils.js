@@ -180,7 +180,7 @@ window.addEventListener('paste', e => {
 let addImageToChat= async function(){
    var elem=document.createElement("input");
    elem.type="file"
-    elem.styles.display="none";
+    elem.style.display="none";
    elem.onchange=(e)=>{
        alert("elem.change")
        elem.parentNode.removeChild(elem)
