@@ -47,7 +47,7 @@ const sRoom=class{
 
                     if(!this.status.isQ && this.status.isChat)
                         this.section=0;
-
+///
                     let len=this.chat.length;
                     this.chat=updateChat(this.chat,s.data.chat);
 
@@ -59,12 +59,29 @@ const sRoom=class{
                         }
                         return  true;
                     })
-
                     if(len<this.chat.length)
                         setTimeout(function () {
                             var objDiv = document.getElementById("chatBox");
                             objDiv.scrollTop = objDiv.scrollHeight;
                         },0)
+////
+                    len=this.q.length;
+                    this.q=updateChat(this.q,s.data.q);
+
+                    this.q=this.q.filter(c=>{
+                        if( this.status.isChatPreMod ){
+                            if(!c.isMod && c.userid==this.user.id)
+                                return true
+                            return c.isMod
+                        }
+                        return  true;
+                    })
+                    if(len<this.chat.length)
+                        setTimeout(function () {
+                            var objDiv = document.getElementById("qBox");
+                            objDiv.scrollTop = objDiv.scrollHeight;
+                        },0)
+
                 }
                 catch (e){console.warn(e)}
                 setTimeout(this.updateStatus, 2000);
@@ -82,6 +99,11 @@ const sRoom=class{
                 this.addSmileToChat=addSmileToChat;
                 this.reqUser=reqUser;
                 this.chatSend=chatSend;
+
+            this.dislikeQ=dislikeQ;
+            this.likeQ=likeQ;
+            this.addSmileToQ=addSmileToQ;
+            this.qSend=qSend;
 
         },
     }

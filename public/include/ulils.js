@@ -94,3 +94,52 @@ let updateChat=function (oldChat,newChat){
     return oldChat;
 
 }
+////
+
+let dislikeQ=async function(item){
+    if(!localStorage.getItem("qdislike"+item.id)) {
+        item.dislikes++;
+        await axios.post("/api/qlike", {id: item.id})
+        localStorage.setItem("qdislike"+item.id, true);
+    }
+    else {
+        item.dislikes--;
+        localStorage.removeItem("qdislike"+item.id)
+        await axios.post("/api/qdislike", {id: item.id, undo:1})
+    }
+
+}
+let likeQ=async function(item){
+    if(!localStorage.getItem("qlike"+item.id)) {
+        item.likes++;
+        await axios.post("/api/qlike", {id: item.id})
+        localStorage.setItem("qlike" + item.id, true);
+    }
+    else {
+        item.likes--;
+        localStorage.removeItem("qlike"+item.id)
+        await axios.post("/api/qlike", {id: item.id, undo:1})
+
+    }
+
+}
+let addSmileToQ=async function(){
+    this.chatText+=" \u{1F600} ";
+    document.getElementById("qText").focus();
+}
+
+let qSend=async function(){
+    this.qText=this.qText.trim();
+    if(this.qText.length==0)
+        return;
+    if(!this.user.id)
+        return await this.reqUser(this.qSend);
+    let r=await axios.post("/api/q",{id:this.id,text:this.chatText,userid:this.user.id})
+    this.qText="";
+    this.q.push(r.data);
+    setTimeout(function () {
+        var objDiv = document.getElementById("qBox");
+        objDiv.scrollTop = objDiv.scrollHeight;
+    },0)
+
+}
