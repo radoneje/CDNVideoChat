@@ -29,6 +29,9 @@ block content
         .h4(v-if="!status.isChat") Вопросы  выключены &nbsp;
         .button.maxContent.small.red(v-if="!status.isQ" @click="changeStatus('isQ')") Включить
         .sModSettings &#x2699;
+      .sBody
+        .sSectWr
+          include elements/qBody
     .sModPadel
       .h4 Голосование
       .h4
