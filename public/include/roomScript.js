@@ -34,7 +34,7 @@ const sRoom=class{
                     localStorage.removeItem("chatdislike"+item.id)
                     await axios.post("/api/chatdislike", {id: item.id, undo:1})
                 }
-
+                console.log("like")
             },
             likeChat:async function(item){
                 if(!localStorage.getItem("chatlike"+item.id)) {
@@ -48,6 +48,7 @@ const sRoom=class{
                     await axios.post("/api/chatlike", {id: item.id, undo:1})
 
                 }
+                console.log("dislyke")
             },
             addSmileToChat:async function(){
                 this.chatText+=" \u{1F600} ";
