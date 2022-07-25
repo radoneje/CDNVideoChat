@@ -211,8 +211,8 @@ router.post("/chatFile", upload.single('file'), async (req, res)=>{
 })
 router.get("/downloadFile/:id", async (req, res)=>{
 
-  let rr=await req.knex("t_chat").where({id:req.params.id});
-  if(rr.length==0)
+  let r=await req.knex("t_chat").where({id:req.params.id});
+  if(r.length==0)
     return res.sendStatus(404);
   var options = {
     root: path.join(__dirname)
