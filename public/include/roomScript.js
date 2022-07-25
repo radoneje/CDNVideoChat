@@ -99,6 +99,10 @@ const sRoom=class{
                 try {
                     let s = await axios.get("/api/status/" + this.id)
                     this.status = s.data.status;
+                    if(!status.isChat)
+                        this.section=1;
+                    if(!status.isQ)
+                        this.section=0;
                     this.chat=s.data.chat;
                 }
                 catch (e){console.warn(e)}
