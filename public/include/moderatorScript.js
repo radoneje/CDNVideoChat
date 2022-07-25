@@ -15,7 +15,7 @@
             dislikeChat:dislikeChat,
             likeChat:likeChat,
             addSmileToChat:addSmileToChat,
-            reqUser:reqUser(callBack),
+            reqUser:reqUser,
             chatSend:chatSend,
             modChat:async function(item){
                 item.isMod=!item.isMod
