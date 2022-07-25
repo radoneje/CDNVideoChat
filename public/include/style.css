@@ -437,6 +437,9 @@ h4 {
     .sHeader {
         height: 40px;
     }
+    #sFooterMiddle{
+        height: 1px;
+    }
     #UpBtn {
         display: block;
         position: fixed;
