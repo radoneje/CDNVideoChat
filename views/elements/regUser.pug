@@ -1,7 +1,7 @@
 .reqUser(v-if="reqUserShow")
     .reqUserBox
-        h4 Please, register
+        h4 Пожалуйста, зарегистрируйтесь
         .reqUserRow
             .sSectInputField(v-if="userError" style="color:red") {{userError}}
-            input#register(v-model="user.name")
-        .button#registerBtn Log in
+            input#register(placeholder="Имя, фамилия или ник" v-model="user.name")
+        .button#registerBtn Регистрация
