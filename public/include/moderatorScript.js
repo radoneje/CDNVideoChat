@@ -19,6 +19,13 @@
             addSmileToChat:addSmileToChat,
             reqUser:reqUser,
             chatSend:chatSend,
+
+            dislikeQ:dislikeQ,
+            likeQ:likeQ,
+            addSmileToQ:addSmileToQ,
+            qSend:qSend,
+
+
             modChat:async function(item){
                 item.isMod=!item.isMod
                 await axios.post("/api/modChat",{item, uuid:ROOM.uuid});
