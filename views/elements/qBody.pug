@@ -1,6 +1,6 @@
 .sSectBody
     .sSectBodyWr#qBox
-        .sSectBodyItem(v-for="item in q" v-bind:class="{my:item.userid==user.id}" v-if="!item.isDeleted")
+        .sSectBodyItem(:id="'q'+item.id" v-for="item in q" v-bind:class="{my:item.userid==user.id}" v-if="!item.isDeleted")
             .sSectBodyItemRow {{moment(item.createDate).format('HH:mm')}}
                 span.bold &nbsp;{{item.name}}
             .sSectBodyItemRow {{item.text}}

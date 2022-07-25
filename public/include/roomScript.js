@@ -26,6 +26,12 @@ const sRoom=class{
             reqUserShow:false,
         },
         methods:{
+            newChatItem:function(item){
+                setTimeout(()=>{
+                var elem=document.getElementById("chat"+item.id)
+                    console.log(elem)
+                },100)
+            },
             changeSection:function (sect){
                 this.section=sect;
                 document.getElementById("sFooterEnd").scrollIntoView();
@@ -80,11 +86,14 @@ const sRoom=class{
                         }
                         return  true;
                     })
-                    if(len<this.chat.length)
+                    setTimeout(()=>{
+
+                    },100);
+                   /* if(len<this.q.length)
                         setTimeout(function () {
                             var objDiv = document.getElementById("qBox");
                             objDiv.scrollTop = objDiv.scrollHeight;
-                        },0)
+                        },0)*/
 
                 }
                 catch (e){console.warn(e)}

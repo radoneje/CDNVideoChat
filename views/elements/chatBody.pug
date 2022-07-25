@@ -1,6 +1,6 @@
 .sSectBody
     .sSectBodyWr#chatBox
-        .sSectBodyItem(v-for="item in chat" v-bind:class="{my:item.userid==user.id}" v-if="!item.isDeleted")
+        .sSectBodyItem(:id="'chat'+item.id" v-for="item in chat" v-bind:class="{my:item.userid==user.id}" v-if="!item.isDeleted")
             .sSectBodyItemRow {{moment(item.createDate).format('HH:mm')}}
                 span.bold &nbsp;{{item.name}}
             .sSectBodyItemRow {{item.text}}
@@ -8,6 +8,7 @@
                 span.likes(@click="likeChat(item)") &#x1F44D; {{item.likes}}
                 span.likes(@click="dislikeChat(item)") &#x1F44E; {{item.dislikes}}
             .sSectBodyItemRow(v-if="!item.isMod &&  status.isChatPreMod" style="color:red") сообщение на модерации
+            script {{newChatItem(itemId)}}
             if isModerator
                 .sSectBodyItemRow(style="display: flex;justify-content: end;")
                     .button.small.maxContent.red(@click="delChat(item)") Удалить
