@@ -208,6 +208,19 @@ router.post("/chatFile", upload.single('file'), async (req, res)=>{
   let rr=await req.knex("v_chat").where({id:r[0].id});
   res.json(rr[0]);
 })
+router.get("/downloadFile/:id", async (req, res)=>{
+
+  let rr=await req.knex("t_chat").where({шв:req.params.id});
+  if(rr.length==0)
+    return res.sendStatus(404);
+  var options = {
+    root: path.join(__dirname)
+  };
+  res.type(r[0].fileType)
+  res.sendFile(r[0].file, options)
+  res.json(rr);
+})
+
 
 
 
