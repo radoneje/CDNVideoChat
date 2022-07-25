@@ -40,8 +40,6 @@ const sRoom=class{
                     if(!this.status.isQ && this.status.isChat)
                         this.section=0;
 
-                    console.log(this.status.isQ, this.status.isChat)
-
                     let len=this.chat.length;
                     this.chat=updateChat(this.chat,s.data.chat);
 
