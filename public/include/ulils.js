@@ -68,5 +68,9 @@ let chatSend=async function(){
     let r=await axios.post("/api/chat",{id:this.id,text:this.chatText,userid:this.user.id})
     this.chatText="";
     this.chat.push(r.data);
+    setTimeout(function () {
+        var objDiv = document.getElementById("chatBox");
+        objDiv.scrollTop = objDiv.scrollHeight;
+    },0)
 
 }
