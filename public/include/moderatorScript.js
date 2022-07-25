@@ -8,6 +8,7 @@
             userError:null,
             user:{id:null, name:null},
             reqUserShow:false,
+            status:{}
         },
         methods:{
             changeStatus:async function (val){
