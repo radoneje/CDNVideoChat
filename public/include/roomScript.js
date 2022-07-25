@@ -134,7 +134,7 @@ const sRoom=class{
             },
             q:async function(){
                 setTimeout(()=> {
-                    this.q.forEach(c => {
+                    this.q.forEach(q => {
                         if (q.new && this.section==1) {
                             delete q.new;
                             this.qNewItems++;
