@@ -26,6 +26,10 @@ const sRoom=class{
             reqUserShow:false,
         },
         methods:{
+            changeSection:function (sect){
+                this.section=sect;
+                document.getElementById("sFooterEnd").scrollIntoView();
+            },
             dislikeChat:()=>{},//room.dislikeChat,
             likeChat:()=>{},//likeChat,
             addSmileToChat:()=>{},//addSmileToChat,

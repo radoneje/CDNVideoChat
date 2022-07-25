@@ -26,7 +26,10 @@
             addSmileToQ:addSmileToQ,
             qSend:qSend,
 
+            changeSection:function (sect){
+                this.section=sect;
 
+            },
             modChat:async function(item){
                 item.isMod=!item.isMod
                 await axios.post("/api/modChat",{item, uuid:ROOM.uuid});
