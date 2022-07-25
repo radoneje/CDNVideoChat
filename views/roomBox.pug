@@ -7,7 +7,7 @@
                 .sHeaderItemTitle
                     .sHeaderItemTitleText Чат
                     .sHeaderItemTitleIcon
-            .sHeaderItem(v-if="status.isQ" v-bind:class="{active:section==1, , aFull:!status.isChat}" v-on:click="section=1")
+            .sHeaderItem(v-if="status.isQ" v-bind:class="{active:section==1, aFull:!status.isChat}" v-on:click="section=1")
                 .sHeaderItemTitle
                     .sHeaderItemTitleText Вопросы
                     .sHeaderItemTitleIcon
