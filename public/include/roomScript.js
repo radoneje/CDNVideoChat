@@ -38,6 +38,7 @@ const sRoom=class{
                 objDiv.scrollTop = objDiv.scrollHeight;
             },
             qNewItemClick:function (sect){
+                console.log("qNewItemClick")
                 this.q.forEach(c=>{delete c.new})  ;
                 this.qtNewItems=1;
                 let objDiv = document.getElementById("qBox");
