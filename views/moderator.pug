@@ -6,7 +6,14 @@ block content
       .sModPanelHead
         .h4 Чат  включен &nbsp;
         .button.maxContent.small выключить
-        .sModSettings &#x2699;
+        .sModSettings(@click="chatConfigShow=!chatConfigShow") &#x2699;
+        .sModSettingsBox
+          .sModSettingsBoxRow
+            .sModSettingsBoxRowRound
+            .sModSettingsBoxRowTitle Пре-модерация
+          .sModSettingsBoxRow
+            .sModSettingsBoxRowRound
+            .sModSettingsBoxRowTitle Лайки
     .sModPadel
       .sModPanelHead
         .h4 Вопросы  включены &nbsp;
