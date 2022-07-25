@@ -221,11 +221,15 @@ a {
     padding-top: 4px;
     padding-left: 4px;
     box-sizing: border-box;
-    right: 4px;
+    right: 0px;
     height: 100%;
     border-radius: 0;
     border-left: 1px solid var(--black);
     background-color: var(--white);
+}
+.sSectSend:hover{
+    color: var(--white);
+    background-color: var(--liteActive);
 }
 
 
