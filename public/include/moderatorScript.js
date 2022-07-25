@@ -39,6 +39,18 @@
                     })
                 }
             },
+            modQ:async function(item){
+                item.isMod=!item.isMod
+                await axios.post("/api/modQ",{item, uuid:ROOM.uuid});
+            },
+            delQ:async function(item){
+                if(confirm("Удалить сообщение?")) {
+                    await axios.post("/api/delQ", {item, uuid: ROOM.uuid});
+                    this.chat = this.chat.filter(c => {
+                        return c.id != item.id
+                    })
+                }
+            },
             ///
             changeStatus:async function (val){
                 this.status[val]=!this.status[val]
