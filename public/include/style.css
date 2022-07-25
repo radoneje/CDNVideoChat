@@ -410,6 +410,7 @@ h4 {
 .hidden{
     display: none !important;
 }
+.chatNewItems{}
 
 @media screen and (max-width: 720px) {
     :root {
