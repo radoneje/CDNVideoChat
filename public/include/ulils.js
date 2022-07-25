@@ -185,6 +185,7 @@ let addImageToChat= async function(){
        let formData=new FormData();
        formData.append("file", elem.files[0]);
        formData.append("id", this.id);
+       formData.append("userid", this.user.id);
        let xhr = new XMLHttpRequest();
        xhr.open("POST", "/api/chatFile")
         let uploader=document.getElementById("sChatUploader")
@@ -198,7 +199,8 @@ let addImageToChat= async function(){
        }
        xhr.onreadystatechange = function() {//Call a function when the state changes.
            if(xhr.readyState == 4 && xhr.status == 200) {
-               alert(xhr.responseText);
+               let c=JSON.parse(xhr.responseText);
+               this.chat.push(c);
            }
        }
        xhr.upload.onprogress = function(event) {
