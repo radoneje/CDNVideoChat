@@ -67,21 +67,12 @@
                     let s = await axios.get("/api/status/" + ROOM.publicUUID)
 
                     this.status = s.data.status;
-                    let len=this.chat.length;
-                    this.chat=updateChat(this.chat,s.data.chat);
-                    if(len<this.chat.length)
-                        setTimeout(function () {
-                            var objDiv = document.getElementById("chatBox");
-                            objDiv.scrollTop = objDiv.scrollHeight;
-                        },0)
 
-                    len=this.q.length;
+                    this.chat=updateChat(this.chat,s.data.chat);
+
+
+
                     this.q=updateChat(this.q,s.data.q);
-                    if(len<this.q.length)
-                        setTimeout(function () {
-                            var objDiv = document.getElementById("qBox");
-                            objDiv.scrollTop = objDiv.scrollHeight;
-                        },0)
 
                 }
                 catch (e){console.warn(e)}
