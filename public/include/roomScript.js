@@ -118,7 +118,7 @@ const sRoom=class{
                 /* Content excerpted, show below */
             };
             let  observer = new IntersectionObserver((entries, observer)=>{
-                console.log("entries");
+                console.log(entries);
             }, options);
             setTimeout(()=>{observer.observe(document.getElementById("sFooterEnd"));},100)
 
