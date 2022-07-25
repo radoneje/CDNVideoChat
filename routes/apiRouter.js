@@ -215,7 +215,7 @@ router.get("/downloadFile/:id", async (req, res)=>{
   if(r.length==0)
     return res.sendStatus(404);
 
-  let p=path.join(__dirname,r[0].file);
+  let p=path.join(__dirname,"../",r[0].file);
   console.log(p)
   res.type(r[0].fileType)
   res.sendFile(p)
