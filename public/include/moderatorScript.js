@@ -69,9 +69,6 @@
                     this.status = s.data.status;
 
                     this.chat=updateChat(this.chat,s.data.chat);
-
-
-
                     this.q=updateChat(this.q,s.data.q);
 
                 }
