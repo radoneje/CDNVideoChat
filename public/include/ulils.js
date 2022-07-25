@@ -188,10 +188,18 @@ let addImageToChat= async function(){
        let xhr = new XMLHttpRequest();
        xhr.open("POST", "/api/chatFile")
         let uploader=document.getElementById("sChatUploader")
-       xhr.onreadystatechange =(event)=>{
-           if (event.readyState != 4) return;
-           console.log("onreadystatechange", event)
-           setTimeout(()=>{uploader.style.width=0},2000)
+       xhr.onload = xhr.onerror = (event)=>{
+           if (this.status == 200) {
+               log("success");
+           } else {
+               alert( 'Произошла ошибка при загрузке данных на сервер!' );
+           }
+          setTimeout(()=>{uploader.style.width=0},2000)
+       }
+       http.onreadystatechange = function() {//Call a function when the state changes.
+           if(http.readyState == 4 && http.status == 200) {
+               alert(http.responseText);
+           }
        }
        xhr.upload.onprogress = function(event) {
            console.log( 'Загружено на сервер ' + event.loaded + ' байт из ' + event.total );
