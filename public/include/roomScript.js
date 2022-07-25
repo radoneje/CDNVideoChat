@@ -117,6 +117,8 @@ const sRoom=class{
                                     //TODO: add remove
                                     if(entries[0].isIntersecting) {
                                         this.chatNewItems--;
+                                        if(this.chatNewItems<0)
+                                            this.chatNewItems=0;
                                         observer.unobserve(elem)
                                         console.log(entries[0].isIntersecting)
                                     }
