@@ -171,6 +171,10 @@ let getText= function(html){
     return urlify(elem.innerText)
 }
 let onPasteChat= async function(e){
-    console.log("onPasteChat",e )
+
 }
+
+window.addEventListener('paste', e => {
+    console.log("onPasteChat",e )
+});
 
