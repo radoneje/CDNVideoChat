@@ -1,5 +1,8 @@
 .sSectBody
     .sSectBodyWr#qBox
+        #topOfQ loading...
+        .sSectBodyItem(v-if="q.length==0")
+            .sSectBodyItemRow Еще нет сообщений
         .sSectBodyItem(:id="'q'+item.id" v-for="item in q" v-bind:class="{my:item.userid==user.id}" v-if="!item.isDeleted")
             .sSectBodyItemRow {{moment(item.createDate).format('HH:mm')}}
                 span.bold &nbsp;{{item.name}}
@@ -27,7 +30,7 @@
     .sSectInput
 
         .sSectInputField
-            input#qText(placeholder="Please, write here" v-model="qText" v-on:keydown="if($event.keyCode==13) qSend()")
+            input#qText(placeholder="Здесь текст сообщения" v-model="qText" v-on:keydown="if($event.keyCode==13) qSend()")
             .sSectSmileList(@click="addSmileToQ()") &#x1F600;
         .sSectInputSend
             .button(@click="qSend()" ) Send

@@ -1,5 +1,8 @@
 .sSectBody
     .sSectBodyWr#chatBox
+        #topOfChat loading...
+        .sSectBodyItem(v-if="chat.length==0")
+            .sSectBodyItemRow Еще нет сообщений
         .sSectBodyItem(:id="'chat'+item.id" v-for="item in chat" v-bind:class="{my:item.userid==user.id}" v-if="!item.isDeleted")
             .sSectBodyItemRow {{moment(item.createDate).format('HH:mm')}}
                 span.bold &nbsp;{{item.name}}
@@ -28,7 +31,7 @@
     .sSectInput
 
         .sSectInputField
-            input#chatText(placeholder="Please, write here" v-model="chatText" v-on:keydown="if($event.keyCode==13) chatSend()")
+            input#chatText(placeholder="Здесь текст сообщения" v-model="chatText" v-on:keydown="if($event.keyCode==13) chatSend()")
             .sSectSmileList(@click="addSmileToChat()") &#x1F600;
         .sSectInputSend
             .button(@click="chatSend()" ) Send
