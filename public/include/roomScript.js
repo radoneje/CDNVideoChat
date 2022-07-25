@@ -25,6 +25,7 @@ const sRoom=class{
             userError:null,
             user:{id:null, name:null},
             reqUserShow:false,
+            options: {root: null, rootMargin: '0px', threshold: 1.0}
         },
         methods:{
 
@@ -98,14 +99,19 @@ const sRoom=class{
         },
         watch: {
             chat:async function(){
-
-
-                this.chat.forEach(c=>{
-                    if(c.new){
-                        delete c.new;
-                        this.chatNewItems++;
-                    }
-                });
+                setTimeout(()=> {
+                    this.chat.forEach(c => {
+                        if (c.new) {
+                            delete c.new;
+                            this.chatNewItems++;
+                            let observer = new IntersectionObserver((entries, observer) => {
+                                //TODO: add remove
+                                console.log(entries[0].isIntersecting)
+                            }, this.options);
+                            observer.observe(document.getElementById("chat" + c.id));
+                        }
+                    });
+                },0);
 
             }
         },
@@ -127,11 +133,7 @@ const sRoom=class{
             this.addSmileToQ=addSmileToQ;
             this.qSend=qSend;
 
-            let options = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 1.0
-            }
+
             let callback = function(entries, observer) {
                 /* Content excerpted, show below */
             };
@@ -142,7 +144,7 @@ const sRoom=class{
                 else
                     elem.classList.remove( "hidden")
 
-            }, options);
+            }, this.options);
             setTimeout(()=>{observer.observe(document.getElementById("sFooterEnd"));},100)
 
 
