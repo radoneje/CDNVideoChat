@@ -97,6 +97,7 @@ async function loadRoom(chatid, elem, lang){
     }
     if(typeof dislikeChat == 'undefined')
     {
+        console.log("dislikeChat undef")
         let a=document.createElement("script");
         a.src="/include/ulils.js"
         await loadResource(a, document.head);
