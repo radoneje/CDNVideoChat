@@ -261,6 +261,7 @@ h4{
   background: var(--liteActive);
   border-radius:var(--borderRadius);
   color: var(--white);
+  padding: var(--mob-padding);
 }
 .bold{
   font-weight: bold;
