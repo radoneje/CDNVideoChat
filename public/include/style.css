@@ -198,6 +198,22 @@ a {
     border-radius: 0;
     border-right: 1px solid var(--black);
 }
+.sSectAttach{
+
+
+    cursor: pointer;
+    font-size: 22px;
+    position: absolute;
+    top: 0;
+    padding-top: 4px;
+    padding-right: 4px;
+    box-sizing: border-box;
+    left: 4px;
+    height: 100%;
+    border-radius: 0;
+    border-right: 1px solid var(--black);
+}
+
 
 .sSectInputField {
     width: calc(100% - 100px);
