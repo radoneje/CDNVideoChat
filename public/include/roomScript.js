@@ -7,6 +7,7 @@ const sRoom=class{
             this.room.el=elem;
             console.log("loadRoom method", this.room)
             this.app=new Vue(this.room)
+            console.log(this.app.methods)
         });
 
         return this.roomApp;
