@@ -86,8 +86,8 @@ let updateChat=function (oldChat,newChat){
             }
         })
         if(!find)
-            old.push(n)
+            oldChat.push(n)
     })
-    return old;
+    return oldChat;
 
 }
