@@ -162,7 +162,7 @@ let qSend=async function(prm){
 let urlify=(text)=> {
     var urlRegex = /(https?:\/\/[^\s]+)/g;
     return text.replace(urlRegex, function(url) {
-        return '<a href="' + url + ' target="_blank">' + url + '</a>';
+        return '<a href="' + url + '" target="_blank">' + url + '</a>';
     })
 }
 let getText= function(html){
