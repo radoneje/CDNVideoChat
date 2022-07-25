@@ -23,6 +23,13 @@ const sRoom=class{
             reqUserShow:false,
         },
         methods:{
+            dislikeChat:async function(item){
+                item.dilike++;
+            },
+            likeChat:async function(item){
+                item.like++;
+
+            },
             addSmileToChat:async function(){
                 this.chatText+=" \u{1F600} ";
                 document.getElementById("chatText").focus();
