@@ -197,19 +197,17 @@ router.get("/q/:id", async (req, res)=>{
   let rr=await req.knex("v_q").where({roomPublicUUID:req.params.id}).orderBy("createDate");
   res.json(rr);
 })
-router.post("/chatFile", upload.single('file'), async (req, res)=>{
-  console.log(req.body, req.file)
-  res.json("file");
-})
 
-router.post("/chat", async (req, res)=>{
+
+router.post("/chatFile", async (req, res)=>{
+  console.log(req.body, req.file)
   let room=await  req.knex.select("*").from("t_rooms").where({ roomPublicUUID:req.body.id});
   if(room.length==0)
     return res.sendStatus(404);
   let r= await req.knex("t_chat").insert({ roomPublicUUID:req.body.id,  userid:req.body.userid, file:req.file.path, fileName:req.file.originalname, fileType:req.file.mimetype, fileSize:req.file.size},"*");
-  console.log(r[0]);
+
   let rr=await req.knex("v_chat").where({id:r[0].id});
-  console.log(rr[0]);
+
   res.json(rr[0]);
 })
 
