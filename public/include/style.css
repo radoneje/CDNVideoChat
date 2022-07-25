@@ -1,313 +1,367 @@
 :root {
-  --padding: 24px;
-  --mob-padding:8px;
-  --white:#ffffff;
-  --black:#333333;
-  --headFontSize:16px;
-  --font-size:16px;
-  --liteGray:#eeeeee;
-  --hoverGray:#cccccc;
-  --active: #0f7eb3;
-  --liteActive:#00B7FF;
-  --borderRadius:4px;
+    --padding: 24px;
+    --mob-padding: 8px;
+    --white: #ffffff;
+    --black: #333333;
+    --headFontSize: 16px;
+    --font-size: 16px;
+    --liteGray: #eeeeee;
+    --hoverGray: #cccccc;
+    --active: #0f7eb3;
+    --liteActive: #00B7FF;
+    --borderRadius: 4px;
 }
-input:focus, input:active{
-  outline: none !important;
+
+input:focus, input:active {
+    outline: none !important;
 }
+
 body {
 
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
-.tstBox{
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
+.tstBox {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
 
 }
-.tstVideo{
-  box-sizing: border-box;
-  width: 66.6%;
-  padding: var(--padding);
+
+.tstVideo {
+    box-sizing: border-box;
+    width: 66.6%;
+    padding: var(--padding);
 }
-.tstChat{
-  box-sizing: border-box;
-  width: 33.3%;
-  padding: var(--padding);
+
+.tstChat {
+    box-sizing: border-box;
+    width: 33.3%;
+    padding: var(--padding);
 
 }
+
 .videoWrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  width: 100%;
-}
-.videoWrapper iframe,  .videoWrapper video{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.sBox{
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  position: relative;
-}
-.sLoader{
-  position: absolute;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--white);
-  background-image: url(loader.gif);
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.sHeader{
-  display: flex;
-  align-content: center;
-  height: 40px;
-
-}
-.sHeaderItem{
-  font-size: var(--headFontSize);
-  font-weight: bold;
-  cursor: pointer;
-  padding: var(--mob-padding);
-  border-bottom: 2px solid var(--black);
-  box-sizing: border-box;
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--liteGray);
-}
-
-.sHeaderItem:hover{
-  background-color: var(--hoverGray);
-}
-.sHeaderItem.active{
-  color: var(--white);
-  background-color: var(--liteActive);
-  border-color: var(--active);
-}
-.sRoomBox{
-  height: 100%;
-  position: relative;
-}
-.sBody{
-  height: calc(100% - 40px);
-  box-sizing: border-box;
-  position: relative;
-}
-.sSectBodyWr{
-  position: absolute;
-  width: 100%;
-  top: 0px;
-  left: 0px;
-  height: 100%;
-  overflow-y: scroll;
-}
-.reqUser{
-  background: var(--white);
-  position: absolute;
-  top:0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.sSectWr{
-  height: 100%;
-
-}
-.sSectFooter{
-  height: 55px;
-  display: flex;
-  align-items: flex-end;
-  font-size: var(--font-size);
-}
-.sSectInput{
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  width: 100%;
-}
-.sSectBody{
-  height: calc(100% - 55px);
-  position: relative;
-}
-.sSectSmileList{
-
-  padding-right: var(--padding);
-  border-radius: var(--borderRadius);
-  cursor: pointer;
-  height: 100%;
-  font-size: 22px;
-}
-.sSectInputField{
-  width: calc(100% - 100px);
-  height: 100%;
-}
-.sSectInputSend .button{
-  width: 80px;
-  height: 100%;
-}
-.button{
-  box-sizing: border-box;
-  padding: var(--mob-padding);
-  text-align: center;
-  font-weight: bold;
-  border-radius: var(--borderRadius);
-  cursor: pointer;
-  color:var(--white);
-  border-color: var(--active);
-  background-color: var(--liteActive);
-}
-
-.sSectInputField input{
-  font-size: var(--font-size);
-  padding: var(--mob-padding);
-  width: calc(100%);
-  box-sizing: border-box;
-}
-.sSectInputField input:active, .sSectInputField input:focus{
-  outline: none !important;
-}
-.sSWr{
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.sAbody {
-  width: 380px;
-}
-.sAbody input{
-  padding: var(--mob-padding);
-  width: 100%;
-  box-sizing: border-box;
-  display: block;
-  margin-bottom: var(--padding);
-}
-.sArow{
-  margin:var(--mob-padding) 0;
-  padding: var(--mob-padding);
-  border: 1px solid black;
-  border-radius: var(--borderRadius);
-  background: #eeeeee;
-}
-.sArowTitle{
-  margin-bottom:var(--mob-padding);
-}
-.maxContent{
-  width: max-content;
-}
-.inline{
-  display: inline-block;
-}
-.reqUserBox{
-  box-sizing: border-box;
-  width: 100%;
-}
-.reqUserRow{
-  width: 100%;
-  margin-bottom: var(--mob-padding);
-}
-.reqUserRow input{
-  width: 100%;
-  box-sizing: border-box;
-  padding: var(--mob-padding);
-  font-size: var(--font-size);
-}
-h4{
-  font-size: var(--headFontSize);
-  font-weight: bold;
-}
-.sSectBodyItem{
-  width: calc(100% - var(--padding));
-  box-sizing: border-box;
-  border-radius: var(--borderRadius);
-  border: 1px solid var(--black);
-  padding: var(--mob-padding);
-  margin: var(--mob-padding) 0;
-}
-.sSectBodyItem.my{
-  background: var(--liteGray);
-  margin-left: var(--padding);
-}
-.sSectBodyItemRow{
-  margin-bottom: var(--mob-padding);
-  width: 100%;
-  word-break: break-word;
-}
-.likes{
-  font-size: 16px;
-  width: 45px;
-  display: inline-block;
-  cursor: pointer;
-  background: var(--liteActive);
-  border-radius:var(--borderRadius);
-  color: var(--white);
-  padding: 2px 4px ;
-}
-.likes:first-child{
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.likes:last-child{
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.bold{
-  font-weight: bold;
-}
-.sModBox{
-  display: flex;
-  height: calc(100vh - var(--mob-padding) - var(--mob-padding));
-}
-.sModPadel{
-  padding: 0 var(--mob-padding);
-  width: 33%;
-  box-sizing: border-box;
-}
-
-@media screen and (max-width: 720px){
-  :root {
-    --padding: 8px;
-  }
-  body{
-    margin: 0;
-    padding: 0;
-  }
-  .tstBox {
-    display: block;
-
-  }
-  .tstVideo{
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
     width: 100%;
+}
 
-  }
-  .tstChat{
+.videoWrapper iframe, .videoWrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+}
 
-    height: 90vh;
-  }
-  .sHeader{
+.sBox {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.sLoader {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    background-image: url(loader.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.sHeader {
+    display: flex;
+    align-content: center;
     height: 40px;
-  }
+
+}
+
+.sHeaderItem {
+    font-size: var(--headFontSize);
+    font-weight: bold;
+    cursor: pointer;
+    padding: var(--mob-padding);
+    border-bottom: 2px solid var(--black);
+    box-sizing: border-box;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--liteGray);
+}
+
+.sHeaderItem:hover {
+    background-color: var(--hoverGray);
+}
+
+.sHeaderItem.active {
+    color: var(--white);
+    background-color: var(--liteActive);
+    border-color: var(--active);
+}
+
+.sRoomBox {
+    height: 100%;
+    position: relative;
+}
+
+.sBody {
+    height: calc(100% - 40px);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.sSectBodyWr {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.reqUser {
+    background: var(--white);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sSectWr {
+    height: 100%;
+
+}
+
+.sSectFooter {
+    height: 55px;
+    display: flex;
+    align-items: flex-end;
+    font-size: var(--font-size);
+}
+
+.sSectInput {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: 100%;
+}
+
+.sSectBody {
+    height: calc(100% - 55px);
+    position: relative;
+}
+
+.sSectSmileList {
+
+    padding-right: var(--padding);
+    border-radius: var(--borderRadius);
+    cursor: pointer;
+    height: 100%;
+    font-size: 22px;
+}
+
+.sSectInputField {
+    width: calc(100% - 100px);
+    height: 100%;
+}
+
+.sSectInputSend .button {
+    width: 80px;
+    height: 100%;
+}
+
+.button {
+    box-sizing: border-box;
+    padding: var(--mob-padding);
+    text-align: center;
+    font-weight: bold;
+    border-radius: var(--borderRadius);
+    cursor: pointer;
+    color: var(--white);
+    border-color: var(--active);
+    background-color: var(--liteActive);
+}
+
+.sSectInputField input {
+    font-size: var(--font-size);
+    padding: var(--mob-padding);
+    width: calc(100%);
+    box-sizing: border-box;
+}
+
+.sSectInputField input:active, .sSectInputField input:focus {
+    outline: none !important;
+}
+
+.sSWr {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sAbody {
+    width: 380px;
+}
+
+.sAbody input {
+    padding: var(--mob-padding);
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    margin-bottom: var(--padding);
+}
+
+.sArow {
+    margin: var(--mob-padding) 0;
+    padding: var(--mob-padding);
+    border: 1px solid black;
+    border-radius: var(--borderRadius);
+    background: #eeeeee;
+}
+
+.sArowTitle {
+    margin-bottom: var(--mob-padding);
+}
+
+.maxContent {
+    width: max-content;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.reqUserBox {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.reqUserRow {
+    width: 100%;
+    margin-bottom: var(--mob-padding);
+}
+
+.reqUserRow input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--mob-padding);
+    font-size: var(--font-size);
+}
+
+h4 {
+    font-size: var(--headFontSize);
+    font-weight: bold;
+}
+
+.sSectBodyItem {
+    width: calc(100% - var(--padding));
+    box-sizing: border-box;
+    border-radius: var(--borderRadius);
+    border: 1px solid var(--black);
+    padding: var(--mob-padding);
+    margin: var(--mob-padding) 0;
+}
+
+.sSectBodyItem.my {
+    background: var(--liteGray);
+    margin-left: var(--padding);
+}
+
+.sSectBodyItemRow {
+    margin-bottom: var(--mob-padding);
+    width: 100%;
+    word-break: break-word;
+}
+
+.likes {
+    font-size: 16px;
+    width: 45px;
+    display: inline-block;
+    cursor: pointer;
+    background: var(--liteActive);
+    border-radius: var(--borderRadius);
+    color: var(--white);
+    padding: 2px 4px;
+}
+
+.likes:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.likes:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.sModBox {
+    display: flex;
+    height: calc(100vh - var(--mob-padding) - var(--mob-padding));
+}
+
+.sModPadel {
+    padding: 0 var(--mob-padding);
+    width: 33%;
+    box-sizing: border-box;
+}
+
+.h4 {
+    font-size: var(--headFontSize);
+    font-weight: bold;
+}
+
+@media screen and (max-width: 720px) {
+    :root {
+        --padding: 8px;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .tstBox {
+        display: block;
+
+    }
+
+    .tstVideo {
+        width: 100%;
+
+    }
+
+    .tstChat {
+        width: 100%;
+
+        height: 90vh;
+    }
+
+    .sHeader {
+        height: 40px;
+    }
 
 }
 
