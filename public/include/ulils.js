@@ -7,6 +7,8 @@ let dislikeChat=async function(item){
     }
     else {
         item.dislikes--;
+        if(item.dislikes<0)
+            item.dislikes=0;
         localStorage.removeItem("chatdislike"+item.id)
         await axios.post("/api/chatdislike", {id: item.id, undo:1})
     }
@@ -20,6 +22,8 @@ let likeChat=async function(item){
     }
     else {
         item.likes--;
+        if(item.likes<0)
+            item.likes=0;
         localStorage.removeItem("chatlike"+item.id)
         await axios.post("/api/chatlike", {id: item.id, undo:1})
 
@@ -110,6 +114,8 @@ let dislikeQ=async function(item){
     }
     else {
         item.dislikes--;
+        if(item.dislikes<0)
+            item.dislikes=0;
         localStorage.removeItem("qdislike"+item.id)
         await axios.post("/api/qdislike", {id: item.id, undo:1})
     }
@@ -123,6 +129,8 @@ let likeQ=async function(item){
     }
     else {
         item.likes--;
+        if(item.likes<0)
+            item.likes=0;
         localStorage.removeItem("qlike"+item.id)
         await axios.post("/api/qlike", {id: item.id, undo:1})
 
