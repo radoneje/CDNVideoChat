@@ -333,9 +333,29 @@ h4 {
     height: 30px;
     position: relative;
 }
-.sModSettingsBox{}
-.sModSettingsBoxRow{}
-.sModSettingsBoxRowRound{}
+.sModSettingsBox{
+    position: absolute;
+    background: white;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px 0px grey;
+}
+.sModSettingsBoxRow{
+    display: flex;
+    cursor: pointer;
+}
+.sModSettingsBoxRowRound{
+    height: 1em;
+    width: 1em;
+    border: 1px solid gray;
+    border-radius: 4px;
+    margin-right: 0.5em;
+}
 .sModSettingsBoxRowTitle{}
 .h4 {
     font-size: var(--headFontSize);
