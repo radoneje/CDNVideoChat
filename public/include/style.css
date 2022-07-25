@@ -415,7 +415,7 @@ h4 {
     position: absolute;
     bottom: var(--mob-padding);
     right: var(--mob-padding);
-    border: 1px solid var(--Active);;
+    border: 1px solid var(--active);;
     border-radius: 50%;
     width: var(--padding);
     height: var(--padding);
