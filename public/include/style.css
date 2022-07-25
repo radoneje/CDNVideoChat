@@ -335,6 +335,11 @@ h4 {
 .inline {
     display: inline-block;
 }
+.small{
+    font-size: 12px;
+    font-weight: normal;
+    padding: 4px;
+}
 
 @media screen and (max-width: 720px) {
     :root {
