@@ -17,6 +17,21 @@
             id:null
         },
         methods:{
+            chatNewItemClick:function (sect){
+                this.chat.forEach(c=>{delete c.new})  ;
+                this.chatNewItems=1;
+                let objDiv = document.getElementById("chatBox");
+                if(objDiv)
+                    objDiv.scrollTop = objDiv.scrollHeight;
+            },
+            qNewItemClick:function (sect){
+                this.q.forEach(c=>{delete c.new})  ;
+                this.qtNewItems=1;
+                let objDiv = document.getElementById("qBox");
+                if(objDiv)
+                    objDiv.scrollTop = objDiv.scrollHeight;
+            },
+
             dislikeChat:dislikeChat,
             likeChat:likeChat,
             addSmileToChat:addSmileToChat,
@@ -27,6 +42,7 @@
             likeQ:likeQ,
             addSmileToQ:addSmileToQ,
             qSend:qSend,
+
 
             changeSection:function (sect){
                 this.section=sect;
