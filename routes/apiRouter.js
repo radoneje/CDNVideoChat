@@ -105,7 +105,7 @@ router.post("/chatdislike", async (req, res)=>{
 
 router.post("/modChat", async (req, res)=>{
 
-  let r= await req.knex.select("*").from("t_room").where({uuid:req.body.uuid});
+  let r= await req.knex.select("*").from("t_rooms").where({uuid:req.body.uuid});
   if(r.length==0)
     return res.sendStatus(404)
 
@@ -114,7 +114,7 @@ router.post("/modChat", async (req, res)=>{
 })
 router.post("/delChat", async (req, res)=>{
 
-  let r= await req.knex.select("*").from("t_room").where({uuid:req.body.uuid});
+  let r= await req.knex.select("*").from("t_rooms").where({uuid:req.body.uuid});
   if(r.length==0)
     return res.sendStatus(404)
 
