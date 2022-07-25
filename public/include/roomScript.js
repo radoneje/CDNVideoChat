@@ -39,13 +39,13 @@ const sRoom=class{
                         this.section=0;
                     let len=this.chat.length;
                     this.chat=updateChat(this.chat,s.data.chat);
-                    console.log( this.chat)
+
                     this.chat=this.chat.filter(c=>{
                         let ret=false;
                         if( this.status.isChatPreMod )
                             ret= c.isMod && c.userid==this.user.id;
                         else ret=true;
-                        console.log(ret)
+
                         return ret;
                     })
                     if(len<this.chat.length)
