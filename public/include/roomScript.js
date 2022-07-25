@@ -60,7 +60,7 @@ const sRoom=class{
                     },200)
                 }
                 if(sect==1){
-                    this.chatNewItems=0;
+                    this.qNewItems=0;
                     this.chat.forEach(c=>{delete c.new})
                     setTimeout(()=>{
 
