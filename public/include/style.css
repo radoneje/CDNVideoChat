@@ -357,6 +357,9 @@ h4 {
     margin-right: 0.5em;
     margin-bottom: var(--mob-padding);
 }
+.sModSettingsBox.active .sModSettingsBoxRowRound{
+    background-color: var(--active);
+}
 .sModSettingsBoxRowTitle{}
 .h4 {
     font-size: var(--headFontSize);
