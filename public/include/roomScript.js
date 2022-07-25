@@ -34,11 +34,13 @@ const sRoom=class{
                     let s = await axios.get("/api/status/" + this.id)
 
                     this.status = s.data.status;
-                    if(!status.isChat && this.status.isQ)
+                    if(!this.status.isChat && this.status.isQ)
                         this.section=1;
 
-                    if(!status.isQ && this.status.isChat)
+                    if(!this.status.isQ && this.status.isChat)
                         this.section=0;
+
+                    console.log()
 
                     let len=this.chat.length;
                     this.chat=updateChat(this.chat,s.data.chat);
