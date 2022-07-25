@@ -10,6 +10,7 @@
             .sSectBodyItemRow(v-if="item.file")
                 .sSectBodyFileLink
                     a(:href="'/api/downloadFile/'+item.id" :download="item.fileName") {{item.fileName}} ({{humanFileSize(item.fileSize)}})
+                img.sSectBodyFileImage(v-if="item.fileType.indexOf('image/')==0" :src="'/api/downloadFile/'+item.id")
             .sSectBodyItemRow(v-if="status.isChatLikes")
                 span.likes(@click="likeChat(item)") &#x1F44D; {{item.likes}}
                 span.likes(@click="dislikeChat(item)") &#x1F44E; {{item.dislikes}}
