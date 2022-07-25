@@ -31,7 +31,7 @@ let addSmileToChat=async function(){
     document.getElementById("chatText").focus();
 }
 let reqUser=async function(callBack){
-    console.log("reqUser",callBack);
+
     let register=async ()=>{
         if(this.user.name.length==0)
             return;
@@ -130,6 +130,7 @@ let addSmileToQ=async function(){
 }
 
 let qSend=async function(){
+    console.log(this.this.qText)
     this.qText=this.qText.trim();
     if(this.qText.length==0)
         return;
