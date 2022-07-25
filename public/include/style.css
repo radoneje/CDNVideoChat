@@ -132,6 +132,9 @@ a {
     padding-right: var(--padding);
     box-sizing: border-box;
 }
+.red{
+    background-color: darkred;
+}
 
 .reqUser {
     background: var(--white);

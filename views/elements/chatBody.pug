@@ -7,6 +7,17 @@
             .sSectBodyItemRow(v-if="status.isChatLikes")
                 span.likes(@click="likeChat(item)") &#x1F44D; {{item.likes}}
                 span.likes(@click="dislikeChat(item)") &#x1F44E; {{item.dislikes}}
+            if isModerator
+                .sSectBodyItemRow(v-if="status.isChatPreMod")
+                    .chatBtnGroup(v-if="!item.isMod")
+                        .chatBtnGroupTitle НЕ показано
+                        .button.small.maxContent Показать
+                        .button.small.maxContent.red Удалить
+                    .chatBtnGroup(v-if="!item.isMod")
+                        .chatBtnGroupTitle Показано
+                        .button.small.maxContent Скрыть
+                        .button.small.maxContent.red Удалить
+
 .sSectFooter
     .sSectInput
         .sSectSmileList(@click="addSmileToChat()") &#x1F600;
