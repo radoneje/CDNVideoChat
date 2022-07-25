@@ -20,7 +20,7 @@
                     .chatBtnGroup(v-if="item.isMod")
                         .chatBtnGroupTitle Показано
                         .button.small.maxContent(@click="modChat(item)") Скрыть
-    .chatNewItems(v-if="chatNewItems>1" @click="chatNewItemClick()") {{chatNewItems}}
+    .chatNewItems(v-if="chatNewItems>2" @click="chatNewItemClick()") {{chatNewItems}}
         span.chatNewItemsCap NEW
 
 .sSectFooter

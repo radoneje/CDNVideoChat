@@ -118,7 +118,7 @@ const sRoom=class{
                                     if(entries[0].isIntersecting) {
                                         this.chatNewItems--;
                                         if(this.chatNewItems<0)
-                                            this.chatNewItems=0;
+                                            this.chatNewItems=1;
                                         observer.unobserve(elem)
                                         console.log(entries[0].isIntersecting)
                                     }
