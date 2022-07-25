@@ -29,6 +29,12 @@ const sRoom=class{
         },
         methods:{
 
+            chatNewItemClick:function (sect){
+              this.chat.forEach(c=>{delete c.new})  ;
+                var objDiv = document.getElementById("chatBox");
+                if(objDiv)
+                objDiv.scrollTop = objDiv.scrollHeight;
+            },
             changeSection:function (sect){
                 this.section=sect;
                 document.getElementById("sFooterEnd").scrollIntoView();
