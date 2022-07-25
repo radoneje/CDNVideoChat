@@ -280,6 +280,8 @@ h4{
 }
 .sModPadel{
   padding: 0 var(--mob-padding);
+  width: 33%;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 720px){
