@@ -28,6 +28,7 @@ const sRoom=class{
         },
         methods:{
             newChatItem:function(item){
+                console.log(" newChatItem");
                 setTimeout(()=>{
                 var elem=document.getElementById("chat"+item.id)
                     console.log(elem);
