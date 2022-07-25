@@ -165,7 +165,7 @@ let urlify=(text)=> {
         return '<a href="' + url + '">' + url + '</a>';
     })
 }
-let getText=async function(html){
+let getText= function(html){
     let elem=document.createElement("div");
     elem.innerHTML=html;
     return urlify(elem.innerText)
