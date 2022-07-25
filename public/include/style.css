@@ -327,6 +327,10 @@ h4 {
     width: 33%;
     box-sizing: border-box;
 }
+.sModPanelHead{
+    display: flex;
+    align-items: center;
+}
 
 .h4 {
     font-size: var(--headFontSize);
@@ -344,6 +348,7 @@ h4 {
     font-size: 24px;
     cursor: pointer;
     position: relative;
+    margin:0 .5em;
 }
 
 @media screen and (max-width: 720px) {
