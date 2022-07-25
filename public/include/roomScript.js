@@ -27,14 +27,7 @@ const sRoom=class{
             reqUserShow:false,
         },
         methods:{
-            newChatItem:function(item){
-                console.log(" newChatItem");
-                setTimeout(()=>{
-                var elem=document.getElementById("chat"+item.id)
-                    console.log(elem);
-                this.chatNewItems++;
-                },100)
-            },
+
             changeSection:function (sect){
                 this.section=sect;
                 document.getElementById("sFooterEnd").scrollIntoView();
@@ -101,6 +94,11 @@ const sRoom=class{
                 }
                 catch (e){console.warn(e)}
                 setTimeout(this.updateStatus, 2000);
+            }
+        },
+        watch: {
+            chat:async function(){
+                console.log("chat change")
             }
         },
         mounted:async function(){
