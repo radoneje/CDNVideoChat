@@ -5,6 +5,8 @@
             chatConfigShow:false,
             chat:[],
             chatText:"",
+            q:[],
+            qText:"",
             userError:null,
             user:{id:null, name:null},
             reqUserShow:false,
