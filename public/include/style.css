@@ -101,6 +101,9 @@ a {
     justify-content: center;
     background-color: var(--liteGray);
 }
+.aFull{
+    width: 100% !important;
+}
 
 .sHeaderItem:hover {
     background-color: var(--hoverGray);
