@@ -199,7 +199,7 @@ router.get("/q/:id", async (req, res)=>{
 })
 
 
-router.post("/chatFile", async (req, res)=>{
+router.post("/chatFile", upload.single('file'), async (req, res)=>{
   console.log(req.body, req.file)
   let room=await  req.knex.select("*").from("t_rooms").where({ publicUUID:req.body.id});
   if(room.length==0)
