@@ -40,7 +40,8 @@
                     let s = await axios.get("/api/status/" + ROOM.publicUUID)
 
                     this.status = s.data.status;
-                    this.chat=s.data.chat;
+                    this.chat=updateChat(this.chat,s.data.chat);
+
                 }
                 catch (e){console.warn(e)}
                 setTimeout(this.updateStatus, 2000);

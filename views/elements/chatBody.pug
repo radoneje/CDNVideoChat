@@ -1,6 +1,6 @@
 .sSectBody
     .sSectBodyWr#chatBox
-        .sSectBodyItem(v-for="item in chat" v-bind:class="{my:item.userid==user.id}")
+        .sSectBodyItem(v-for="item in chat" v-bind:class="{my:item.userid==user.id}" v-if="!item.isDeleted")
             .sSectBodyItemRow {{moment(item.createDate).format('HH:mm')}}
                 span.bold &nbsp;{{item.name}}
             .sSectBodyItemRow {{item.text}}

@@ -74,3 +74,20 @@ let chatSend=async function(){
     },0)
 
 }
+let updateChat=function (oldChat,newChat){
+    newChat.forEach(n=>{
+        let find=false;
+        oldChat.forEach(o=>{
+            if(o.id==n.id){
+                for(let key in Object.keys(n)){
+                    o[key]=n[key];
+                }
+                find=true
+            }
+        })
+        if(!find)
+            old.push(n)
+    })
+    return old;
+
+}
