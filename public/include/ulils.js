@@ -1,3 +1,4 @@
+let utils=true;
 let dislikeChat=async function(item){
     if(!localStorage.getItem("chatdislike"+item.id)) {
         item.dislikes++;
