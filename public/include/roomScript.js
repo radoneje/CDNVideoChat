@@ -35,10 +35,10 @@ const sRoom=class{
                     let isChat=this.status.isChat;
                     let isQ=this.status.isQ;
                     this.status = s.data.status;
-                    if(!status.isChat && status.isQ!=isQ)
+                    if(!status.isChat && status.isChat!=isChat)
                         this.section=1;
 
-                    if(!status.isQ && status.isChat!=isChat)
+                    if(!status.isQ && status.isQ!=isQ)
                         this.section=0;
 
                     let len=this.chat.length;
