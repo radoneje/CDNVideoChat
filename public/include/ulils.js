@@ -197,7 +197,7 @@ let addImageToChat= async function(){
            }
           setTimeout(()=>{uploader.style.width=0},2000)
        }
-       xhr.onreadystatechange = function() {//Call a function when the state changes.
+       xhr.onreadystatechange = () =>{//Call a function when the state changes.
            if(xhr.readyState == 4 && xhr.status == 200) {
                let c=JSON.parse(xhr.responseText);
                this.chat.push(c);
