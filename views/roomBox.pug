@@ -19,8 +19,8 @@
                                 span.bold &nbsp;{{item.name}}
                             .sSectBodyItemRow {{item.text}}
                             .sSectBodyItemRow
-                                span.likes(@click="likeChat(item)") &#x1F44D; {{item.likes}} --
-                                span.likes(@click="dislikeChat(item)") &#x1F44E; {{item.dislikes}} ++
+                                span.likes(@click="likeChat(item)") &#x1F44D; {{item.likes}} ++
+                                span.likes(@click="dislikeChat(item)") &#x1F44E; {{item.dislikes}} --
                 .sSectFooter
                     .sSectInput
                         .sSectSmileList(@click="addSmileToChat()") &#x1F600;
