@@ -33,6 +33,6 @@
             input#chatText(placeholder="Здесь текст сообщения" v-model="chatText" v-on:paste="onPasteChat($event)" v-on:keydown="if($event.keyCode==13) chatSend()")
             .sSectSmileList(@click="addSmileToChat()") &#x1F600;
             .sSectAttach(@click="addImageToChat()") &#x1F4CE;
-            .sSectSend &#8688;
+            .sSectSend(@click="chatSend()" ) &#8688;
         //.sSectInputSend
             .button(@click="chatSend()" ) Send

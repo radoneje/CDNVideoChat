@@ -32,6 +32,8 @@
         .sSectInputField
             input#qText(placeholder="Здесь текст сообщения" v-model="qText" v-on:keydown="if($event.keyCode==13) qSend()")
             .sSectSmileList(@click="addSmileToQ()") &#x1F600;
-        .sSectInputSend
+            .sSectAttach(@click="addImageToQ()") &#x1F4CE;
+            .sSectSend(@click="qSend()" ) &#8688;
+        //.sSectInputSend
             .button(@click="qSend()" ) Send
 
