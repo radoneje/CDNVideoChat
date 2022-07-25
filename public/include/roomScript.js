@@ -32,11 +32,15 @@ const sRoom=class{
             updateStatus:async function(){
                 try {
                     let s = await axios.get("/api/status/" + this.id)
+                    let isChat=this.status.isChat;
+                    let isQ=this.status.isQ;
                     this.status = s.data.status;
-                    if(!status.isChat)
+                    if(!status.isChat && status.isQ!=isQ)
                         this.section=1;
-                    if(!status.isQ)
+
+                    if(!status.isQ && status.isChat!=isChat)
                         this.section=0;
+
                     let len=this.chat.length;
                     this.chat=updateChat(this.chat,s.data.chat);
 
