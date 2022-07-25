@@ -80,7 +80,7 @@
             chat:async function(){
                 setTimeout(()=> {
                     this.chat.forEach(c => {
-                        if (c.new && this.section==0) {
+                        if (c.new ) {
                             delete c.new;
                             this.chatNewItems++;
                             let elem=document.getElementById("chat" + c.id);
@@ -106,7 +106,7 @@
             q:async function(){
                 setTimeout(()=> {
                     this.q.forEach(q => {
-                        if (q.new && this.section==1) {
+                        if (q.new ) {
                             delete q.new;
                             this.qNewItems++;
                             let elem=document.getElementById("q" + q.id);
