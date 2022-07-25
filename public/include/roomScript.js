@@ -119,7 +119,7 @@ const sRoom=class{
             };
             let  observer = new IntersectionObserver((entries, observer)=>{
                 console.log("entries");
-            }, {root:null,rootMargin: '0px', threshold: 1.0});
+            }, {root:document.body,rootMargin: '0px', threshold: 1.0});
             observer.observe(document.getElementById("sFooterEnd"));
 
         },
