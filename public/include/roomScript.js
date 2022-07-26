@@ -31,10 +31,58 @@ const sRoom=class{
             timeout:20
         },
         methods:{
+            voiting:async function(item, v){
+
+                var store=[];
+                var json= localStorage.getItem("vote"+item.voteid);
+                if(json)
+                    store=JSON.parse(json)
+
+                let oldVote= store.filter(s=>{return s==item.id});
+
+                if(! v.multy){
+                    for(let o of store) {
+                        if(o==item.id)
+                            return
+                        await axios.post("/api/reVote", {id: o});
+                        store=store.filter(s=>{return s!=o});
+                        localStorage.setItem("vote" + v.id, JSON.stringify(store));
+                        this.vote=this.vote.filter(ff=>{return true})
+                    }
+                }
+                else
+                {
+                    for(let o of store) {
+                        if(o==item.id)
+                        {
+                            store=store.filter(s=>{return s!=o});
+                            localStorage.setItem("vote" + v.id, JSON.stringify(store));
+                            this.vote=this.vote.filter(ff=>{return true})
+                            await axios.post("/api/reVote", {id: o});
+                            return
+                        }
+                    }
+                }
+                await axios.post("/api/Vote", {id: item.id});
+                if(!v.multy) {
+                    showNotify();
+                }
+                else{
+                    var elem = document.getElementById('votebtn'+v.id);
+                    if(elem)
+                        elem.classList.remove('hidden')
+                }
+                store.push(item.id)
+                console.log("store",store)
+                localStorage.setItem("vote"+item.voteid, JSON.stringify(store));
+                this.vote=this.vote.filter(v=>{return true});
+
+            },
             multyVote:function(item, e){
                 e.target.classList.add('hidden');
                 showNotify();
             },
+
             checkVote:function(item, v){
                 var json=localStorage.getItem("vote"+item.voteid);
                 if(! json)

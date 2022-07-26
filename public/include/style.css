@@ -516,6 +516,7 @@ h4 {
     box-sizing: border-box;
     z-index: 1000;
     padding-right: var(--padding);
+    overflow-y: scroll;
 }
 .aanswCount{
     width:111px;
