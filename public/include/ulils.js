@@ -109,7 +109,7 @@ let updateChat=function (oldChat,newChat){
 let dislikeQ=async function(item){
     if(!localStorage.getItem("qdislike"+item.id)) {
         item.dislikes++;
-        await axios.post("/in/api/qlike", {id: item.id})
+        await axios.post("/in/api/qislike", {id: item.id})
         localStorage.setItem("qdislike"+item.id, true);
     }
     else {
