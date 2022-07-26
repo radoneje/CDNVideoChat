@@ -24,7 +24,7 @@
         methods: {
             copyLink:function (){
                 const full = location.protocol + '//' + location.host+":"+location.port
-                console.log(full);
+                console.log(full, location);
             },
             downloadQr:function (){},
             aVote: async function (item) {
