@@ -222,8 +222,12 @@ router.post("/qFile", upload.single('file'), async (req, res)=>{
 router.get("/downloadFile/:id", async (req, res)=>{
 
   let r=await req.knex("t_chat").where({id:req.params.id});
-  if(r.length==0)
-    return res.sendStatus(404);
+  if(r.length==0){
+     r=await req.knex("t_q").where({id:req.params.id});
+    if(r.length==0)
+      return res.sendStatus(404);
+  }
+
 
   let p=path.join(__dirname,"../",r[0].file);
   console.log(p)
