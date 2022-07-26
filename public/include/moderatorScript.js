@@ -200,9 +200,11 @@
                                   console.log("not copy element")
                               }
                               else{
-                                  console.log("copyElement")
+                                  let keys=Object.keys(n)
+                                  for(let key in keys){
+                                      old[keys[key]]=n[keys[key]];
+                                  }
                               }
-
 
                           }
 
