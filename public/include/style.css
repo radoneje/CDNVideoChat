@@ -368,8 +368,8 @@ h4 {
 }
 
 .sSectBodyItem.my {
-    background: var(--liteGray);
-    margin-left: var(--padding);
+    background: var(--liteActive);
+
 }
 
 .sSectBodyItemRow {
