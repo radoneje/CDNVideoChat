@@ -196,8 +196,12 @@
                           if(old.id==v.id){
                               find=true;
                               let elem=document.getElementById("vote"+old.id);
-                              let activeElement =document.activeElement;
-                              console.log(elem, activeElement, elem.contains(activeElement))
+                              if(elem.contains(document.activeElement)){
+
+                              }
+                              else
+                                  old=v;
+
                           }
 
                       });
