@@ -113,6 +113,7 @@
             qSend: qSend,
             addImageToChat: addImageToChat,
             addImageToQ: addImageToQ,
+            getAnswProc:getAnswProc,
 
 
             changeSection: function (sect) {

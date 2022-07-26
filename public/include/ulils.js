@@ -226,4 +226,16 @@ let addImageToQ= async function(){
 
     await addImage("Q",this)
 }
+let getAnswProc=function (item, count) {
+
+    var total = 0;
+    item.answers.forEach(a => {
+        total += a.count
+    });
+    if (total == 0)
+        return "0%"
+    var perc = (parseFloat(count) / parseFloat(total) * 100);
+    return perc.toPrecision(4) + "%"
+
+}
 
