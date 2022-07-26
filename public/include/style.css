@@ -425,6 +425,10 @@ h4 {
     font-weight: bold;
     color:var(--hoverGray);
 }
+.sModHeadPanelMenuItem.active{
+    color:var(--white);
+    background: var(--liteActive);
+}
 .sModBoxBody{
     display: flex;
     height: calc(100vh - var(--mob-padding) - var(--mob-padding));
