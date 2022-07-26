@@ -10,7 +10,7 @@ block content
           .sModHeadPanelMenuItem(v-bind:class="{active:section==2}" @click="section=2") Голосование
       .sModHeadPanelItem
         .sModHeadPanelMenu
-        .sModHeadPanelMenuItem(style="font-size: 34px;" @click="mainConfigShow=!mainConfigShow") &#x2699;
+        .sModHeadPanelMenuItem(style="font-size: 28px; padding:0 8px" @click="mainConfigShow=!mainConfigShow") &#x2699;
         .sModSettingsBox.right(v-if="mainConfigShow")
           .sModSettingsBoxRow
             .sModSettingsBoxRowTitle(@click="copyLink()") Копировать прямую ссылку
