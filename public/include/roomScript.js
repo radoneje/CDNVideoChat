@@ -38,6 +38,7 @@ const sRoom = class {
                 return  'calc(100% - '+perc+')';
             },
             getPercent:function(total, count){
+                console.log(total, count)
                 if (total == 0)
                     return "0%"
                 var perc = (parseFloat(count) / parseFloat(total) * 100);
