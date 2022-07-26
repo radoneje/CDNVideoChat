@@ -414,7 +414,7 @@ router.get("/roomToExcel/:id", async (req, res, next) => {
     chatSheet.cell(row,1).date(new Date(item.createDate)).style(cellStyle);
     chatSheet.cell(row,2).string(item.name).style(cellStyle);
     chatSheet.cell(row,3).number(item.likes || 0).style(cellStyle);
-    chatSheet.cell(row,4).number(item.dilikes || 0).style(cellStyle);
+    chatSheet.cell(row,4).number(item.dislikes || 0).style(cellStyle);
     chatSheet.cell(row,5).string(item.isMod?'Да':"Нет").style(cellStyle);
     chatSheet.cell(row,6).string(item.text).style(cellStyle);
     if(item.file) {
@@ -445,7 +445,7 @@ router.get("/roomToExcel/:id", async (req, res, next) => {
     qSheet.cell(row,1).date(new Date(item.createDate)).style(cellStyle);
     qSheet.cell(row,2).string(item.name).style(cellStyle);
     qSheet.cell(row,3).number(item.likes || 0).style(cellStyle);
-    qSheet.cell(row,4).number(item.dilikes || 0).style(cellStyle);
+    qSheet.cell(row,4).number(item.dislikes || 0).style(cellStyle);
     qSheet.cell(row,5).string(item.isMod?'Да':"Нет").style(cellStyle);
     qSheet.cell(row,6).string(item.text).style(cellStyle);
     if(item.file) {
