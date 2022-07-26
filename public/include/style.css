@@ -676,7 +676,7 @@ h4 {
 .votingMessage{
     margin-top: var(--padding);
     margin-left: var(--mob-padding);
-    color:#2d2d2d;
+    color:var(--active);
 }
 .votingConfirm{
     cursor: pointer;
