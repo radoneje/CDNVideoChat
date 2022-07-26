@@ -542,7 +542,8 @@ h4 {
 }
 .votingButtonBefore{
     height: calc(16px);
-    width: calc(16px);
+    width: calc(16px + var(--mob-padding) + 2px);
+    margin-right: var(--mob-padding);
     border-radius: var(--borderRadius);
     border:2px solid var(--black)
 }
@@ -600,9 +601,8 @@ h4 {
     background: #01766d;
 }
 .votingBox{
-    display:flex;
-    font-weight: 500;
 
+    font-weight: 500;
     font-size: 16px;
     line-height: 16px;
     color:#E6E9EB;
@@ -613,12 +613,10 @@ h4 {
     border-radius: var(--borderRadius);
     cursor: pointer;
     padding: var(--mob-padding);
-    gap: var(--padding);
-    flex: 1 0 10%;
-    margin: 0 8px;
+
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     opacity: 1;
     background: var(--liteGray);
     text-align: center;
