@@ -9,6 +9,7 @@
             chatNewItems: 0,
             q: [],
             qText: "",
+            votes:[],
             qNewItems: 0,
             userError: null,
             user: {id: null, name: null},
@@ -19,6 +20,15 @@
             voteConfigShow:false
         },
         methods: {
+            addVote: async function () {
+                var r = await axios.post("/api/addVote",{uuid: ROOM.uuid});
+                this.votes = r.data.list;
+                setTimeout(() => {
+                    var elem = document.getElementById("vote" + r.data.id);
+                    elem.parentNode.scrollTop = elem.offsetTop - 60 - elem.clientHeight;
+                    this.voteTitle = "";
+                }, 0)
+            },
             humanFileSize: function (bytes, si = false, dp = 1) {
                 const thresh = si ? 1000 : 1024;
 

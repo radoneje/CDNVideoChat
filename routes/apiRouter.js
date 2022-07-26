@@ -236,6 +236,26 @@ router.get("/downloadFile/:id", async (req, res)=>{
 
 })
 
+async function getVotes(req, res, id){
+
+  let r=await req.knex.select("*").from("t_vote").where({isDeleted:false}).orderBy("createDate");
+  if(id)
+    r=r.filter(v=>{return r.id==v.id});
+  for(let item of r){
+    item.answers=await( req.knex.select("*").from("t_voteanswers").where({voteid:item.id, isDeleted:false}).orderBy("createDate"));
+  }
+  res.json(r);
+}
+
+router.post("/addVote", async (req, res, next) => {
+  let r=await req.knex.select("*").from("t_rooms").where({uuid:req.body.uuid, isDeleted:null});
+  if(t.length==0)
+    return res.sendStatus(404)
+
+  let rr=await req.knex("t_vote").insert({roomPublicUUID:r[0].publicUUID}, "*");
+  await getVotes(req, res, rr[0].id)
+});
+
 
 
 
