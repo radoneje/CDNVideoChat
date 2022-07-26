@@ -242,7 +242,7 @@ async function getVotes(req,roomPublicUUID, id){
   let r=await req.knex.select("*").from("t_vote").where({isDeleted:false,roomPublicUUID:roomPublicUUID}).orderBy("createDate");
   console.log("r", r)
   if(id)
-    r=r.filter(v=>{return r.id==id});
+    r=r.filter(v=>{return v.id==id});
   for(let item of r){
     item.answers=await( req.knex.select("*").from("t_voteanswers").where({voteid:item.id, isDeleted:false}).orderBy("createDate"));
   }
