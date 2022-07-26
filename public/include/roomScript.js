@@ -234,6 +234,7 @@ const sRoom = class {
                     //this.votes = s.data.votes.filter(v => v.isactive)
 
                     s.data.votes=s.data.votes.filter(v => v.isactive);
+                    this.votes=s.data.votes
                     /* s.data.votes.forEach(v=>{
                        let find=false;
                        this.votes.forEach(old=>{
@@ -244,6 +245,7 @@ const sRoom = class {
                        if(!find)
                            this.votes.push(v);
                    });
+                   /*
                  s.data.votes.forEach(v=>{
                        let find=false;
                        this.votes.forEach(old=>{

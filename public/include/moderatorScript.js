@@ -188,7 +188,51 @@
                         this.timeout == 20;
                     this.chat = updateChat(this.chat, s.data.chat);
                     this.q = updateChat(this.q, s.data.q);
-                    this.votes =  s.data.votes;
+                   // this.votes =  s.data.votes;
+
+                    /* s.data.votes.forEach(v=>{
+                      let find=false;
+                      this.votes.forEach(old=>{
+                          if(old.id==v.id){
+                              find=true;
+                          }
+                      });
+                      if(!find)
+                          this.votes.push(v);
+                  });
+                  */
+                s.data.votes.forEach(v=>{
+                      let find=false;
+                      this.votes.forEach(old=>{
+                          if(old.id==v.id){
+                              find=true;
+                              var elem=document.getElementById("vote"+old.id)
+                              if(!elem){
+                                  v=old;
+                              }
+                          else
+                              {
+                                  var isFocus=false;
+                                  let inputs=elem.querySelectorAll("input");
+                                  inputs.forEach(i=>{
+                                      if(i==document.activeElement)
+                                          isFocus=true;
+                                  })
+                                  if(isFocus)
+                                  {
+                                      old.isactive=v.isactive;
+                                      old.iscompl=v.iscompl;
+                                      old.multy=v.multy;
+                                  }
+                                  else
+                                      v=old;
+                              }
+                          }
+                      })
+                      if(!find)
+                          this.votes.push(v);
+                  })
+
 
                 } catch (e) {
                     console.warn(e)
