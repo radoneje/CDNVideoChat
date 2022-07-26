@@ -480,6 +480,13 @@ h4 {
     display: block;
     font-size: .5em;
 }
+.asVoteWr{
+    position: absolute;
+    width: 100%;
+    top:0;
+    left: 0;
+    height: 100%;
+}
 
 @media screen and (max-width: 720px) {
     :root {
