@@ -456,7 +456,7 @@ async function loadRoom(chatid, elem, lang) {
 
     } else
         console.log(typeof dislikeChat)
-    let html = await axios.get("/room/box/" + chatid + "/" + lang);
+    let html = await axios.get("/in/room/box/" + chatid + "/" + lang);
     elem.innerHTML = html.data;
     console.log("loadRoom", lang)
 }
