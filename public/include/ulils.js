@@ -238,6 +238,11 @@ let getAnswProc=function (item, count) {
     return perc.toPrecision(4) + "%"
 
 }
+var completeWr;
+function hideElem(elem){
+
+    elem.classList.add("hidden");document.querySelector("#app").classList.remove("blur")
+}
 function showNotify(){
     var elem = document.querySelector(".completeWr");
     elem.classList.remove("hidden")
