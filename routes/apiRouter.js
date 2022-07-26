@@ -410,8 +410,8 @@ router.get("/roomToExcel/:id", async (req, res, next) => {
     row++;
     chatSheet.cell(row,1).date(new Date(item.createDate)).style(cellStyle);
     chatSheet.cell(row,2).string(item.name).style(cellStyle);
-    chatSheet.cell(row,3).number(item.likes).style(cellStyle);
-    chatSheet.cell(row,4).number(item.dilikes).style(cellStyle);
+    chatSheet.cell(row,3).number(item.likes || 0).style(cellStyle);
+    chatSheet.cell(row,4).number(item.dilikes || 0).style(cellStyle);
     chatSheet.cell(row,5).string(item.isMod?'Да':"Нет").style(cellStyle);
     chatSheet.cell(row,6).string(item.text).style(cellStyle);
     if(item.file) {
