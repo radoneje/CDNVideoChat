@@ -569,7 +569,7 @@ h4 {
 }
 .qVoteAnwerItem{
     display: flex;
-    padding:var(--padding);
+    padding:var(--mob-padding);
 }
 .voteTitle{
     color: var(--black);
