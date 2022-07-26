@@ -11,7 +11,7 @@ block content
       .sModHeadPanelItem
         .sModHeadPanelMenu
         .sModHeadPanelMenuItem(style="font-size: 34px;" @click="mainConfigShow=!mainConfigShow") &#x2699;
-        .sModSettingsBox(v-if="mainConfigShow")
+        .sModSettingsBox.right(v-if="mainConfigShow")
           .sModSettingsBoxRow(v-bind:class="{active:status.isChatPreMod}" v-on:click="changeStatus('isChatPreMod')")
             .sModSettingsBoxRowRound
             .sModSettingsBoxRowTitle Пре-модерация

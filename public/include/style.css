@@ -468,6 +468,11 @@ h4 {
     box-shadow: 1px 1px var(--mob-padding) 0px var(--hoverGray);
     z-index: 100;
 }
+.sModSettingsBox.right{
+    right: 0;
+    width: 340px;
+    left: -300px;
+}
 .sModSettingsBoxRow{
     display: flex;
     cursor: pointer;
@@ -566,6 +571,9 @@ h4 {
 .aanswTitle{
     padding:var(--mob-padding);
     margin-bottom: var(--mob-padding);
+}
+.sModHeadPanelItem{
+    position: relative;
 }
 .qVoteAnwerItem{
     display: flex;
