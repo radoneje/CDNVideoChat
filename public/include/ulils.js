@@ -241,13 +241,14 @@ let getAnswProc=function (item, count) {
 var completeWr;
 function hideElem(elem){
 
-    elem.classList.add("hidden");document.querySelector(".sBox").classList.remove("blur")
+    elem.classList.add("hidden");
+    document.querySelector(".sRoomBox").classList.remove("blur")
 }
 function showNotify(){
     var elem = document.querySelector(".completeWr");
     elem.classList.remove("hidden")
     elem.querySelector(".completeSubText").classList.remove("hidden")
-    document.querySelector(".sBox").classList.add("blur")
+    document.querySelector(".sRoomBox").classList.add("blur")
     if (completeWrTimeout)
         clearTimeout(completeWrTimeout);
     completeWrTimeout = setTimeout(() => {
