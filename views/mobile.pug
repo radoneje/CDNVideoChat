@@ -1,5 +1,9 @@
 extends layout
-
+block head
+  style.
+    #UpBtn{
+      display: none !important;
+    }
 block content
   .mobileWr(style="display: flex;justify-content: center;height: 100vh;")
     .tstChat#chat
