@@ -627,6 +627,62 @@ h4 {
     font-weight: normal;
     margin-bottom: var(--mob-padding);
 }
+.completeWr{
+
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10000;
+    background: rgba(0,0,0,.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.completeText{
+    width: 100%;
+    max-width: 300px;
+    background: #01766d;
+    padding: 24px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+}
+.completeText .votingItem{
+    width: 100%;
+    font-size: 24px;
+    line-height: 32px;
+    display: block;
+
+}
+.completeSubText{
+    font-size: 16px;
+    line-height: 18px;
+    padding-top: 24px;
+}
+.closeBtn{
+    width: 16px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+}
+.votingConfirm{
+    cursor: pointer;
+    padding: 24px;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: 300;
+    width: max-content;
+    background: white;
+    color:#2d2d2d;
+    margin: 12px auto;
+}
+.votingConfirm:hover{
+    background: #02bdaf;;
+}
 @media screen and (max-width: 720px) {
     :root {
         --padding: 8px;
