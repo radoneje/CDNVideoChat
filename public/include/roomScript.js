@@ -122,6 +122,7 @@ const sRoom=class{
                     this.timeout=Number.parseInt( s.data.timeout);
                     console.log(s.data.votes)
                     this.votes=s.data.votes.filter(v=>v.isactive)
+                    console.log(this.votes)
                     if(this.timeout<2 || this.timeout>120)
                         this.timeout==20;
                     if(!this.status.isChat && this.status.isQ)
