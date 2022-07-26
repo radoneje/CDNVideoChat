@@ -369,7 +369,12 @@ router.get("/roomToExcel/:id", async (req, res, next) => {
   let room=rooms[0];
 
   let wb = new xl.Workbook({dateFormat: 'DD.MM.yyyy HH:mm:ss'});
-  let chatSheet = wb.addWorksheet('Чат').style({baseColWidth:20});
+  var myStyle = wb.createStyle({
+    font: {
+      bold: true,
+    },
+  });
+  let chatSheet = wb.addWorksheet('Чат').style(myStyle);
   let qSheeet = wb.addWorksheet('Вопросы');
   let voteSheeet = wb.addWorksheet('Голосования');
 
