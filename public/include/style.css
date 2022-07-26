@@ -476,6 +476,7 @@ h4 {
 .sModSettingsBoxRow{
     display: flex;
     cursor: pointer;
+    margin-bottom: var(--mob-padding);
 }
 .sModSettingsBoxRowRound{
     height: 1em;
