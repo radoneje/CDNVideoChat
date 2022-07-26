@@ -564,7 +564,7 @@ h4 {
     padding:8px;
 }
 .aanswTitle{
-    padding:4px;
+    padding:var(--padding)
 }
 .qVoteAnwerItem{
     display: flex;
