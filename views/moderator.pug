@@ -8,7 +8,9 @@ block content
           .sModHeadPanelMenuItem(v-bind:class="{active:section==0}" @click="section=0") Чат
           .sModHeadPanelMenuItem(v-bind:class="{active:section==1}" @click="section=1") Вопросы
           .sModHeadPanelMenuItem(v-bind:class="{active:section==2}" @click="section=2") Голосование
-      .sModHeadPanelItem &#x2699;
+      .sModHeadPanelItem
+        .sModHeadPanelMenu
+        .sModHeadPanelMenuItem &#x2699;
     .sModBoxBody
       .sModPadel(v-show="section==0")
         .sModPanelHead
