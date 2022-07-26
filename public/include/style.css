@@ -426,7 +426,7 @@ h4 {
     font-weight: bold;
     color:var(--black);
     padding: var(--mob-padding);
-    border-radius: 0px var(--borderRadius) var(--borderRadius) 0;
+    border-radius: var(--borderRadius) var(--borderRadius) 0  0px;
 }
 .sModHeadPanelMenuItem:hover{
     background: var(--liteGray);
