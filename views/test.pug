@@ -6,7 +6,7 @@ block content
       .videoWrapper
         video(src="https://static.sber.link/video/rec_1606_0846_f3_ru.mp4" width="1280" height="720" controls)
     .tstChat#chat
-      img(style="width:100%" src="/include/loader.gif")
+      img(style="width:100%" src="/in/include/loader.gif")
   script.
     const CHATID="!{id}";
     document.addEventListener("DOMContentLoaded", ()=>{
@@ -17,7 +17,7 @@ block content
 
         let script = document.createElement("script")
         script.id = "chatScript";
-        script.src = "/include/roomScript.js";
+        script.src = "/in/include/roomScript.js";
         script.onload = () => {
           room=initRoom(CHATID, elem, "!{lang}");
           console.log(chat)

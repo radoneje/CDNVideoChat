@@ -1,6 +1,6 @@
 extends layout
 block content
-  script(src="/include/axios.js")
+  script(src="/in/include/axios.js")
 block content
   .sAWr#app
     h4 List of active rooms
@@ -19,9 +19,9 @@ block content
       .sStext
         .button.maxContent.inline(v-if="skip>0" @click="prev()") << prev
         .button.maxContent.inline(v-if="(rooms.length+skip)<total" @click="next()") next >>
-  script(src="include/axios.js")
-  script(src="include/vue.min.js")
-  script(src="include/moment.min.js")
+  script(src="/in/include/axios.js")
+  script(src="/in/include/vue.min.js")
+  script(src="/in/include/moment.min.js")
   script.
     "use strict"
     let app = new Vue({

@@ -432,26 +432,26 @@ async function loadRoom(chatid, elem, lang) {
     console.log("loadRoom")
     if (typeof axios == 'undefined') {
         let a = document.createElement("script");
-        a.src = "/include/axios.js"
+        a.src = "/in/include/axios.js"
         await loadResource(a, document.head);
 
     }
     if (typeof Vue == 'undefined') {
         let a = document.createElement("script");
-        a.src = "/include/vue.min.js"
+        a.src = "/in/include/vue.min.js"
         await loadResource(a, document.head);
 
     }
     if (typeof moment == 'undefined') {
         let a = document.createElement("script");
-        a.src = "/include/moment.min.js"
+        a.src = "/in/include/moment.min.js"
         await loadResource(a, document.head);
 
     }
     if (typeof dislikeChat == 'undefined') {
         console.log("dislikeChat undef")
         let a = document.createElement("script");
-        a.src = "/include/ulils.js"
+        a.src = "/in/include/ulils.js"
         await loadResource(a, document.head);
 
     } else
