@@ -215,6 +215,7 @@ router.post("/qFile", upload.single('file'), async (req, res)=>{
   if(room.length==0)
     return res.sendStatus(404);
   let r= await req.knex("t_q").insert({ roomPublicUUID:req.body.id,  userid:req.body.userid, file:req.file.path, fileName:Buffer.from(req.file.originalname, 'latin1').toString('utf8') , fileType:req.file.mimetype, fileSize:req.file.size},"*");
+  console.log(r)
   let rr=await req.knex("v_q").where({id:r[0].id});
   res.json(rr[0]);
 })
