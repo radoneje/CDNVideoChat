@@ -260,7 +260,7 @@ router.post("/voteTitleChange", async (req, res, next) => {
   let r=await req.knex.select("*").from("t_rooms").where({uuid:req.body.uuid, isDeleted:null});
   if(r.length==0)
     return res.sendStatus(404)
-  r=await req.knex("t_vote").update({title:req.body.item.title}, "*").where({id:req.body.id});
+  r=await req.knex("t_vote").update({title:req.body.item.title}, "*").where({id:req.body.item.id});
   res.json(r[0]);
 });
 
