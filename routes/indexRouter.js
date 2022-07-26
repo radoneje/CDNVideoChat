@@ -23,7 +23,12 @@ router.post('/adminLogin', function(req, res, next) {
   req.session.admin = false;
   return res.json({status: 404});
 });
-
+router.get("/robots.txt",(req, res)=>{
+  let ret="User-agent: *\n" +
+      "Disallow: /"
+  res.type("text/plain")
+  res.send(ret);
+})
 router.get('/in/room/box/:id/:lang?', async (req, res, next)=> {
   if(req.params.lang!="ru" || req.params.lang!="en")
     req.params.lang="ru"
