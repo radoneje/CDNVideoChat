@@ -198,6 +198,12 @@
                               let elem=document.getElementById("vote"+old.id);
                               if(elem.contains(document.activeElement)){
                                   console.log("not copy element")
+                                  let keys=Object.keys(n)
+                                  for(let key in keys){
+                                      if(keys[key]!="title" && keys[key]!="answers")
+                                      old[keys[key]]=n[keys[key]];
+                                  }
+
                               }
                               else{
                                   let keys=Object.keys(n)
