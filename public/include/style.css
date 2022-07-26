@@ -424,12 +424,15 @@ h4 {
     cursor: pointer;
     font-size: var(--headFontSize);
     font-weight: bold;
-    color:var(--hoverGray);
+    color:var(--black);
     padding: var(--mob-padding);
 }
 .sModHeadPanelMenuItem.active{
     color:var(--white);
     background: var(--liteActive);
+}
+.sModHeadPanelMenuItem:hover{
+    background: var(--liteGray);
 }
 .sModBoxBody{
     display: flex;
