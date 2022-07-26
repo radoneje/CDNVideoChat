@@ -30,7 +30,6 @@
                 return full;
             },
             copyLink:async function (){
-
                 await navigator.clipboard.writeText(this.getClientLink())
                 alert("Ссылка скопирована в буфер обмена")
                 this.mainConfigShow=false;
