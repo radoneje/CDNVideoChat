@@ -409,6 +409,7 @@ h4 {
     justify-content: space-between;
     align-items: center;
     padding: var(--mob-padding);
+    padding-bottom: 0;
     border-bottom: 2px solid var(--liteActive);
     margin-bottom: var(--padding);
 }
@@ -424,6 +425,7 @@ h4 {
     font-size: var(--headFontSize);
     font-weight: bold;
     color:var(--hoverGray);
+    padding: var(--mob-padding);
 }
 .sModHeadPanelMenuItem.active{
     color:var(--white);
