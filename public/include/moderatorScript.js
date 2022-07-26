@@ -53,6 +53,12 @@
                 });
                 let img=elem.querySelector("img");
                 console.log(img)
+                var a=document.createElement("a");
+                a.download="QRcode.png"
+                a.href=img.src;
+                document.body.appendChild(a)
+                a.click();
+
             },
             aVote: async function (item) {
                 var r = await axios.post("/api/aVote", {id: item.id,uuid: ROOM.uuid});
