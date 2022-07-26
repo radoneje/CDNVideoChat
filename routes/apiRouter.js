@@ -42,7 +42,7 @@ router.get("/status/:id", async (req, res)=>{
   delete r[0].uuid;
   let chat=await req.knex("v_chat").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(300);
   let q=await req.knex("v_q").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(300);
-  let votes=getVotes(req, r[0].publicUUID)
+  let votes=await getVotes(req, r[0].publicUUID)
   let timeout=0;
   timeout=Number.parseInt( await fsPromises.readFile("./timeout.txt"));
   res.json({status:r[0], chat,q,votes, timeout})
@@ -255,8 +255,8 @@ router.post("/addVote", async (req, res, next) => {
     return res.sendStatus(404)
 
   let rr=await req.knex("t_vote").insert({roomPublicUUID:r[0].publicUUID}, "*");
-  console.log( getVotes(req, r[0].publicUUID, rr[0].id))
-  return  res.json( getVotes(req, r[0].publicUUID, rr[0].id));
+
+  return  res.json(await getVotes(req, r[0].publicUUID, rr[0].id));
 });
 router.post("/voteTitleChange", async (req, res, next) => {
   let r=await req.knex.select("*").from("t_rooms").where({uuid:req.body.uuid, isDeleted:null});
