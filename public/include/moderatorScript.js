@@ -23,7 +23,8 @@
         },
         methods: {
             copyLink:function (){
-                console.log(const full = location.protocol + '//' + location.host+":"+location.port);
+                const full = location.protocol + '//' + location.host+":"+location.port
+                console.log(full);
             },
             downloadQr:function (){},
             aVote: async function (item) {
