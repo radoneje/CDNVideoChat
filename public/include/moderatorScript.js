@@ -22,7 +22,7 @@
         methods: {
             addVote: async function () {
                 var r = await axios.post("/api/addVote",{uuid: ROOM.uuid});
-                this.votes.push(r.data);
+                this.votes.unshift(r.data);
             },
             humanFileSize: function (bytes, si = false, dp = 1) {
                 const thresh = si ? 1000 : 1024;
