@@ -44,7 +44,7 @@ block content
     .sModPadel
       .sModPanelHead
         .h4 Голосование &nbsp;
-        .button.maxContent.small Добавить голосование
+        .button.maxContent.small(@click="addVote()") Добавить голосование
         .sModSettings(@click="voteConfigShow=!voteConfigShow") &#x2699;
           .sModSettingsBox(v-if="voteConfigShow")
       .sBody
