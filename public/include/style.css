@@ -359,7 +359,7 @@ h4 {
 }
 
 .sSectBodyItem {
-    width: calc(100% - var(--padding));
+    width: calc(100% );
     box-sizing: border-box;
     border-radius: var(--borderRadius);
     border: 1px solid var(--black);
