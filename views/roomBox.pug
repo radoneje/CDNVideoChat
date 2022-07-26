@@ -12,7 +12,9 @@
                             .votingButtonBefore
                             .votingButtonTitle {{item.title}}
                                 .votingButtonSubTitle(v-if="item.subTitle && item.subTitle.length>0") {{item.subTitle}}
-
+                .votingMessage(v-if="!v.iscompl & !v.multy") Можно выбрать один вариант
+                .votingMessage(v-if="!v.iscompl & v.multy") Можно выбрать несколько вариантов
+                .votingConfirm.hidden(:id="'votebtn'+v.id" v-if="!v.iscompl & v.multy" v-on:click="multyVote(v, $event)" ) Голосовать
 
         .sHeader
             .sHeaderItem(v-if="status.isChat"  v-bind:class="{active:section==0, aFull:!status.isQ}" v-on:click="changeSection(0)")

@@ -686,6 +686,23 @@ h4 {
 .blur{
     filter:blur(4px);
 }
+.votingMessage{
+    margin-top: var(--padding);
+    margin-left: var(--mob-padding);
+    color:#2d2d2d;
+}
+.votingConfirm{
+    cursor: pointer;
+    padding: var(--padding);
+    border-radius: var(--borderRadius);
+    width: max-content;
+    background:var(--white);
+    color:var(--black);
+    margin: var(--padding) auto;
+}
+.votingConfirm:hover{
+    background: var(--active);
+}
 @media screen and (max-width: 720px) {
     :root {
         --padding: 8px;
