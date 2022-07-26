@@ -541,8 +541,8 @@ h4 {
     margin-bottom:26px;
 }
 .votingButtonBefore{
-    height: calc(50px - 10px);
-    width: calc(50px);
+    height: calc(16px);
+    width: calc(16px);
     border-radius: var(--borderRadius);
     border:2px solid var(--black)
 }
@@ -623,6 +623,7 @@ h4 {
     background: var(--liteGray);
     text-align: center;
     color: var(--black);
+    font-size: var(--font-size);
 }
 @media screen and (max-width: 720px) {
     :root {
