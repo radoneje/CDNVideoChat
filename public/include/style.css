@@ -444,6 +444,7 @@ h4 {
 .sModPadel {
     padding: 0 var(--mob-padding);
     width: 100%;
+    max-width: 1200px;
     box-sizing: border-box;
 }
 .sModPanelHead{
