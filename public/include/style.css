@@ -409,6 +409,7 @@ h4 {
     justify-content: space-between;
     align-items: center;
     padding: var(--padding);
+    border-bottom: 2px solid var(--liteActive);
 }
 .sModHeadPanelMenu{
     display: flex;
@@ -420,6 +421,7 @@ h4 {
     margin-right: var(--padding);
     cursor: pointer;
     font-size: var(--headFontSize);
+    font-weight: bold;
 }
 .sModBoxBody{
     display: flex;
