@@ -250,6 +250,7 @@ router.get("/downloadFile/:id", async (req, res)=>{
   let p=path.join(__dirname,"../",r[0].file);
 
   res.type(r[0].fileType)
+  res.set('Content-Disposition', `attachment; filename="${r[0].fileName}"`);
   res.sendFile(p)
 
 })
@@ -399,9 +400,9 @@ router.get("/roomToExcel/:id", async (req, res, next) => {
   chatSheet.cell(1,7).string('Имя файла').style(myStyle);
   chatSheet.cell(1,8).string('Ссылка').style(myStyle);
 
-  chatSheet.column(1).setWidth(20);
+  chatSheet.column(1).setWidth(30);
   chatSheet.column(2).setWidth(40);
-  chatSheet.column(2).setWidth(20);
+  chatSheet.column(6).setWidth(40);
   chatSheet.column(7).setWidth(40);
   chatSheet.column(8).setWidth(40);
 
