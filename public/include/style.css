@@ -540,6 +540,17 @@ h4 {
     text-align:left;
     margin-bottom:26px;
 }
+.votingButtonBefore{
+    height: calc(50px - 10px);
+    width: calc(50px);
+    border-radius: var(--borderRadius);
+    border:2px solid var(--black)
+}
+.votingButton.active .votingButtonBefore{
+    background-color:var(--liteActive);
+    border:2px solid var(--active)
+}
+
 .votingItem{
     color:#FFFFFF;
 
