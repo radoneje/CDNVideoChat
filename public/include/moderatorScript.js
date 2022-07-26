@@ -23,7 +23,7 @@
         },
         methods: {
             copyLink:function (){
-                console.log(document.URL);
+                console.log(const full = location.protocol + '//' + location.host+":"+location.port);
             },
             downloadQr:function (){},
             aVote: async function (item) {
