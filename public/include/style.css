@@ -229,7 +229,7 @@ a {
     border: 1px solid var(--black);
     background-color: var(--white);
 }
-#sChatUploader{
+#sChatUploader, #sQUploader{
     position: absolute;
     top: 0;
     height: 100%;
