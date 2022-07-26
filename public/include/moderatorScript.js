@@ -32,7 +32,9 @@
             copyLink:async function (){
 
                 await navigator.clipboard.writeText(this.getClientLink())
-                alert("Ссылка скопирована в буфер обмена").
+                alert("Ссылка скопирована в буфер обмена")
+                this.mainConfigShow=false;
+
             },
             downloadQr:function (){},
             aVote: async function (item) {
