@@ -6,7 +6,7 @@ block content
     .sAbody
       h4 login
       input#login(placeholder="login")
-      input#pass(placeholder="password")
+      input#pass(placeholder="password" onkeydown="if(this.keyCode==13) login(); ")
       .button(onClick="login()") Log In
   script.
     let login=async  ()=> {
