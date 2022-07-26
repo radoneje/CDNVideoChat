@@ -419,6 +419,7 @@ h4 {
 .sModHeadPanelMenuItem{
     margin-right: var(--padding);
     cursor: pointer;
+    font-size: var(--headFontSize);
 }
 .sModBoxBody{
     display: flex;
