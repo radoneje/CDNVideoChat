@@ -313,8 +313,13 @@ router.post("/aVote", checkAdmin, async (req, res, next) => {
   r= await req.knex("t_voteanswers").update({count:(r[0].count+1)}, "*").where({id:req.body.id});
   res.json(r[0])
 })
-router.post("/changeChatAnswer", checkAdmin, async (req, res, next) => {
-  let r= await req.knex("t_chat").update({answer:req.body.answer}, "*").where({id:req.body.id});
+
+router.post("/changeAnswer", checkAdmin, async (req, res, next) => {
+  let r = await req.knex("t_voteanswers").update({title:req.body.title}, "*").where({id:req.body.id});
+  res.json(r[0])
+})
+router.post("/deleteAnswer", checkAdmin, async (req, res, next) => {
+  let r = await req.knex("t_voteanswers").update({isDeleted:true}, "*").where({id:req.body.id});
   res.json(r[0])
 })
 
