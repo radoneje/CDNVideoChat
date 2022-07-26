@@ -32,6 +32,20 @@ const sRoom = class {
             timeout: 20
         },
         methods: {
+            getCalcPercent:function(total, count){
+
+                var perc = getPercent(total, count);
+                return  'calc(100% - '+perc+')';
+            },
+            getPercent:function(total, count){
+                if (total == 0)
+                    return "0%"
+                var perc = (parseFloat(count) / parseFloat(total) * 100);
+                let Precision=4;
+                if(perc<10)
+                    Precision=3;
+                return perc.toPrecision(4) + "%"
+            },
             voiting: async function (item, v) {
 
                 var store = [];
