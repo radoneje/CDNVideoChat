@@ -71,11 +71,12 @@ block content
               .sSectBodyItem(v-for="item in votes" v-if="votes.length>0" :id="'vote'+item.id")
                 .sSectBodyItemRow
                   input.aanswTitle(v-model="item.title" v-on:change="voteTitleChange(item)" style="" placeholder="Здесь вопрос для голосования")
-                  .buttonGroup( style="margin-top:4px;")
-                    .button.maxContent.small(v-on:click="addAnswer(item)") Добавить ответ
+
                   .buttonGroup( style="margin-top:4px;")
                     .button.maxContent.small(v-on:click="multyVote(item)" v-if="!item.multy") Возможен выбор только одного ответа
                     .button.maxContent.small.blue(v-on:click="multyVote(item)" v-if="item.multy") Возможен выбор нескольких ответов
+                  .buttonGroup( style="margin-top:4px;")
+                    .button.maxContent.small(v-on:click="addAnswer(item)") Добавить ответ
 
                 .qVoteAnswerWr.sSectBodyItemRow
                   .qVoteAnwerItem(v-for="answ in item.answers")
