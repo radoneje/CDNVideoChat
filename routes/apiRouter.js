@@ -422,6 +422,64 @@ router.get("/roomToExcel/:id", async (req, res, next) => {
       chatSheet.cell(row, 8).link('https://in.onevent.online/in/api/downloadFile/'+ item.id).style(cellStyle);
     }
   }
+  ////
+  let q=await req.knex.select("*").from("v_q").where({roomPublicUUID:room.publicUUID}).orderBy("createDate")
+  qSheet.cell(1,1).string('Время').style(myStyle);
+  qSheet.cell(1,2).string('Пользователь').style(myStyle);
+  qSheet.cell(1,3).string('Лайков').style(myStyle);
+  qSheet.cell(1,4).string('Дислайков').style(myStyle);
+  qSheet.cell(1,5).string('Прошел модерацию').style(myStyle);
+  qSheet.cell(1,6).string('Сообщение').style(myStyle);
+  qSheet.cell(1,7).string('Имя файла').style(myStyle);
+  qSheet.cell(1,8).string('Ссылка').style(myStyle);
+
+  qSheet.column(1).setWidth(30);
+  qSheet.column(2).setWidth(40);
+  qSheet.column(6).setWidth(40);
+  qSheet.column(7).setWidth(40);
+  qSheet.column(8).setWidth(40);
+
+   row=1;
+  for(let item of q){
+    row++;
+    qSheet.cell(row,1).date(new Date(item.createDate)).style(cellStyle);
+    qSheet.cell(row,2).string(item.name).style(cellStyle);
+    qSheet.cell(row,3).number(item.likes || 0).style(cellStyle);
+    qSheet.cell(row,4).number(item.dilikes || 0).style(cellStyle);
+    qSheet.cell(row,5).string(item.isMod?'Да':"Нет").style(cellStyle);
+    qSheet.cell(row,6).string(item.text).style(cellStyle);
+    if(item.file) {
+      qSheet.cell(row, 7).string(item.fileName).style(cellStyle);
+      qSheet.cell(row, 8).link('https://in.onevent.online/in/api/downloadFile/'+ item.id).style(cellStyle);
+    }
+  }
+  ////
+
+  voteSheeet.cell(1,1).string('Вопрос').style(myStyle);
+  voteSheeet.cell(1,2).string('Тип').style(myStyle);
+  voteSheeet.cell(1,3).string('Ответ').style(myStyle);
+  voteSheeet.cell(1,4).string('Число голосов').style(myStyle);
+
+  voteSheeet.column(1).setWidth(40);
+  voteSheeet.column(2).setWidth(40);
+  voteSheeet.column(3).setWidth(40);
+  voteSheeet.column(4).setWidth(20);
+
+
+  let vote=await req.knex.select("*").from("t_vote").where({roomPublicUUID:room.publicUUID, isDeleted:false}).orderBy("createDate")
+  row=1;
+  for(let item of vote){
+    row++;
+    voteSheeet.cell(row,2).string(item.title).style(cellStyle);
+    voteSheeet.cell(row,2).string(item.multy?"Несколько ответов":"Один ответ").style(cellStyle);
+    let answers=await req.knex.select("*").from("t_voteanswers").where({voteid:item.id,isDeleted:false}).orderBy("createDate")
+    for(let a of answers){
+      row++;
+      voteSheeet.cell(row,3).string(a.title).style(cellStyle);
+      voteSheeet.cell(row,4).number(a.count || 0).style(cellStyle);
+    }
+  }
+
   wb.write('Excel.xlsx', res);
 })
 
