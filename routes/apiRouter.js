@@ -162,7 +162,7 @@ router.post("/qlike", async (req, res)=>{
   }
   else
     r[0].likes++;
-  console.log(r[0].likes);
+
   let rr=await req.knex("t_q").update({likes:r[0].likes},"*").where({id:req.body.id});
   res.json(rr[0]);
 })
@@ -216,7 +216,7 @@ router.post("/qFile", upload.single('file'), async (req, res)=>{
   if(room.length==0)
     return res.sendStatus(404);
   let r= await req.knex("t_q").insert({ roomPublicUUID:req.body.id,  userid:req.body.userid, file:req.file.path, fileName:Buffer.from(req.file.originalname, 'latin1').toString('utf8') , fileType:req.file.mimetype, fileSize:req.file.size},"*");
-  console.log(r)
+
   let rr=await req.knex("v_q").where({id:r[0].id});
   res.json(rr[0]);
 })
@@ -231,7 +231,7 @@ router.get("/downloadFile/:id", async (req, res)=>{
 
 
   let p=path.join(__dirname,"../",r[0].file);
-  console.log(p)
+
   res.type(r[0].fileType)
   res.sendFile(p)
 
@@ -258,15 +258,14 @@ router.post("/addVote", async (req, res, next) => {
     return res.sendStatus(404)
 
   let rr=await req.knex("t_vote").insert({roomPublicUUID:r[0].publicUUID}, "*");
-  let rrrr=await await getVotes(req, r[0].publicUUID, rr[0].id)
-  console.log("r", rrrr)
-  return  res.json(rrrr[0]);
+  let rrr=await await getVotes(req, r[0].publicUUID, rr[0].id)
+  return  res.json(rrr[0]);
 });
 router.post("/voteTitleChange", async (req, res, next) => {
   let r=await req.knex.select("*").from("t_rooms").where({uuid:req.body.uuid, isDeleted:null});
   if(r.length==0)
     return res.sendStatus(404)
-  console.log(req.body)
+
   r=await req.knex("t_vote").update({title:req.body.item.title}, "*").where({id:req.body.item.id});
   res.json(r[0]);
 });
