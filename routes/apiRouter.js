@@ -46,9 +46,19 @@ router.get("/status/:id", async (req, res)=>{
   if(r.length==0)
     return res.sendStatus(404);
   delete r[0].uuid;
+
   let chat=await req.knex("v_chat").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(300);
+
   let q=await req.knex("v_q").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(300);
+
   let votes=await getVotes(req, r[0].publicUUID)
+  for(let item of votes){
+    item.answers=await( req.knex.select("*").from("t_voteanswers").where({voteid:item.id, isDeleted:false}).orderBy("id"));
+    let total=0;
+    item.answers.forEach(a=>{total+=a.count});
+    item.total=total;
+  }
+
   let timeout=0;
   timeout=Number.parseInt( await fsPromises.readFile("./timeout.txt"));
   res.json({status:r[0], chat,q,votes, timeout})
