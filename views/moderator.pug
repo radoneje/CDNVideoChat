@@ -47,6 +47,9 @@ block content
         .button.maxContent.small Добавить голосование
         .sModSettings(@click="voteConfigShow=!voteConfigShow") &#x2699;
           .sModSettingsBox(v-if="voteConfigShow")
+      .sBody
+        .sSectWr
+          .asVoteWr bla-bla
     include elements/regUser
   script.
     const ROOM=!{JSON.stringify(room[0])};
