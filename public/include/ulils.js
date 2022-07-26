@@ -238,4 +238,15 @@ let getAnswProc=function (item, count) {
     return perc.toPrecision(4) + "%"
 
 }
+function showNotify(){
+    var elem = document.querySelector(".completeWr");
+    elem.classList.remove("hidden")
+    elem.querySelector(".completeSubText").classList.remove("hidden")
+    document.querySelector("#app").classList.add("blur")
+    if (completeWrTimeout)
+        clearTimeout(completeWrTimeout);
+    completeWrTimeout = setTimeout(() => {
+        hideElem(elem)
+    }, 6000);
+}
 

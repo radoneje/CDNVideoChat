@@ -31,6 +31,19 @@ const sRoom=class{
             timeout:20
         },
         methods:{
+            multyVote:function(item, e){
+                e.target.classList.add('hidden');
+                showNotify();
+            },
+            checkVote:function(item, v){
+                var json=localStorage.getItem("vote"+item.voteid);
+                if(! json)
+                    return false;
+                // if(!v.multy )
+                //    return true;
+                let store=JSON.parse(json)
+                return store.filter(s=>{return s==item.id}).length>0;
+            },
             humanFileSize:function(bytes, si=false, dp=1) {
                 const thresh = si ? 1000 : 1024;
 
