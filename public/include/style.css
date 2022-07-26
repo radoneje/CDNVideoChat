@@ -546,6 +546,7 @@ h4 {
     margin-right: var(--mob-padding);
     border-radius: var(--borderRadius);
     border:2px solid var(--black)
+
 }
 .votingButton.active .votingButtonBefore{
     background-color:var(--liteActive);
@@ -622,6 +623,7 @@ h4 {
     text-align: center;
     color: var(--black);
     font-size: var(--font-size);
+    margin-bottom: var(--mob-padding);
 }
 @media screen and (max-width: 720px) {
     :root {
