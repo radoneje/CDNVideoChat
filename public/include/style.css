@@ -142,6 +142,10 @@ a {
 .blue{
     background-color: var(--active) !important;
 }
+.buttonGroup{
+    display: flex;
+    gap:4px;
+}
 .chatBtnGroup{
     display: flex;
     align-items: center;
