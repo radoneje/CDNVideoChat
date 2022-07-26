@@ -388,7 +388,7 @@ router.get("/roomToExcel/:id", async (req, res, next) => {
 
 
   let chatSheet = wb.addWorksheet('Чат')
-  let qSheeet = wb.addWorksheet('Вопросы');
+  let qSheet = wb.addWorksheet('Вопросы');
   let voteSheeet = wb.addWorksheet('Голосования');
 
 
