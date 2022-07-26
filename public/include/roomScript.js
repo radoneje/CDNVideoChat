@@ -52,7 +52,7 @@ const sRoom = class {
                             return s != o
                         });
                         localStorage.setItem("vote" + v.id, JSON.stringify(store));
-                        this.vote = this.vote.filter(ff => {
+                        this.votes = this.votes.filter(ff => {
                             return true
                         })
                     }
@@ -63,7 +63,7 @@ const sRoom = class {
                                 return s != o
                             });
                             localStorage.setItem("vote" + v.id, JSON.stringify(store));
-                            this.vote = this.vote.filter(ff => {
+                            this.votes = this.votes.filter(ff => {
                                 return true
                             })
                             await axios.post("/api/reVote", {id: o});
@@ -82,7 +82,7 @@ const sRoom = class {
                 store.push(item.id)
                 console.log("store", store)
                 localStorage.setItem("vote" + item.voteid, JSON.stringify(store));
-                this.vote = this.vote.filter(v => {
+                this.votes = this.votes.filter(v => {
                     return true
                 });
 
