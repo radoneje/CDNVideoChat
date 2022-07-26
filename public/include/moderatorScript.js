@@ -197,10 +197,12 @@
                               find=true;
                               let elem=document.getElementById("vote"+old.id);
                               if(elem.contains(document.activeElement)){
-
+                                  console.log("not copy element")
                               }
-                              else
-                                  old=v;
+                              else{
+                                  console.log("copyElement")
+                              }
+
 
                           }
 
