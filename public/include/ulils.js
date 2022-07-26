@@ -177,15 +177,15 @@ let onPasteChat= async function(e){
 window.addEventListener('paste', e => {
     console.log("onPasteChat",e )
 });
-let addImage= async function(sect){
+let addImage= async function(sect, _this){
    var elem=document.createElement("input");
    elem.type="file"
     elem.style.display="none";
    elem.onchange=(e)=>{
        let formData=new FormData();
        formData.append("file", elem.files[0]);
-       formData.append("id", this.id);
-       formData.append("userid", this.user.id);
+       formData.append("id", _this.id);
+       formData.append("userid", _this.user.id);
        let xhr = new XMLHttpRequest();
        xhr.open("POST", "/api/"+sect.toLowerCase()+"File")
         let uploader=document.getElementById("s"+sect+"Uploader")
@@ -200,7 +200,7 @@ let addImage= async function(sect){
        xhr.onreadystatechange = () =>{//Call a function when the state changes.
            if(xhr.readyState == 4 && xhr.status == 200) {
                let c=JSON.parse(xhr.responseText);
-               this[sect.toLowerCase()].push(c);
+               _this[sect.toLowerCase()].push(c);
                setTimeout(function () {
                    var objDiv = document.getElementById(sect.toLowerCase()+"Box");
                    objDiv.scrollTop = objDiv.scrollHeight;
@@ -219,11 +219,11 @@ let addImage= async function(sect){
    document.body.appendChild(elem)
    elem.click();
 }
-let addImageToChat= async ()=>{
-    await addImage("Chat")
+let addImageToChat= async function(){
+    await addImage("Chat", this)
 }
-let addImageToQ= async ()=>{
+let addImageToQ= async function(){
 
-    await addImage("Q")
+    await addImage("Q",this)
 }
 
