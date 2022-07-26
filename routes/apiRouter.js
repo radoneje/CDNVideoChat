@@ -369,7 +369,7 @@ router.get("/roomToExcel/:id", async (req, res, next) => {
   let room=rooms[0];
 
   let wb = new xl.Workbook({dateFormat: 'DD.MM.yyyy HH:mm:ss'});
-  var myStyle = wb.createStyle({
+  let myStyle = wb.createStyle({
     font: {
       bold: true,
     },
@@ -379,6 +379,11 @@ router.get("/roomToExcel/:id", async (req, res, next) => {
       }
     }
   });
+  let cellStyle = wb.createStyle({
+    alignment:{wrapText:true}
+  });
+
+
   let chatSheet = wb.addWorksheet('Чат')
   let qSheeet = wb.addWorksheet('Вопросы');
   let voteSheeet = wb.addWorksheet('Голосования');
@@ -391,17 +396,28 @@ router.get("/roomToExcel/:id", async (req, res, next) => {
   chatSheet.cell(1,4).string('Дислайков').style(myStyle);
   chatSheet.cell(1,5).string('Прошел модерацию').style(myStyle);
   chatSheet.cell(1,6).string('Сообщение').style(myStyle);
-  chatSheet.column(3).setWidth(50);
+  chatSheet.cell(1,7).string('Имя файла').style(myStyle);
+  chatSheet.cell(1,8).string('Ссылка').style(myStyle);
+
+  chatSheet.column(1).setWidth(20);
+  chatSheet.column(2).setWidth(40);
+  chatSheet.column(2).setWidth(20);
+  chatSheet.column(7).setWidth(40);
+  chatSheet.column(8).setWidth(40);
+
   let row=1;
   for(let item of chat){
     row++;
-    chatSheet.cell(row,1).date(new Date(item.createDate))
-    chatSheet.cell(row,2).string('Пользователь')
-    chatSheet.cell(row,3).string('Лайков')
-    chatSheet.cell(row,4).string('Дислайков')
-    chatSheet.cell(row,5).string('Прошел модерацию')
-    chatSheet.cell(row,6).string('Сообщение')
-  //.date(new Date())
+    chatSheet.cell(row,1).date(new Date(item.createDate)).style(cellStyle);
+    chatSheet.cell(row,2).string(item.name).style(cellStyle);
+    chatSheet.cell(row,3).number(item.likes).style(cellStyle);
+    chatSheet.cell(row,4).number(item.dilikes).style(cellStyle);
+    chatSheet.cell(row,5).string(item.isMod?'Да':"Нет").style(cellStyle);
+    chatSheet.cell(row,6).string(item.text).style(cellStyle);
+    if(item.file) {
+      chatSheet.cell(row, 7).string(item.fileName).style(cellStyle);
+      chatSheet.cell(row, 8).link('https://in.onevent.online/in/api/downloadFile/'+ item.id).style(cellStyle);
+    }
   }
   wb.write('Excel.xlsx', res);
 })
