@@ -38,13 +38,13 @@ const sRoom = class {
                 return  'calc(100% - '+perc+')';
             },
             getPercent:function(total, count){
-                console.log(total, count)
+
                 if (total == 0)
                     return "0%"
                 var perc = (parseFloat(count) / parseFloat(total) * 100);
-                console.log(perc)
+
                 let Precision=4;
-                if(perc<10)
+                if(perc<10 ||perc==100 )
                     Precision=3;
                 return perc.toPrecision(Precision) + "%"
             },
