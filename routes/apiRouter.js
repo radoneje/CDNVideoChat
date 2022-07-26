@@ -470,7 +470,7 @@ router.get("/roomToExcel/:id", async (req, res, next) => {
   row=1;
   for(let item of vote){
     row++;
-    voteSheet.cell(row,2).string(item.title).style(cellStyle);
+    voteSheet.cell(row,1).string(item.title).style(cellStyle);
     voteSheet.cell(row,2).string(item.multy?"Несколько ответов":"Один ответ").style(cellStyle);
     let answers=await req.knex.select("*").from("t_voteanswers").where({voteid:item.id,isDeleted:false}).orderBy("createDate")
     for(let a of answers){
