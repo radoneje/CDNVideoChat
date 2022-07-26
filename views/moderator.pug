@@ -13,9 +13,10 @@ block content
         .sModHeadPanelMenuItem(style="font-size: 34px;" @click="mainConfigShow=!mainConfigShow") &#x2699;
         .sModSettingsBox.right(v-if="mainConfigShow")
           .sModSettingsBoxRow
-            .sModSettingsBoxRowTitle Копировать прямую ссылку
+            .sModSettingsBoxRowTitle(@click="copyLink()") Копировать прямую ссылку
           .sModSettingsBoxRow
-            .sModSettingsBoxRowTitle Скачать QR код
+            .sModSettingsBoxRowTitle(@click="downloadQr()") Скачать QR код
+          .sModSettingsBoxRow
           .sModSettingsBoxRow
             .button.small.maxContent(@click="mainConfigShow=!mainConfigShow") Закрыть настройки
     .sModBoxBody
