@@ -15,7 +15,12 @@
                 .votingMessage(v-if="!v.iscompl & !v.multy") Можно выбрать один вариант
                 .votingMessage(v-if="!v.iscompl & v.multy") Можно выбрать несколько вариантов
                 .votingConfirm.hidden(:id="'votebtn'+v.id" v-if="!v.iscompl & v.multy" v-on:click="multyVote(v, $event)" ) Голосовать
-
+                .voteComplBox(v-if="v.iscompl")
+                    .votingItem(v-for="item in v.answers")
+                        .votingItemTitle {{item.title}}
+                        .votingItemRes
+                            .votingItemResStart {{getPercent(v.total, item.count)}}
+                            .votingItemResEnd(v-bind:style="{width:'calc('+getPercent(v.total, item.count)+' - 80px'}") &nbsp;
         .sHeader
             .sHeaderItem(v-if="status.isChat"  v-bind:class="{active:section==0, aFull:!status.isQ}" v-on:click="changeSection(0)")
                 .sHeaderItemTitle

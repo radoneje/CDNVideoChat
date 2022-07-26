@@ -555,17 +555,17 @@ h4 {
 }
 
 .votingItem{
-    color:#FFFFFF;
+    color:var(--white);
 
     padding: 4px 0;
     display: flex;
     align-items: center;
 }
 .voteComplBox .votingItem{
-    color:#2d2d2d;
+    color:var(--black);
 }
 .votingItemRes{
-    color:#FFFFFF;
+    color:var(--white);
 }
 .votingItemTitle{
     width:50%;
@@ -577,7 +577,7 @@ h4 {
 }
 .votingItemResStart {
     width: 80px;
-    background: #01766d;
+    background: var(--active);
     box-sizing: border-box;
     border-radius: 8px 0 0 8px;
     padding: 4px 8px;
@@ -586,7 +586,7 @@ h4 {
 }
 
 .votingItemResEnd{
-    background:#01766d;
+    background:var(--active);
     box-sizing: border-box;
     border-radius: 0 8px 8px 0 ;
     padding:4px 8px;
