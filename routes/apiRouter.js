@@ -271,7 +271,7 @@ router.post("/voteTitleChange", async (req, res, next) => {
   res.json(r[0]);
 });
 
-router.post("/multyVote", checkAdmin, async (req, res, next) => {
+router.post("/multyVote", async (req, res, next) => {
   let check=await req.knex.select("*").from("t_rooms").where({uuid:req.body.uuid, isDeleted:null});
   if(check.length==0)
     return res.sendStatus(404)
