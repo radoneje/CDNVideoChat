@@ -15,6 +15,7 @@ block content
       let p = document.getElementById("pass").value;
       if(l.length < 2 || p.length < 2) {
         l.focus();
+        alert("login and password can't be empty. ");
         return;
       }
       let r=await axios.post("adminLogin",{l,p});
@@ -25,11 +26,10 @@ block content
       {
         document.getElementById("pass").value="";
         document.getElementById("login").focus();
-        alert("ligin incorrect");
+        alert("Login or password are incorrect");
       }
     }
     document.getElementById("pass").addEventListener("keypress",async (e)=>{
-      console.log("keyDown", e)
        if(e.keyCode==13)
          await login();
     })
