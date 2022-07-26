@@ -505,7 +505,20 @@ h4 {
     border-bottom: 1px solid var(--black);
     background-color: var(--liteGray);
 }
-
+.qVoteAnswerWr{
+    padding-bottom: var(--padding);
+}
+.aanswCount{
+    width:111px;
+    padding:8px;
+}
+.aanswTitle{
+    padding:4px; width:400px;
+}
+.qVoteAnwerItem{
+    display: flex;
+    padding:var(--padding);
+}
 @media screen and (max-width: 720px) {
     :root {
         --padding: 8px;

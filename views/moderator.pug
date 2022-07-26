@@ -56,6 +56,14 @@ block content
                 .buttonGroup( style="margin-top:4px;")
                   .button.maxContent.small(v-on:click="multyVote(item)" v-if="!item.multy") Только один вариант
                   .button.maxContent.small.blue(v-on:click="multyVote(item)" v-if="item.multy") Возможно много вариантов
+
+              .qVoteAnswerWr.sSectBodyItemRow
+                .qVoteAnwerItem(v-for="answ in item.answers")
+                  .aanswCount  {{getAnswProc(item, answ.count)}} / {{answ.count}}
+                  input.aanswTitle(v-model="answ.title" v-on:change="answChange(answ)")
+                  .button.maxContent.small(v-on:click="aVote(answ)") Проголосовать
+                  .button.maxContent.small.red(v-on:click="deleteAnswer(answ)") Удалить вопрос
+
               .sSectBodyItemRow
                 .buttonGroup
                   .button.maxContent.small(v-on:click="startVote(item)" v-if="!item.isactive") Запустить
