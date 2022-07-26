@@ -4,7 +4,7 @@ block content
   .sModBox#app
     .sModPadel
       .sModPanelHead
-        .h4(v-if="status.isChat") Чат  включен &nbsp;
+        .h4(v-if="status.isChat") ({{chat.length}}) Чат  включен &nbsp;
         .button.maxContent.small(v-if="status.isChat" @click="changeStatus('isChat')") Выключить
         .h4(v-if="!status.isChat") Чат  выключен &nbsp;
         .button.maxContent.small.red(v-if="!status.isChat" @click="changeStatus('isChat')") Включить
@@ -24,7 +24,7 @@ block content
           include elements/chatBody
     .sModPadel
       .sModPanelHead
-        .h4(v-if="status.isQ") Вопросы  включены &nbsp;
+        .h4(v-if="status.isQ") ({{q.length}}) Вопросы  включены &nbsp;
         .button.maxContent.small(v-if="status.isQ" @click="changeStatus('isQ')") Выключить
         .h4(v-if="!status.isQ") Вопросы  выключены &nbsp;
         .button.maxContent.small.red(v-if="!status.isQ" @click="changeStatus('isQ')") Включить
@@ -43,7 +43,7 @@ block content
           include elements/qBody
     .sModPadel
       .h4 Голосование
-      .h4
+      .button.maxContent.small Добавить голосование
     include elements/regUser
   script.
     const ROOM=!{JSON.stringify(room[0])};
