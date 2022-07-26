@@ -20,6 +20,30 @@
             voteConfigShow:false
         },
         methods: {
+            deleteVote: async function (item) {
+                if (!confirm("Удалить голосование?"))
+                    return;
+                var r = await axios.post("/api/deleteVote", {id: item.id,uuid: ROOM.uuid});
+                this.votes = this.votes.filter(v => v.id != r.data.id);
+            },
+            clearVote: async function (item) {
+                if (!confirm("Очистить результаты голосования?"))
+                    return;
+                var r = await axios.post("/api/clearVote", {id: item.id,uuid: ROOM.uuid});
+
+            },
+            addAnswer: async function (item) {
+                var r = await axios.post("/api/addAnswer", {id: item.id ,uuid: ROOM.uuid});
+                item.answers.push(r.data);
+            },
+            resultVote: async function (item) {
+                var r = await axios.post("/api/resultVote", {iscompl: !item.iscompl, id: item.id,uuid: ROOM.uuid});
+                item.iscompl = r.data.iscompl;
+            },
+            startVote: async function (item) {
+                var r = await axios.post("/api/startVote", {isactive: !item.isactive, id: item.id,uuid: ROOM.uuid});
+                item.isactive = r.data.isactive;
+            },
             multyVote: async function (item) {
                 var r = await axios.post("/api/multyVote", {multy: !item.multy, id: item.id ,uuid: ROOM.uuid});
                 item.multy = r.data.multy;

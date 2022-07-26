@@ -5,6 +5,12 @@ const fsPromises = require('fs').promises;
 const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
 
+async function checkAdmin(req, res, next) {
+  let check=await req.knex.select("*").from("t_rooms").where({uuid:req.body.uuid, isDeleted:null});
+  if(check.length==0)
+    return res.sendStatus(404)
+  next();
+}
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -270,15 +276,35 @@ router.post("/voteTitleChange", async (req, res, next) => {
   res.json(r[0]);
 });
 
-router.post("/multyVote", async (req, res, next) => {
-  let check=await req.knex.select("*").from("t_rooms").where({uuid:req.body.uuid, isDeleted:null});
-  if(check.length==0)
-    return res.sendStatus(404)
+router.post("/multyVote", checkAdmin,async (req, res, next) => {
+
 
   let r=await req.knex("t_vote").update({multy:req.body.multy},"*").where({id:req.body.id});
   res.json(r[0]);
 });
 
+router.post("/deleteVote", checkAdmin, async (req, res, next) => {
+  let r=await req.knex("t_vote").update({isDeleted:true},"*").where({id:req.body.id});
+  res.json({id:r[0].id});
+});
+
+router.post("/startVote", checkAdmin, async (req, res, next) => {
+  let r=await req.knex("t_vote").update({isactive:req.body.isactive},"*").where({id:req.body.id});
+  res.json(r[0]);
+});
+
+router.post("/resultVote", checkAdmin, async (req, res, next) => {
+  let r=await req.knex("t_vote").update({iscompl:req.body.iscompl},"*").where({id:req.body.id});
+  res.json(r[0]);
+});
+router.post("/clearVote", checkAdmin, async (req, res, next) => {
+  let r=await req.knex("t_voteanswers").update({count:0}).where({voteid:req.body.id});
+  res.json(0);
+});
+router.post("/addAnswer", checkAdmin, async (req, res, next) => {
+  let r = await req.knex("t_voteanswers").insert({voteid:req.body.id}, "*");
+  res.json(r[0])
+})
 
 
 
