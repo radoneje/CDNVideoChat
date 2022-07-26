@@ -26,6 +26,7 @@
             addVote: async function () {
                 var r = await axios.post("/api/addVote",{uuid: ROOM.uuid});
                 this.votes.push(r.data);
+                console.log(r.data)
                 /*setTimeout(() => {
                     var elem = document.getElementById("vote" + r.data.id);
                     elem.parentNode.scrollTop = elem.offsetTop - 60 - elem.clientHeight;
