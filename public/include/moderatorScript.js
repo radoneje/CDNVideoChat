@@ -20,6 +20,27 @@
             voteConfigShow:false
         },
         methods: {
+            aVote: async function (item) {
+                var r = await axios.post("/api/aVote", {id: item.id,uuid: ROOM.uuid});
+                this.votes.forEach(v => {
+                    if (v.id == r.data.voteid)
+                        v.answers.forEach(a => {
+                            if (a.id == r.data.id)
+                                a.count = r.data.count;
+                        })
+                })
+            },
+            deleteAnswer: async function (item) {
+                var r = await axios.post("/api/deleteAnswer", {id: item.id,uuid: ROOM.uuid});
+                this.votes.forEach(v => {
+                    if (v.id == r.data.voteid)
+                        v.answers = v.answers.filter(a => a.id != r.data.id);
+                })
+            },
+            answChange: async function (item,) {
+                await axios.post("/api/changeAnswer", {id: item.id, title: item.title,uuid: ROOM.uuid});
+
+            },
             deleteVote: async function (item) {
                 if (!confirm("Удалить голосование?"))
                     return;
