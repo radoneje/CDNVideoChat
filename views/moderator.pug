@@ -82,18 +82,19 @@ block content
                   .qVoteAnwerItem(v-for="answ in item.answers")
                     .aanswCount  {{getAnswProc(item, answ.count)}} / {{answ.count}}
                     input.aanswTitle(v-model="answ.title" v-on:change="answChange(answ)")
-                    .button.maxContent.small(v-on:click="aVote(answ)" style="width: 100px;") Голосовать
-                    .button.maxContent.small.red(v-on:click="deleteAnswer(answ)" style="width: 100px;") Удалить
+                    .button.maxContent.small(v-on:click="aVote(answ)" style="width: 100px;border-radius: 0;") Голосовать
+                    .button.maxContent.small.red(v-on:click="deleteAnswer(answ)" style="border-top-left-radius: 0;border-bottom-left-radius: 0;width: 100px;") Удалить
 
                 .sSectBodyItemRow
-                  .buttonGroup
-                    .button.maxContent.small(v-on:click="startVote(item)" v-if="!item.isactive") Запустить
-                    .button.maxContent.small.blue(v-on:click="startVote(item)" v-if="item.isactive") Остановить
-                    .button.maxContent.small(v-on:click="resultVote(item)" v-if="!item.iscompl") Показан процесс
-                    .button.maxContent.small.blue(v-on:click="resultVote(item)" v-if="item.iscompl") Показаны результаты
-
-                    .button.maxContent.small.red(v-on:click="clearVote(item)") Очистить результаты
-                    .button.maxContent.small.red(v-on:click="deleteVote(item)") Удалить голосование
+                  .buttonRow
+                    .buttonGroup
+                      .button.maxContent.small(v-on:click="startVote(item)" v-if="!item.isactive") Запустить
+                      .button.maxContent.small.blue(v-on:click="startVote(item)" v-if="item.isactive") Остановить
+                      .button.maxContent.small(v-on:click="resultVote(item)" v-if="!item.iscompl") Показан процесс
+                      .button.maxContent.small.blue(v-on:click="resultVote(item)" v-if="item.iscompl") Показаны результаты
+                    .buttonGroup
+                      .button.maxContent.small.red(v-on:click="clearVote(item)") Очистить результаты
+                      .button.maxContent.small.red(v-on:click="deleteVote(item)") Удалить голосование
       include elements/regUser
   script.
     const ROOM=!{JSON.stringify(room[0])};

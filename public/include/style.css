@@ -371,6 +371,11 @@ h4 {
     background: #d1f2ff;
 
 }
+.buttonRow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .sSectBodyItemRow {
     margin-bottom: var(--mob-padding);
@@ -570,10 +575,7 @@ h4 {
     width:111px;
     padding:8px;
 }
-.aanswTitle{
-    padding:var(--mob-padding);
-    margin-bottom: var(--mob-padding);
-}
+
 .sModHeadPanelItem{
     position: relative;
 }
