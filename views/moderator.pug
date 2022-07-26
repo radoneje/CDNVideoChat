@@ -2,6 +2,14 @@ extends layout
 
 block content
   .sModBox#app
+    .sModHeadPanel
+      .sModHeadPanelItem
+        .sModHeadPanelMenu
+          .sModHeadPanelMenuItem Чат
+          .sModHeadPanelMenuItem Вопросы
+          .sModHeadPanelMenuItem Голосование
+      .sModHeadPanelItem &#x2699;
+
     .sModPadel
       .sModPanelHead
         .h4(v-if="status.isChat") ({{chat.length}}) Чат  включен &nbsp;
@@ -45,8 +53,6 @@ block content
       .sModPanelHead
         .h4 Голосование &nbsp;
         .button.maxContent.small(@click="addVote()") Добавить голосование
-        .sModSettings(@click="voteConfigShow=!voteConfigShow") &#x2699;
-          .sModSettingsBox(v-if="voteConfigShow")
       .sBody
         .sSectWr
           .asVoteWr
