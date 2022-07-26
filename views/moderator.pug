@@ -52,7 +52,7 @@ block content
           .asVoteWr
             .sSectBodyItem(v-for="item in votes" v-if="votes.length>0" :id="'vote'+item.id")
               .sSectBodyItemRow
-                input.aanswTitle(v-model="item.title" v-on:change="voteTitleChange(item)" style="width: calc(100% - 30px);font-size: 18px;")
+                input.aanswTitle(v-model="item.title" v-on:change="voteTitleChange(item)" style="" placeholder="Здесь вопрос для голосования")
                 .buttonGroup( style="margin-top:4px;")
                   .button.maxContent.small(v-on:click="multyVote(item)" v-if="!item.multy") Только один вариант
                   .button.maxContent.small.red(v-on:click="multyVote(item)" v-if="item.multy") Возможно много вариантов
