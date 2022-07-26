@@ -305,6 +305,7 @@ a {
 
 .sAbody {
     width: 380px;
+    max-width: calc(100% - 24px);
 }
 
 .sAbody input {
