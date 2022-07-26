@@ -143,6 +143,7 @@
                         this.timeout == 20;
                     this.chat = updateChat(this.chat, s.data.chat);
                     this.q = updateChat(this.q, s.data.q);
+                    this.votes =  s.data.votes;
 
                 } catch (e) {
                     console.warn(e)
