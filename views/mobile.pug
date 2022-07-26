@@ -1,8 +1,9 @@
 extends layout
 
 block content
-  .tstChat#chat
-      img(style="width:100%" src="/in/include/loader.gif")
+  .mobileWr
+    .tstChat#chat
+        img(style="width:100%" src="/in/include/loader.gif")
   script.
     const CHATID="!{id}";
     document.addEventListener("DOMContentLoaded", ()=>{
