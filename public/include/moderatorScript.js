@@ -190,10 +190,10 @@
                     this.q = updateChat(this.q, s.data.q);
                    // this.votes =  s.data.votes;
 
-                    s.data.votes.forEach(v=>{
+                    s.data.votes.forEach(n=>{
                       let find=false;
                       this.votes.forEach(old=>{
-                          if(old.id==v.id){
+                          if(old.id==n.id){
                               find=true;
                               let elem=document.getElementById("vote"+old.id);
                               if(elem.contains(document.activeElement)){
@@ -210,7 +210,7 @@
 
                       });
                       if(!find)
-                          this.votes.push(v);
+                          this.votes.push(n);
                   });
                     /*
                  s.data.votes.forEach(v=>{
