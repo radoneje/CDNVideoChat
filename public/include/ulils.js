@@ -239,6 +239,7 @@ let getAnswProc=function (item, count) {
 
 }
 var completeWr;
+let completeWrTimeout=null;
 function hideElem(elem){
 
     elem.classList.add("hidden");
