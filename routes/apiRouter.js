@@ -42,10 +42,10 @@ router.get("/status/:id", async (req, res)=>{
   delete r[0].uuid;
   let chat=await req.knex("v_chat").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(300);
   let q=await req.knex("v_q").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(300);
-  let votes=await getVotes(req, r[0].publicUUID)
+ // let votes=await getVotes(req, r[0].publicUUID)
   let timeout=0;
   timeout=Number.parseInt( await fsPromises.readFile("./timeout.txt"));
-  res.json({status:r[0], chat,q,votes, timeout})
+  res.json({status:r[0], chat,q, timeout})
 })
 router.post("/status", async (req, res)=>{
   let id=req.body.id;
