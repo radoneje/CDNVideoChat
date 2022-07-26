@@ -255,7 +255,7 @@ router.post("/addVote", async (req, res, next) => {
     return res.sendStatus(404)
 
   let rr=await req.knex("t_vote").insert({roomPublicUUID:r[0].publicUUID}, "*");
-  console.log("r",rr)
+  console.log( getVotes(req, r[0].publicUUID, rr[0].id))
   return  res.json( getVotes(req, r[0].publicUUID, rr[0].id));
 });
 router.post("/voteTitleChange", async (req, res, next) => {
