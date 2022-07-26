@@ -250,6 +250,7 @@ async function getVotes(req,roomPublicUUID, id){
 
 router.post("/addVote", async (req, res, next) => {
   let r=await req.knex.select("*").from("t_rooms").where({uuid:req.body.uuid, isDeleted:null});
+  console.log("r",r)
   if(r.length==0)
     return res.sendStatus(404)
 
