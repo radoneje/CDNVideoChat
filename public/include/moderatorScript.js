@@ -203,7 +203,18 @@
                                       if(keys[key]!="title" && keys[key]!="answers")
                                       old[keys[key]]=n[keys[key]];
                                   }
+                                  old.answers.forEach(oa=>{
+                                    n.answers.forEach(na=>{
+                                        if(oa.id==na.id){
+                                            let keys=Object.keys(oa)
+                                            for(let key in keys){
+                                                if(keys[key]!="title" )
+                                                    oa[keys[key]]=na[keys[key]];
+                                            }
+                                        }
+                                    })
 
+                                })
                               }
                               else{
                                   let keys=Object.keys(n)
