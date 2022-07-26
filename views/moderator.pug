@@ -82,8 +82,8 @@ block content
                   .qVoteAnwerItem(v-for="answ in item.answers")
                     .aanswCount  {{getAnswProc(item, answ.count)}} / {{answ.count}}
                     input.aanswTitle(v-model="answ.title" v-on:change="answChange(answ)")
-                    .button.maxContent.small(v-on:click="aVote(answ)") Голосовать
-                    .button.maxContent.small.red(v-on:click="deleteAnswer(answ)") Удалить
+                    .button.maxContent.small(v-on:click="aVote(answ)" style="width: 100px;") Голосовать
+                    .button.maxContent.small.red(v-on:click="deleteAnswer(answ)" style="width: 100px;") Удалить
 
                 .sSectBodyItemRow
                   .buttonGroup
