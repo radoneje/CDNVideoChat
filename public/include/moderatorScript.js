@@ -17,7 +17,8 @@
             status: {},
             id: null,
             timeout: 20,
-            voteConfigShow:false
+            voteConfigShow:false,
+            section:0
         },
         methods: {
             aVote: async function (item) {

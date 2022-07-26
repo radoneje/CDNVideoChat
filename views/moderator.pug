@@ -5,9 +5,9 @@ block content
     .sModHeadPanel
       .sModHeadPanelItem
         .sModHeadPanelMenu
-          .sModHeadPanelMenuItem Чат
-          .sModHeadPanelMenuItem.active Вопросы
-          .sModHeadPanelMenuItem Голосование
+          .sModHeadPanelMenuItem(v-bind:class="{active:section==0}" @click="section=0") Чат
+          .sModHeadPanelMenuItem(v-bind:class="{active:section==1}" @click="section=1") Вопросы
+          .sModHeadPanelMenuItem(v-bind:class="{active:section==2}" @click="section=2") Голосование
       .sModHeadPanelItem &#x2699;
     .sModBoxBody
       .sModPadel
