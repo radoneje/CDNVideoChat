@@ -20,6 +20,9 @@
             voteConfigShow:false
         },
         methods: {
+            voteTitleChange: async function (item) {
+                var r = await axios.post("/api/voteTitleChange", {item,uuid: ROOM.uuid});
+            },
             addVote: async function () {
                 var r = await axios.post("/api/addVote",{uuid: ROOM.uuid});
                 this.votes.push(r.data);

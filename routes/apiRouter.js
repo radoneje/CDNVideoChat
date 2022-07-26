@@ -42,9 +42,10 @@ router.get("/status/:id", async (req, res)=>{
   delete r[0].uuid;
   let chat=await req.knex("v_chat").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(300);
   let q=await req.knex("v_q").where({roomPublicUUID:req.params.id}).orderBy("createDate", ).limit(300);
+  let votes=getVotes(req, r[0].publicUUID)
   let timeout=0;
   timeout=Number.parseInt( await fsPromises.readFile("./timeout.txt"));
-  res.json({status:r[0], chat,q, timeout})
+  res.json({status:r[0], chat,q,votes, timeout})
 })
 router.post("/status", async (req, res)=>{
   let id=req.body.id;
@@ -236,15 +237,15 @@ router.get("/downloadFile/:id", async (req, res)=>{
 
 })
 
-async function getVotes(req, res, id){
+async function getVotes(req,roomPublicUUID, id){
 
-  let r=await req.knex.select("*").from("t_vote").where({isDeleted:false}).orderBy("createDate");
+  let r=await req.knex.select("*").from("t_vote").where({isDeleted:false,roomPublicUUID}).orderBy("createDate");
   if(id)
     r=r.filter(v=>{return r.id==v.id});
   for(let item of r){
     item.answers=await( req.knex.select("*").from("t_voteanswers").where({voteid:item.id, isDeleted:false}).orderBy("createDate"));
   }
-  res.json(r);
+  return r;
 }
 
 router.post("/addVote", async (req, res, next) => {
@@ -253,7 +254,14 @@ router.post("/addVote", async (req, res, next) => {
     return res.sendStatus(404)
 
   let rr=await req.knex("t_vote").insert({roomPublicUUID:r[0].publicUUID}, "*");
-  await getVotes(req, res, rr[0].id)
+  return  getVotes(req, r[0].publicUUID, rr[0].id)
+});
+router.post("/voteTitleChange", checkAdmin, async (req, res, next) => {
+  let r=await req.knex.select("*").from("t_rooms").where({uuid:req.body.uuid, isDeleted:null});
+  if(r.length==0)
+    return res.sendStatus(404)
+  r=await req.knex("t_vote").update({title:req.body.item.title}, "*").where({id:req.body.id});
+  res.json(r[0]);
 });
 
 
