@@ -63,7 +63,7 @@ const sRoom = class {
                     for (let o of store) {
                         if (o == item.id)
                             return
-                        await axios.post("/api/reVote", {id: o});
+                        await axios.post("/in/api/reVote", {id: o});
                         store = store.filter(s => {
                             return s != o
                         });
@@ -82,12 +82,12 @@ const sRoom = class {
                             this.votes = this.votes.filter(ff => {
                                 return true
                             })
-                            await axios.post("/api/reVote", {id: o});
+                            await axios.post("/in/api/reVote", {id: o});
                             return
                         }
                     }
                 }
-                await axios.post("/api/Vote", {id: item.id});
+                await axios.post("/in/api/Vote", {id: item.id});
                 if (!v.multy) {
                     showNotify();
                 } else {
@@ -226,7 +226,7 @@ const sRoom = class {
 
             updateStatus: async function () {
                 try {
-                    let s = await axios.get("/api/status/" + this.id)
+                    let s = await axios.get("/in/api/status/" + this.id)
 
                     this.status = s.data.status;
                     this.timeout = Number.parseInt(s.data.timeout);

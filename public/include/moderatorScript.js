@@ -67,7 +67,7 @@
 
             },
             aVote: async function (item) {
-                var r = await axios.post("/api/aVote", {id: item.id,uuid: ROOM.uuid});
+                var r = await axios.post("/in/api/aVote", {id: item.id,uuid: ROOM.uuid});
                 this.votes.forEach(v => {
                     if (v.id == r.data.voteid)
                         v.answers.forEach(a => {
@@ -77,49 +77,49 @@
                 })
             },
             deleteAnswer: async function (item) {
-                var r = await axios.post("/api/deleteAnswer", {id: item.id,uuid: ROOM.uuid});
+                var r = await axios.post("/in/api/deleteAnswer", {id: item.id,uuid: ROOM.uuid});
                 this.votes.forEach(v => {
                     if (v.id == r.data.voteid)
                         v.answers = v.answers.filter(a => a.id != r.data.id);
                 })
             },
             answChange: async function (item,) {
-                await axios.post("/api/changeAnswer", {id: item.id, title: item.title,uuid: ROOM.uuid});
+                await axios.post("/in/api/changeAnswer", {id: item.id, title: item.title,uuid: ROOM.uuid});
 
             },
             deleteVote: async function (item) {
                 if (!confirm("Удалить голосование?"))
                     return;
-                var r = await axios.post("/api/deleteVote", {id: item.id,uuid: ROOM.uuid});
+                var r = await axios.post("/in/api/deleteVote", {id: item.id,uuid: ROOM.uuid});
                 this.votes = this.votes.filter(v => v.id != r.data.id);
             },
             clearVote: async function (item) {
                 if (!confirm("Очистить результаты голосования?"))
                     return;
-                var r = await axios.post("/api/clearVote", {id: item.id,uuid: ROOM.uuid});
+                var r = await axios.post("/in/api/clearVote", {id: item.id,uuid: ROOM.uuid});
 
             },
             addAnswer: async function (item) {
-                var r = await axios.post("/api/addAnswer", {id: item.id ,uuid: ROOM.uuid});
+                var r = await axios.post("/in/api/addAnswer", {id: item.id ,uuid: ROOM.uuid});
                 item.answers.push(r.data);
             },
             resultVote: async function (item) {
-                var r = await axios.post("/api/resultVote", {iscompl: !item.iscompl, id: item.id,uuid: ROOM.uuid});
+                var r = await axios.post("/in/api/resultVote", {iscompl: !item.iscompl, id: item.id,uuid: ROOM.uuid});
                 item.iscompl = r.data.iscompl;
             },
             startVote: async function (item) {
-                var r = await axios.post("/api/startVote", {isactive: !item.isactive, id: item.id,uuid: ROOM.uuid});
+                var r = await axios.post("/in/api/startVote", {isactive: !item.isactive, id: item.id,uuid: ROOM.uuid});
                 item.isactive = r.data.isactive;
             },
             multyVote: async function (item) {
-                var r = await axios.post("/api/multyVote", {multy: !item.multy, id: item.id ,uuid: ROOM.uuid});
+                var r = await axios.post("/in/api/multyVote", {multy: !item.multy, id: item.id ,uuid: ROOM.uuid});
                 item.multy = r.data.multy;
             },
             voteTitleChange: async function (item) {
-                var r = await axios.post("/api/voteTitleChange", {item,uuid: ROOM.uuid});
+                var r = await axios.post("/in/api/voteTitleChange", {item,uuid: ROOM.uuid});
             },
             addVote: async function () {
-                var r = await axios.post("/api/addVote",{uuid: ROOM.uuid});
+                var r = await axios.post("/in/api/addVote",{uuid: ROOM.uuid});
                 this.votes.push(r.data);
                 setTimeout(() => {
                     var elem = document.getElementById("vote" + r.data.id);
@@ -189,11 +189,11 @@
             },
             modChat: async function (item) {
                 item.isMod = !item.isMod
-                await axios.post("/api/modChat", {item, uuid: ROOM.uuid});
+                await axios.post("/in/api/modChat", {item, uuid: ROOM.uuid});
             },
             delChat: async function (item) {
                 if (confirm("Удалить сообщение?")) {
-                    await axios.post("/api/delChat", {item, uuid: ROOM.uuid});
+                    await axios.post("/in/api/delChat", {item, uuid: ROOM.uuid});
                     this.chat = this.chat.filter(c => {
                         return c.id != item.id
                     })
@@ -201,11 +201,11 @@
             },
             modQ: async function (item) {
                 item.isMod = !item.isMod
-                await axios.post("/api/modQ", {item, uuid: ROOM.uuid});
+                await axios.post("/in/api/modQ", {item, uuid: ROOM.uuid});
             },
             delQ: async function (item) {
                 if (confirm("Удалить сообщение?")) {
-                    await axios.post("/api/delQ", {item, uuid: ROOM.uuid});
+                    await axios.post("/in/api/delQ", {item, uuid: ROOM.uuid});
                     this.chat = this.chat.filter(c => {
                         return c.id != item.id
                     })
@@ -214,7 +214,7 @@
             ///
             changeStatus: async function (val) {
                 this.status[val] = !this.status[val]
-                await axios.post("/api/status", {
+                await axios.post("/in/api/status", {
                     id: this.status.id,
                     isChat: this.status.isChat,
                     isChatLikes: this.status.isChatLikes,
@@ -226,7 +226,7 @@
             },
             updateStatus: async function () {
                 try {
-                    let s = await axios.get("/api/status/" + ROOM.publicUUID)
+                    let s = await axios.get("/in/api/status/" + ROOM.publicUUID)
 
                     this.status = s.data.status;
                     this.timeout = Number.parseInt(s.data.timeout);
