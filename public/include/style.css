@@ -410,6 +410,16 @@ h4 {
     align-items: center;
     padding: var(--padding);
 }
+.sModHeadPanelMenu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.sModHeadPanelMenuItem{
+    margin-right: var(--padding);
+    cursor: pointer;
+}
 .sModBoxBody{
     display: flex;
     height: calc(100vh - var(--mob-padding) - var(--mob-padding));
