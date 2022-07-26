@@ -139,6 +139,9 @@ a {
 .red{
     background-color: darkred !important;
 }
+.blue{
+    background-color: var(--active) !important;
+}
 .chatBtnGroup{
     display: flex;
     align-items: center;

@@ -55,7 +55,7 @@ block content
                 input.aanswTitle(v-model="item.title" v-on:change="voteTitleChange(item)" style="" placeholder="Здесь вопрос для голосования")
                 .buttonGroup( style="margin-top:4px;")
                   .button.maxContent.small(v-on:click="multyVote(item)" v-if="!item.multy") Только один вариант
-                  .button.maxContent.small.red(v-on:click="multyVote(item)" v-if="item.multy") Возможно много вариантов
+                  .button.maxContent.small.blue(v-on:click="multyVote(item)" v-if="item.multy") Возможно много вариантов
 
     include elements/regUser
   script.
