@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-router.get('/test/:id/:lang?', function(req, res, next) {
+router.get('/in/test/:id/:lang?', function(req, res, next) {
   if(req.params.lang!="ru" || req.params.lang!="en")
     req.params.lang="ru"
   res.render('test', { id: req.params.id, lang:req.params.lang });
@@ -24,13 +24,13 @@ router.post('/adminLogin', function(req, res, next) {
   return res.json({status: 404});
 });
 
-router.get('/room/box/:id/:lang?', async (req, res, next)=> {
+router.get('/in/room/box/:id/:lang?', async (req, res, next)=> {
   if(req.params.lang!="ru" || req.params.lang!="en")
     req.params.lang="ru"
   res.render('roomBox', { id: req.params.id, lang:req.params.lang });
 });
 
-router.get('/moderator/:id', async (req, res, next)=> {
+router.get('/in/moderator/:id', async (req, res, next)=> {
   try {
     let r = await req.knex.select("*").from("t_rooms").where({isDeleted: null, uuid: req.params.id});
     if (r.length == 0)
