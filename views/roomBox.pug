@@ -5,6 +5,13 @@
         .sVoteBox(v-if="votes.length>0 || (!status.isChat && !status.isQ)")
             .sSectBodyItem(v-if="votes.length==0")
                 .sSectBodyItemRow.bold Сейчас нет активного голосования
+            .sSectBodyItem(v-for="v in vote")
+                .voteTitle(v-bind:class="{left:v.iscompl}") {{v.title}}
+                    .votingBox(v-if="!v.iscompl" v-bind:class="{multy:v.multy}")
+                        .votingButton(v-for="item in v.answers" v-on:click="voiting(item, v)" v-bind:class="{active:checkVote(item, v)}")
+                            .votingButtonBefore
+                            .votingButtonTitle {{item.title}}
+                                .votingButtonSubTitle(v-if="item.subTitle && item.subTitle.length>0") {{item.subTitle}}
         .sHeader
             .sHeaderItem(v-if="status.isChat"  v-bind:class="{active:section==0, aFull:!status.isQ}" v-on:click="changeSection(0)")
                 .sHeaderItemTitle
