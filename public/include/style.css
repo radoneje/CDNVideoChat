@@ -426,14 +426,16 @@ h4 {
     font-weight: bold;
     color:var(--black);
     padding: var(--mob-padding);
+    border-radius: 0px var(--borderRadius) var(--borderRadius) 0;
+}
+.sModHeadPanelMenuItem:hover{
+    background: var(--liteGray);
 }
 .sModHeadPanelMenuItem.active{
     color:var(--white);
     background: var(--liteActive);
 }
-.sModHeadPanelMenuItem:hover{
-    background: var(--liteGray);
-}
+
 .sModBoxBody{
     display: flex;
     height: calc(100vh - var(--mob-padding) - var(--mob-padding));
