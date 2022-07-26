@@ -22,6 +22,15 @@
             mainConfigShow:false
         },
         methods: {
+            downloadStat:function(){
+                var a=document.createElement("a");
+                a.download="data.xlsx"
+                a.href="/in/api/roomToExcel/"+ROOM.uuid;
+                document.body.appendChild(a)
+                a.click();
+                a.parentNode.removeChild(a);
+                this.mainConfigShow=false;
+            },
             getClientLink:function(){
                 let full = location.protocol + '//' + location.host;
                 if(location.port.length>0)
@@ -53,7 +62,7 @@
                 });
                 setTimeout(()=>{
                     let img=elem.querySelector("img");
-                    console.log(img)
+
                     var a=document.createElement("a");
                     a.download="QRcode.png"
                     a.href=img.src;

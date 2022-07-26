@@ -4,6 +4,7 @@ const path = require('path');
 const fsPromises = require('fs').promises;
 const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
+var xl = require('excel4node');
 
 async function checkAdmin(req, res, next) {
   let check=await req.knex.select("*").from("t_rooms").where({uuid:req.body.uuid, isDeleted:null});
@@ -360,6 +361,20 @@ router.post("/vote", /*checkLogin,*/ async (req, res)=>{
     res.json("error");
   }
 })
+
+router.get("/roomToExcel/:id", async (req, res, next) => {
+  let rooms=await req.knex.select("*").from("t_rooms").where({uuid:req.params.id, isDeleted:null});
+  if(rooms.length==0)
+    return res.sendStatus(404)
+  let room=rooms[0];
+
+  let wb = new xl.Workbook();
+  let chatSheet = wb.addWorksheet('Чат');
+  let qSheeet = wb.addWorksheet('Вопросы');
+  let voteSheeet = wb.addWorksheet('Голосования');
+  wb.write('Excel.xlsx', res);
+})
+
 
 
 
