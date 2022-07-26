@@ -138,7 +138,7 @@ let likeQ=async function(item){
 
 }
 let addSmileToQ=async function(){
-    this.chatText+=" \u{1F600} ";
+    this.qText+=" \u{1F600} ";
     document.getElementById("qText").focus();
 }
 
