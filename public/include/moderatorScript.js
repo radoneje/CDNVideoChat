@@ -35,6 +35,7 @@
                     var elem = document.getElementById("vote" + r.data.id);
                     elem.parentNode.scrollTop = elem.offsetTop - 60 - elem.clientHeight;
                     this.voteTitle = "";
+                    elem.querySelector(".aanswTitle").focus();
                 }, 0)
             },
             humanFileSize: function (bytes, si = false, dp = 1) {
