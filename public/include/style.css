@@ -564,7 +564,8 @@ h4 {
     padding:8px;
 }
 .aanswTitle{
-    padding:var(--padding)
+    padding:var(--mob-padding);
+    margin-bottom: var(--mob-padding);
 }
 .qVoteAnwerItem{
     display: flex;
