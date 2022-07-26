@@ -423,6 +423,7 @@ h4 {
     cursor: pointer;
     font-size: var(--headFontSize);
     font-weight: bold;
+    color:var(--hoverGray);
 }
 .sModBoxBody{
     display: flex;
