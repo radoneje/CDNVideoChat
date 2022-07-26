@@ -43,8 +43,10 @@ block content
           include elements/qBody
     .sModPadel
       .sModPanelHead
-        .h4 Голосование
+        .h4 Голосование &nbsp;
         .button.maxContent.small Добавить голосование
+        .sModSettings(@click="voteConfigShow=!voteConfigShow") &#x2699;
+          .sModSettingsBox(v-if="voteConfigShow")
     include elements/regUser
   script.
     const ROOM=!{JSON.stringify(room[0])};

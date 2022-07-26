@@ -15,7 +15,8 @@
             reqUserShow: false,
             status: {},
             id: null,
-            timeout: 20
+            timeout: 20,
+            voteConfigShow:false
         },
         methods: {
             humanFileSize: function (bytes, si = false, dp = 1) {
