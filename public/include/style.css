@@ -542,7 +542,7 @@ h4 {
 }
 .votingButtonBefore{
     height: calc(16px);
-    width: calc(16px + var(--mob-padding) );
+    width: calc(16px );
     margin-right: var(--mob-padding);
     border-radius: var(--borderRadius);
     border:2px solid var(--black)
