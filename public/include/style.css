@@ -214,12 +214,12 @@ a {
     cursor: pointer;
     font-size: 22px;
     position: absolute;
-    top: 0;
+    top: 2px;
     padding-top: 4px;
     padding-right: 4px;
     box-sizing: border-box;
     left: 4px;
-    height: 100%;
+    height: calc(100% - 4px);
     border-radius: 0;
     border-right: 1px solid var(--black);
 }
