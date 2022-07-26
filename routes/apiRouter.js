@@ -247,7 +247,7 @@ async function getVotes(req,roomPublicUUID, id){
   for(let item of r){
     item.answers=await( req.knex.select("*").from("t_voteanswers").where({voteid:item.id, isDeleted:false}).orderBy("createDate"));
   }
-  console.log("r", r)
+
   return r;
 }
 
@@ -258,8 +258,9 @@ router.post("/addVote", async (req, res, next) => {
     return res.sendStatus(404)
 
   let rr=await req.knex("t_vote").insert({roomPublicUUID:r[0].publicUUID}, "*");
-
-  return  res.json(await getVotes(req, r[0].publicUUID, rr[0].id));
+  let rrrr=await await getVotes(req, r[0].publicUUID, rr[0].id)
+  console.log("r", rrrr)
+  return  res.json(rrrr);
 });
 router.post("/voteTitleChange", async (req, res, next) => {
   let r=await req.knex.select("*").from("t_rooms").where({uuid:req.body.uuid, isDeleted:null});
