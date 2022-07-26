@@ -250,7 +250,6 @@ router.get("/downloadFile/:id", async (req, res)=>{
   let p=path.join(__dirname,"../",r[0].file);
 
   res.type(r[0].fileType)
-  var path = require('path')
 
 
   res.set("Content-Disposition", "attachment; filename=file"+path.extname(r[0].fileName));
