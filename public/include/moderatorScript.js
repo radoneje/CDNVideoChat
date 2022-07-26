@@ -30,7 +30,6 @@
             addVote: async function () {
                 var r = await axios.post("/api/addVote",{uuid: ROOM.uuid});
                 this.votes.push(r.data);
-                console.log(r.data)
                 setTimeout(() => {
                     var elem = document.getElementById("vote" + r.data.id);
                     elem.parentNode.scrollTop = elem.offsetTop - 60 - elem.clientHeight;
@@ -123,7 +122,6 @@
             ///
             changeStatus: async function (val) {
                 this.status[val] = !this.status[val]
-                console.log("status.isChatPreMod", this.status.isChatPreMod)
                 await axios.post("/api/status", {
                     id: this.status.id,
                     isChat: this.status.isChat,
@@ -168,7 +166,7 @@
                                         if (this.chatNewItems < 0)
                                             this.chatNewItems = 1;
                                         observer.unobserve(elem)
-                                        console.log(entries[0].isIntersecting)
+
                                     }
                                 }, this.options);
 
@@ -194,7 +192,7 @@
                                         if (this.qNewItems < 0)
                                             this.qNewItems = 1;
                                         observer.unobserve(elem)
-                                        console.log(entries[0].isIntersecting)
+
                                     }
                                 }, this.options);
 
