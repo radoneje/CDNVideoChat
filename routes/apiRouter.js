@@ -240,9 +240,10 @@ router.get("/downloadFile/:id", async (req, res)=>{
 async function getVotes(req,roomPublicUUID, id){
 
   let r=await req.knex.select("*").from("t_vote").where({isDeleted:false,roomPublicUUID:roomPublicUUID}).orderBy("createDate");
-  console.log("r", r)
+
   if(id)
     r=r.filter(v=>{return v.id==id});
+  console.log("r", r)
   for(let item of r){
     item.answers=await( req.knex.select("*").from("t_voteanswers").where({voteid:item.id, isDeleted:false}).orderBy("createDate"));
   }
