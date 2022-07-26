@@ -402,6 +402,9 @@ h4 {
 }
 
 .sModBox {
+
+}
+.sModBoxBody{
     display: flex;
     height: calc(100vh - var(--mob-padding) - var(--mob-padding));
 }

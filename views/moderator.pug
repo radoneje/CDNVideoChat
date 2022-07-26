@@ -9,77 +9,77 @@ block content
           .sModHeadPanelMenuItem Вопросы
           .sModHeadPanelMenuItem Голосование
       .sModHeadPanelItem &#x2699;
+    .sModBoxBody
+      .sModPadel
+        .sModPanelHead
+          .h4(v-if="status.isChat") ({{chat.length}}) Чат  включен &nbsp;
+          .button.maxContent.small(v-if="status.isChat" @click="changeStatus('isChat')") Выключить
+          .h4(v-if="!status.isChat") Чат  выключен &nbsp;
+          .button.maxContent.small.red(v-if="!status.isChat" @click="changeStatus('isChat')") Включить
+          .sModSettings(@click="chatConfigShow=!chatConfigShow") &#x2699;
+          .sModSettingsBox(v-if="chatConfigShow")
+            .sModSettingsBoxRow(v-bind:class="{active:status.isChatPreMod}" v-on:click="changeStatus('isChatPreMod')")
+              .sModSettingsBoxRowRound
+              .sModSettingsBoxRowTitle Пре-модерация
+            .sModSettingsBoxRow(v-bind:class="{active:status.isChatLikes}" v-on:click="changeStatus('isChatLikes')")
+              .sModSettingsBoxRowRound
+              .sModSettingsBoxRowTitle Лайки
+            .sModSettingsBoxRow
+              .button.small.maxContent(@click="chatConfigShow=!chatConfigShow") Закрыть настройки
 
-    .sModPadel
-      .sModPanelHead
-        .h4(v-if="status.isChat") ({{chat.length}}) Чат  включен &nbsp;
-        .button.maxContent.small(v-if="status.isChat" @click="changeStatus('isChat')") Выключить
-        .h4(v-if="!status.isChat") Чат  выключен &nbsp;
-        .button.maxContent.small.red(v-if="!status.isChat" @click="changeStatus('isChat')") Включить
-        .sModSettings(@click="chatConfigShow=!chatConfigShow") &#x2699;
-        .sModSettingsBox(v-if="chatConfigShow")
-          .sModSettingsBoxRow(v-bind:class="{active:status.isChatPreMod}" v-on:click="changeStatus('isChatPreMod')")
-            .sModSettingsBoxRowRound
-            .sModSettingsBoxRowTitle Пре-модерация
-          .sModSettingsBoxRow(v-bind:class="{active:status.isChatLikes}" v-on:click="changeStatus('isChatLikes')")
-            .sModSettingsBoxRowRound
-            .sModSettingsBoxRowTitle Лайки
-          .sModSettingsBoxRow
-            .button.small.maxContent(@click="chatConfigShow=!chatConfigShow") Закрыть настройки
+        .sBody
+          .sSectWr
+            include elements/chatBody
+      .sModPadel
+        .sModPanelHead
+          .h4(v-if="status.isQ") ({{q.length}}) Вопросы  включены &nbsp;
+          .button.maxContent.small(v-if="status.isQ" @click="changeStatus('isQ')") Выключить
+          .h4(v-if="!status.isQ") Вопросы  выключены &nbsp;
+          .button.maxContent.small.red(v-if="!status.isQ" @click="changeStatus('isQ')") Включить
+          .sModSettings(@click="qConfigShow=!qConfigShow") &#x2699;
+          .sModSettingsBox(v-if="qConfigShow")
+            .sModSettingsBoxRow(v-bind:class="{active:status.isQPreMod}" v-on:click="changeStatus('isQPreMod')")
+              .sModSettingsBoxRowRound
+              .sModSettingsBoxRowTitle Пре-модерация
+            .sModSettingsBoxRow(v-bind:class="{active:status.isQLikes}" v-on:click="changeStatus('isQLikes')")
+              .sModSettingsBoxRowRound
+              .sModSettingsBoxRowTitle Лайки
+            .sModSettingsBoxRow
+              .button.small.maxContent(@click="qConfigShow=!qConfigShow") Закрыть настройки
+        .sBody
+          .sSectWr
+            include elements/qBody
+      .sModPadel
+        .sModPanelHead
+          .h4 Голосование &nbsp;
+          .button.maxContent.small(@click="addVote()") Добавить голосование
+        .sBody
+          .sSectWr
+            .asVoteWr
+              .sSectBodyItem(v-for="item in votes" v-if="votes.length>0" :id="'vote'+item.id")
+                .sSectBodyItemRow
+                  input.aanswTitle(v-model="item.title" v-on:change="voteTitleChange(item)" style="" placeholder="Здесь вопрос для голосования")
+                  .buttonGroup( style="margin-top:4px;")
+                    .button.maxContent.small(v-on:click="multyVote(item)" v-if="!item.multy") Только один вариант
+                    .button.maxContent.small.blue(v-on:click="multyVote(item)" v-if="item.multy") Возможно много вариантов
 
-      .sBody
-        .sSectWr
-          include elements/chatBody
-    .sModPadel
-      .sModPanelHead
-        .h4(v-if="status.isQ") ({{q.length}}) Вопросы  включены &nbsp;
-        .button.maxContent.small(v-if="status.isQ" @click="changeStatus('isQ')") Выключить
-        .h4(v-if="!status.isQ") Вопросы  выключены &nbsp;
-        .button.maxContent.small.red(v-if="!status.isQ" @click="changeStatus('isQ')") Включить
-        .sModSettings(@click="qConfigShow=!qConfigShow") &#x2699;
-        .sModSettingsBox(v-if="qConfigShow")
-          .sModSettingsBoxRow(v-bind:class="{active:status.isQPreMod}" v-on:click="changeStatus('isQPreMod')")
-            .sModSettingsBoxRowRound
-            .sModSettingsBoxRowTitle Пре-модерация
-          .sModSettingsBoxRow(v-bind:class="{active:status.isQLikes}" v-on:click="changeStatus('isQLikes')")
-            .sModSettingsBoxRowRound
-            .sModSettingsBoxRowTitle Лайки
-          .sModSettingsBoxRow
-            .button.small.maxContent(@click="qConfigShow=!qConfigShow") Закрыть настройки
-      .sBody
-        .sSectWr
-          include elements/qBody
-    .sModPadel
-      .sModPanelHead
-        .h4 Голосование &nbsp;
-        .button.maxContent.small(@click="addVote()") Добавить голосование
-      .sBody
-        .sSectWr
-          .asVoteWr
-            .sSectBodyItem(v-for="item in votes" v-if="votes.length>0" :id="'vote'+item.id")
-              .sSectBodyItemRow
-                input.aanswTitle(v-model="item.title" v-on:change="voteTitleChange(item)" style="" placeholder="Здесь вопрос для голосования")
-                .buttonGroup( style="margin-top:4px;")
-                  .button.maxContent.small(v-on:click="multyVote(item)" v-if="!item.multy") Только один вариант
-                  .button.maxContent.small.blue(v-on:click="multyVote(item)" v-if="item.multy") Возможно много вариантов
+                .qVoteAnswerWr.sSectBodyItemRow
+                  .qVoteAnwerItem(v-for="answ in item.answers")
+                    .aanswCount  {{getAnswProc(item, answ.count)}} / {{answ.count}}
+                    input.aanswTitle(v-model="answ.title" v-on:change="answChange(answ)")
+                    .button.maxContent.small(v-on:click="aVote(answ)") Проголосовать
+                    .button.maxContent.small.red(v-on:click="deleteAnswer(answ)") Удалить вопрос
 
-              .qVoteAnswerWr.sSectBodyItemRow
-                .qVoteAnwerItem(v-for="answ in item.answers")
-                  .aanswCount  {{getAnswProc(item, answ.count)}} / {{answ.count}}
-                  input.aanswTitle(v-model="answ.title" v-on:change="answChange(answ)")
-                  .button.maxContent.small(v-on:click="aVote(answ)") Проголосовать
-                  .button.maxContent.small.red(v-on:click="deleteAnswer(answ)") Удалить вопрос
-
-              .sSectBodyItemRow
-                .buttonGroup
-                  .button.maxContent.small(v-on:click="startVote(item)" v-if="!item.isactive") Запустить
-                  .button.maxContent.small.blue(v-on:click="startVote(item)" v-if="item.isactive") Остановить
-                  .button.maxContent.small(v-on:click="resultVote(item)" v-if="!item.iscompl") Показан процесс
-                  .button.maxContent.small.blue(v-on:click="resultVote(item)" v-if="item.iscompl") Показаны результаты
-                  .button.maxContent.small(v-on:click="addAnswer(item)") Добавить ответ
-                  .button.maxContent.small.red(v-on:click="clearVote(item)") Очистить результаты
-                  .button.maxContent.small.red(v-on:click="deleteVote(item)") Удалить голосование
-    include elements/regUser
+                .sSectBodyItemRow
+                  .buttonGroup
+                    .button.maxContent.small(v-on:click="startVote(item)" v-if="!item.isactive") Запустить
+                    .button.maxContent.small.blue(v-on:click="startVote(item)" v-if="item.isactive") Остановить
+                    .button.maxContent.small(v-on:click="resultVote(item)" v-if="!item.iscompl") Показан процесс
+                    .button.maxContent.small.blue(v-on:click="resultVote(item)" v-if="item.iscompl") Показаны результаты
+                    .button.maxContent.small(v-on:click="addAnswer(item)") Добавить ответ
+                    .button.maxContent.small.red(v-on:click="clearVote(item)") Очистить результаты
+                    .button.maxContent.small.red(v-on:click="deleteVote(item)") Удалить голосование
+      include elements/regUser
   script.
     const ROOM=!{JSON.stringify(room[0])};
   script(src="/include/vue.min.js")
