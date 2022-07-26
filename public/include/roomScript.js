@@ -41,10 +41,11 @@ const sRoom = class {
                 if (total == 0)
                     return "0%"
                 var perc = (parseFloat(count) / parseFloat(total) * 100);
+                console.log(perc)
                 let Precision=4;
                 if(perc<10)
                     Precision=3;
-                return perc.toPrecision(4) + "%"
+                return perc.toPrecision(Precision) + "%"
             },
             voiting: async function (item, v) {
 
