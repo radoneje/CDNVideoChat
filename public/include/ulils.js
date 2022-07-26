@@ -219,10 +219,10 @@ let addImage= async function(sect){
    document.body.appendChild(elem)
    elem.click();
 }
-let addImageToChat= async function(){
+let addImageToChat= async ()=>{
     await addImage("Chat")
 }
-let addImageToQ= async function(){
+let addImageToQ= async ()=>{
 
     await addImage("Q")
 }
