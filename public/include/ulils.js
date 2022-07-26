@@ -241,7 +241,7 @@ let getAnswProc=function (item, count) {
 var completeWr;
 function hideElem(elem){
 
-    elem.classList.add("hidden");document.querySelector("#app").classList.remove("blur")
+    elem.classList.add("hidden");document.querySelector(".sBox").classList.remove("blur")
 }
 function showNotify(){
     var elem = document.querySelector(".completeWr");
