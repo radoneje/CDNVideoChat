@@ -20,6 +20,10 @@
             voteConfigShow:false
         },
         methods: {
+            multyVote: async function (item) {
+                var r = await axios.post("/api/multyVote", {multy: !item.multy, id: item.id ,uuid: ROOM.uuid});
+                item.multy = r.data.multy;
+            },
             voteTitleChange: async function (item) {
                 var r = await axios.post("/api/voteTitleChange", {item,uuid: ROOM.uuid});
             },
