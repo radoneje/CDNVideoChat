@@ -2,6 +2,9 @@
 .sBox
     .sLoader(v-if="!isLoaded")
     .sRoomBox(v-if="isLoaded")
+        .sVoteBox(v-if="votes.length>0 || (!status.isChat && !status.isQ)")
+            .sSectBodyItem(v-if="votes.length==0")
+                .sSectBodyItemRow.bold Сейчас нет активного голосования
         .sHeader
             .sHeaderItem(v-if="status.isChat"  v-bind:class="{active:section==0, aFull:!status.isQ}" v-on:click="changeSection(0)")
                 .sHeaderItemTitle
