@@ -23,8 +23,11 @@
         },
         methods: {
             copyLink:function (){
-                const full = location.protocol + '//' + location.host+":"+location.port
-                console.log(full, location);
+                let full = location.protocol + '//' + location.host;
+                if(location.port.length>0)
+                    full+=":"+location.port;
+                full+="/in/mobile/"+ROOM.publicUUID;
+                console.log(full);
             },
             downloadQr:function (){},
             aVote: async function (item) {
