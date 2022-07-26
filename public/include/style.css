@@ -249,7 +249,8 @@ a {
 .sSectBodyFileImage{
     width: 100%;
     max-height: 300px;
-    margin-top: 4px
+    margin-top: 4px;
+    max-width: 300px;
 }
 .sSectSend:hover{
     color: var(--white);
