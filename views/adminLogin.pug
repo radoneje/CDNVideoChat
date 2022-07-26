@@ -26,8 +26,8 @@ block content
         alert("ligin incorrect");
       }
     }
-    document.getElementById("pass").addEventListener("keyDown",(e)=>{
+    document.getElementById("pass").addEventListener("keyDown",async (e)=>{
       console.log("keyDown", e)
        if(e.keyCode==13)
-         login();
+         await login();
     })
