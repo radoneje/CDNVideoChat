@@ -42,14 +42,17 @@
                     elem.id="qrcode";
                     document.body.appendChild(elem)
                 }
+                elem.innerHTML="";
                 var qrcode = new QRCode("qrcode", {
-                    text: "http://jindo.dev.naver.com/collie",
-                    width: 128,
-                    height: 128,
+                    text: this.getClientLink(),
+                    width: 300,
+                    height: 300,
                     colorDark : "#000000",
                     colorLight : "#ffffff",
                     correctLevel : QRCode.CorrectLevel.H
                 });
+                let img=elem.querySelector("img");
+                console.log(img)
             },
             aVote: async function (item) {
                 var r = await axios.post("/api/aVote", {id: item.id,uuid: ROOM.uuid});
