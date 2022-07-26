@@ -8,6 +8,9 @@
     --liteGray: #eeeeee;
     --hoverGray: #cccccc;
     --active: #0f7eb3;
+    --active1: #0d6a95;
+    --active2: #0c5c80;
+    --active3: #09506f;
     --liteActive: #00B7FF;
     --borderRadius: 4px;
 }
@@ -594,13 +597,13 @@ h4 {
     float:left;
 }
 .votingItem:nth-child(2) .votingItemResEnd , .votingItem:nth-child(2)  .votingItemResStart {
-    background: #01766d;
+    background: var(--active1)
 }
 .votingItem:nth-child(3) .votingItemResEnd , .votingItem:nth-child(3)  .votingItemResStart {
-    background: #01766d;
+    background: var(--active2)
 }
 .votingItem:nth-child(4) .votingItemResEnd , .votingItem:nth-child(4)  .votingItemResStart {
-    background: #01766d;
+    background: var(--active3)
 }
 .votingBox{
 
