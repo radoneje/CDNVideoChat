@@ -51,13 +51,16 @@
                     colorLight : "#ffffff",
                     correctLevel : QRCode.CorrectLevel.H
                 });
-                let img=elem.querySelector("img");
-                console.log(img)
-                var a=document.createElement("a");
-                a.download="QRcode.png"
-                a.href=img.src;
-                document.body.appendChild(a)
-                a.click();
+                setTimeout(()=>{
+                    let img=elem.querySelector("img");
+                    console.log(img)
+                    var a=document.createElement("a");
+                    a.download="QRcode.png"
+                    a.href=img.src;
+                    document.body.appendChild(a)
+                    a.click();
+                },100)
+
 
             },
             aVote: async function (item) {
