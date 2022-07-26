@@ -488,12 +488,7 @@ h4 {
     height: 100%;
     overflow-y: scroll;
 }
-.qItem{
-    margin:var(--mob-padding) 0;
-    box-sizing: border-box;
-    padding:var(--mob-padding);
 
-}
 
 @media screen and (max-width: 720px) {
     :root {

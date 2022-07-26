@@ -50,8 +50,8 @@ block content
       .sBody
         .sSectWr
           .asVoteWr
-            .qItem(v-for="item in votes" v-if="votes.length>0" :id="'vote'+item.id")
-              .qItemUser
+            .sSectBodyItem(v-for="item in votes" v-if="votes.length>0" :id="'vote'+item.id")
+              .sSectBodyItemRow
                 input.aanswTitle(v-model="item.title" v-on:change="voteTitleChange(item)" style="width: calc(100% - 30px);font-size: 18px;")
                 .buttonGroup( style="margin-top:24px;")
                   .button(v-on:click="multyVote(item)" v-if="!item.multy") Только один вариант
