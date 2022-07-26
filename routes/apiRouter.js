@@ -201,12 +201,21 @@ router.get("/q/:id", async (req, res)=>{
 
 
 router.post("/chatFile", upload.single('file'), async (req, res)=>{
-  console.log(req.body, req.file)
+
   let room=await  req.knex.select("*").from("t_rooms").where({ publicUUID:req.body.id});
   if(room.length==0)
     return res.sendStatus(404);
   let r= await req.knex("t_chat").insert({ roomPublicUUID:req.body.id,  userid:req.body.userid, file:req.file.path, fileName:Buffer.from(req.file.originalname, 'latin1').toString('utf8') , fileType:req.file.mimetype, fileSize:req.file.size},"*");
   let rr=await req.knex("v_chat").where({id:r[0].id});
+  res.json(rr[0]);
+})
+router.post("/qFile", upload.single('file'), async (req, res)=>{
+
+  let room=await  req.knex.select("*").from("t_rooms").where({ publicUUID:req.body.id});
+  if(room.length==0)
+    return res.sendStatus(404);
+  let r= await req.knex("t_q").insert({ roomPublicUUID:req.body.id,  userid:req.body.userid, file:req.file.path, fileName:Buffer.from(req.file.originalname, 'latin1').toString('utf8') , fileType:req.file.mimetype, fileSize:req.file.size},"*");
+  let rr=await req.knex("v_q").where({id:r[0].id});
   res.json(rr[0]);
 })
 router.get("/downloadFile/:id", async (req, res)=>{
