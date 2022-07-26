@@ -22,6 +22,10 @@
             mainConfigShow:false
         },
         methods: {
+            copyLink:function (){
+                console.log(document.URL);
+            },
+            downloadQr:function (){},
             aVote: async function (item) {
                 var r = await axios.post("/api/aVote", {id: item.id,uuid: ROOM.uuid});
                 this.votes.forEach(v => {
