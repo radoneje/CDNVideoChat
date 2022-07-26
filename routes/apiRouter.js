@@ -389,7 +389,7 @@ router.get("/roomToExcel/:id", async (req, res, next) => {
 
   let chatSheet = wb.addWorksheet('Чат')
   let qSheet = wb.addWorksheet('Вопросы');
-  let voteSheeet = wb.addWorksheet('Голосования');
+  let voteSheet = wb.addWorksheet('Голосования');
 
 
   let chat=await req.knex.select("*").from("v_chat").where({roomPublicUUID:room.publicUUID}).orderBy("createDate")
@@ -455,28 +455,28 @@ router.get("/roomToExcel/:id", async (req, res, next) => {
   }
   ////
 
-  voteSheeet.cell(1,1).string('Вопрос').style(myStyle);
-  voteSheeet.cell(1,2).string('Тип').style(myStyle);
-  voteSheeet.cell(1,3).string('Ответ').style(myStyle);
-  voteSheeet.cell(1,4).string('Число голосов').style(myStyle);
+  voteSheet.cell(1,1).string('Вопрос').style(myStyle);
+  voteSheet.cell(1,2).string('Тип').style(myStyle);
+  voteSheet.cell(1,3).string('Ответ').style(myStyle);
+  voteSheet.cell(1,4).string('Число голосов').style(myStyle);
 
-  voteSheeet.column(1).setWidth(40);
-  voteSheeet.column(2).setWidth(40);
-  voteSheeet.column(3).setWidth(40);
-  voteSheeet.column(4).setWidth(20);
+  voteSheet.column(1).setWidth(40);
+  voteSheet.column(2).setWidth(40);
+  voteSheet.column(3).setWidth(40);
+  voteSheet.column(4).setWidth(20);
 
 
   let vote=await req.knex.select("*").from("t_vote").where({roomPublicUUID:room.publicUUID, isDeleted:false}).orderBy("createDate")
   row=1;
   for(let item of vote){
     row++;
-    voteSheeet.cell(row,2).string(item.title).style(cellStyle);
-    voteSheeet.cell(row,2).string(item.multy?"Несколько ответов":"Один ответ").style(cellStyle);
+    voteSheet.cell(row,2).string(item.title).style(cellStyle);
+    voteSheet.cell(row,2).string(item.multy?"Несколько ответов":"Один ответ").style(cellStyle);
     let answers=await req.knex.select("*").from("t_voteanswers").where({voteid:item.id,isDeleted:false}).orderBy("createDate")
     for(let a of answers){
       row++;
-      voteSheeet.cell(row,3).string(a.title).style(cellStyle);
-      voteSheeet.cell(row,4).number(a.count || 0).style(cellStyle);
+      voteSheet.cell(row,3).string(a.title).style(cellStyle);
+      voteSheet.cell(row,4).number(a.count || 0).style(cellStyle);
     }
   }
 
