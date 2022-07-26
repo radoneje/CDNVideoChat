@@ -680,12 +680,15 @@ h4 {
 }
 .votingConfirm{
     cursor: pointer;
-    padding: var(--padding);
+    padding: var(--mob-padding);
     border-radius: var(--borderRadius);
     width: max-content;
-    background:var(--white);
+    background:var(--liteActive);
     color:var(--black);
     margin: var(--padding) auto;
+    background: var(--liteActive);
+    border:1px solid var(--active);
+    color:var(--white);
 }
 .votingConfirm:hover{
     background: var(--active);
