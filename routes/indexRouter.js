@@ -29,6 +29,11 @@ router.get('/in/room/box/:id/:lang?', async (req, res, next)=> {
     req.params.lang="ru"
   res.render('roomBox', { id: req.params.id, lang:req.params.lang });
 });
+router.get('/in/mobile/:id/:lang?', async (req, res, next)=> {
+  if(req.params.lang!="ru" || req.params.lang!="en")
+    req.params.lang="ru"
+  res.render('mobile', { id: req.params.id, lang:req.params.lang });
+});
 
 router.get('/in/moderator/:id', async (req, res, next)=> {
   try {

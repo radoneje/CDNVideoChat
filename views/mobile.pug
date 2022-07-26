@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    .tstChat#chat
+      img(style="width:100%" src="/in/include/loader.gif")
+  script.
+    const CHATID="!{id}";
+    document.addEventListener("DOMContentLoaded", ()=>{
+
+      let room=null;
+      let elem = document.getElementById("chat");
+      if(!document.getElementById("chatScript")) {
+
+        let script = document.createElement("script")
+        script.id = "chatScript";
+        script.src = "/in/include/roomScript.js";
+        script.onload = () => {
+          room=initRoom(CHATID, elem, "!{lang}");
+          console.log(chat)
+        }
+        document.head.appendChild(script)
+      }
+      else
+        room=initRoom(CHATID,elem, "!{lang}" );
+
+    });
