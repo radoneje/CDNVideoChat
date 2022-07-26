@@ -22,12 +22,17 @@
             mainConfigShow:false
         },
         methods: {
-            copyLink:function (){
+            getClientLink:function(){
                 let full = location.protocol + '//' + location.host;
                 if(location.port.length>0)
                     full+=":"+location.port;
                 full+="/in/mobile/"+ROOM.publicUUID;
-                console.log(full);
+                return full;
+            },
+            copyLink:async function (){
+
+                await navigator.clipboard.writeText(this.getClientLink())
+                alert("Ссылка скопирована в буфер обмена").
             },
             downloadQr:function (){},
             aVote: async function (item) {
