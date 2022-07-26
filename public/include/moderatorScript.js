@@ -197,7 +197,7 @@
                               find=true;
                               let elem=document.getElementById("vote"+old.id);
                               let activeElement =document.activeElement;
-                              console.log(elem, activeElement)
+                              console.log(elem, activeElement, elem.contains(activeElement))
                           }
 
                       });
