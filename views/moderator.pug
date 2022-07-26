@@ -10,7 +10,16 @@ block content
           .sModHeadPanelMenuItem(v-bind:class="{active:section==2}" @click="section=2") Голосование
       .sModHeadPanelItem
         .sModHeadPanelMenu
-        .sModHeadPanelMenuItem(style="font-size: 34px;") &#x2699;
+        .sModHeadPanelMenuItem(style="font-size: 34px;" @click="mainConfigShow=!mainConfigShow") &#x2699;
+        .sModSettingsBox(v-if="mainConfigShow")
+          .sModSettingsBoxRow(v-bind:class="{active:status.isChatPreMod}" v-on:click="changeStatus('isChatPreMod')")
+            .sModSettingsBoxRowRound
+            .sModSettingsBoxRowTitle Пре-модерация
+          .sModSettingsBoxRow(v-bind:class="{active:status.isChatLikes}" v-on:click="changeStatus('isChatLikes')")
+            .sModSettingsBoxRowRound
+            .sModSettingsBoxRowTitle Лайки
+          .sModSettingsBoxRow
+            .button.small.maxContent(@click="mainConfigShow=!mainConfigShow") Закрыть настройки
     .sModBoxBody
       .sModPadel(v-show="section==0")
         .sModPanelHead

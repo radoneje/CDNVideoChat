@@ -18,7 +18,8 @@
             id: null,
             timeout: 20,
             voteConfigShow:false,
-            section:0
+            section:0,
+            mainConfigShow:false;
         },
         methods: {
             aVote: async function (item) {
