@@ -73,8 +73,8 @@ block content
                   input.aanswTitle(v-model="item.title" v-on:change="voteTitleChange(item)" style="" placeholder="Здесь вопрос для голосования")
                   .buttonGroup( style="margin-top:4px;")
                     .button.maxContent.small(v-on:click="addAnswer(item)") Добавить ответ
-                    .button.maxContent.small(v-on:click="multyVote(item)" v-if="!item.multy") Только один вариант
-                    .button.maxContent.small.blue(v-on:click="multyVote(item)" v-if="item.multy") Возможно много вариантов
+                    .button.maxContent.small(v-on:click="multyVote(item)" v-if="!item.multy") Возможен выбор только одного ответа
+                    .button.maxContent.small.blue(v-on:click="multyVote(item)" v-if="item.multy") Возможен выбор нескольких ответов
 
                 .qVoteAnswerWr.sSectBodyItemRow
                   .qVoteAnwerItem(v-for="answ in item.answers")
