@@ -35,7 +35,22 @@
                 this.mainConfigShow=false;
 
             },
-            downloadQr:function (){},
+            downloadQr:function (){
+                let elem=document.getElementById("qrcode");
+                if(!elem){
+                    elem=document.createElement("div");
+                    elem.id="qrcode";
+                    document.body.appendChild(elem)
+                }
+                var qrcode = new QRCode("qrcode", {
+                    text: "http://jindo.dev.naver.com/collie",
+                    width: 128,
+                    height: 128,
+                    colorDark : "#000000",
+                    colorLight : "#ffffff",
+                    correctLevel : QRCode.CorrectLevel.H
+                });
+            },
             aVote: async function (item) {
                 var r = await axios.post("/api/aVote", {id: item.id,uuid: ROOM.uuid});
                 this.votes.forEach(v => {
