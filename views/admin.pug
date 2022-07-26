@@ -1,6 +1,6 @@
 extends layout
 block content
-  script(src="include/axios.js")
+  script(src="/include/axios.js")
 block content
   .sAWr#app
     h4 List of active rooms
@@ -9,9 +9,9 @@ block content
       .sArow(v-for="item in rooms")
         .sArowTitle id: <b>{{item.id}}</b>, date created: <b>{{moment(item.dateCreate).format('DD.MM.YYYY HH:mm:ss')}}</b>
         .sArrowLink
-          a(:href="'test/'+item.publicUUID+'/ru'" target="_blank") Test
+          a(:href="'/in/test/'+item.publicUUID+'/ru'" target="_blank") Test
           span &nbsp;&nbsp;&nbsp;
-          a(:href="'moderator/'+item.uuid" target="_blank") Moderator
+          a(:href="'/in/moderator/'+item.uuid" target="_blank") Moderator
           span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           a(:href="'#'" style="color:red" @click="deleteRoom(item)") delete
 
@@ -36,32 +36,32 @@ block content
           let s=parseInt(this.skip-50);
           if(s<0)
             s=0;
-          let r = await axios.get("api/room/" + (s));
+          let r = await axios.get("/in/api/room/" + (s));
           this.rooms = r.data.rooms;
           this.total = r.data.total;
           this.skip = r.data.skip;
         },
         next :async function(item) {
-          let r = await axios.get("api/room/"+parseInt(parseInt(this.skip)+50));
+          let r = await axios.get("/in/api/room/"+parseInt(parseInt(this.skip)+50));
           this.rooms = r.data.rooms;
           this.total = r.data.total;
           this.skip = r.data.skip;
         },
         deleteRoom:async function(item) {
           if(confirm('Delete this room?')) {
-            let r = await axios.delete("api/room/" + item.id);
+            let r = await axios.delete("/in/api/room/" + item.id);
             this.rooms = this.rooms.filter(r => {
               return r.id != item.id
             });
           }
         },
         addRoom:async function(){
-          let r=await axios.post("api/room");
+          let r=await axios.post("/in/api/room");
           this.rooms=r.data.concat(this.rooms);
         }
       },
       mounted:async function (){
-        let r=await axios.get("api/room");
+        let r=await axios.get("/in/api/room");
         this.rooms=r.data.rooms;
         this.total=r.data.total;
         this.skip=r.data.skip;

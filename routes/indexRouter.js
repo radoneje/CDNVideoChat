@@ -12,7 +12,7 @@ router.get('/test/:id/:lang?', function(req, res, next) {
 });
 router.get('/admin', function(req, res, next) {
   if(!req.session.admin)
-    return res.render('adminLogin', { title: 'Express' });
+    return res.render('adminLogin', { title: 'login' });
   return res.render('admin', );
 });
 router.post('/adminLogin', function(req, res, next) {
