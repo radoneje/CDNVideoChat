@@ -59,6 +59,9 @@
                     a.href=img.src;
                     document.body.appendChild(a)
                     a.click();
+                    elem.parentNode.removeChild(elem);
+                    a.parentNode.removeChild(a);
+                    this.mainConfigShow=false;
                 },100)
 
 
