@@ -440,7 +440,7 @@ h4 {
 
 .sModBoxBody{
     display: flex;
-    height: calc(100vh - var(--mob-padding) - var(--mob-padding) - 70px);
+    height: calc(100vh - var(--mob-padding) - var(--mob-padding) - 90px);
     justify-content: center;
 }
 
