@@ -373,18 +373,25 @@ router.get("/roomToExcel/:id", async (req, res, next) => {
     font: {
       bold: true,
     },
+    border:{
+      bottom:{
+        style:'medium'
+      }
+    }
   });
   let chatSheet = wb.addWorksheet('Чат')
   let qSheeet = wb.addWorksheet('Вопросы');
   let voteSheeet = wb.addWorksheet('Голосования');
 
+
   let chat=await req.knex.select("*").from("v_chat").where({roomPublicUUID:room.publicUUID}).orderBy("createDate")
   chatSheet.cell(1,1).string('Время').style(myStyle);
-  chatSheet.cell(1,2).string('Пользователь')
-  chatSheet.cell(1,3).string('Лайков')
-  chatSheet.cell(1,4).string('Дислайков')
-  chatSheet.cell(1,5).string('Прошел модерацию')
-  chatSheet.cell(1,6).string('Сообщение')
+  chatSheet.cell(1,2).string('Пользователь').style(myStyle);
+  chatSheet.cell(1,3).string('Лайков').style(myStyle);
+  chatSheet.cell(1,4).string('Дислайков').style(myStyle);
+  chatSheet.cell(1,5).string('Прошел модерацию').style(myStyle);
+  chatSheet.cell(1,6).string('Сообщение').style(myStyle);
+  chatSheet.column(3).setWidth(50);
   let row=1;
   for(let item of chat){
     row++;
