@@ -623,6 +623,7 @@ h4 {
     text-align: center;
     color: var(--black);
     font-size: var(--font-size);
+    font-weight: normal;
     margin-bottom: var(--mob-padding);
 }
 @media screen and (max-width: 720px) {
