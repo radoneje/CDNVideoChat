@@ -13,8 +13,10 @@ block content
     let login=async  ()=> {
       let l = document.getElementById("login").value;
       let p = document.getElementById("pass").value;
-      if(l.length < 2 || p.length < 2)
+      if(l.length < 2 || p.length < 2) {
+        l.focus();
         return;
+      }
       let r=await axios.post("adminLogin",{l,p});
       if(r.data.status==200) {
         return document.location.href = "admin"
