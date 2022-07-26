@@ -752,6 +752,11 @@ h4 {
     :root {
         --padding: 8px;
     }
+    .chatNewItems{
+        width: 24px;
+        height: 24px;
+    }
+
 
     body {
         margin: 0;
